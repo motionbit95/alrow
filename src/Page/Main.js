@@ -37,6 +37,20 @@ const Main = () => {
         bgColor={"gray.300"}
         color={"white"}
       >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        >
+          <source src={require("../Asset/Video/main.mp4")} type="video/mp4" />
+        </video>
         <Topbar />
       </Box>
     </Flex>

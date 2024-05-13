@@ -57,41 +57,41 @@ const images = [
   {
     id: 1,
     title: "MACAMOYE BREADBAR",
-    image: "https://picsum.photos/200",
+    image: require("../Asset/Image/bannerImage1.png"),
   },
   {
     id: 2,
     title: "AWESOME POOL VILLA",
-    image: "https://picsum.photos/200",
+    image: require("../Asset/Image/bannerImage2.png"),
   },
   {
     id: 3,
     title: "REDTONGUE BOUTIQUE KAKKO",
-    image: "https://picsum.photos/200",
+    image: require("../Asset/Image/bannerImage3.png"),
   },
   {
     id: 4,
     title: "KG ENGINEERING & ARCHITECTURE",
-    image: "https://picsum.photos/200",
+    image: require("../Asset/Image/bannerImage4.png"),
   },
   {
     id: 5,
     title: "SAMSUNG DIGITAL PLAZA HOMEPLUS BUCHEONSANGDONG",
-    image: "https://picsum.photos/200",
+    image: require("../Asset/Image/bannerImage5.png"),
   },
   {
     id: 6,
     title: "SEONGBOK LIBRARY",
-    image: "https://picsum.photos/200",
+    image: require("../Asset/Image/bannerImage6.png"),
   },
   {
     id: 7,
-    title: "블라 블라",
-    image: "https://picsum.photos/200",
+    title: "AWESOME POOL VILLA",
+    image: require("../Asset/Image/bannerImage7.png"),
   },
   {
     id: 8,
-    title: "블라 블라",
-    image: "https://picsum.photos/200",
+    title: "AWESOME POOL VILLA",
+    image: require("../Asset/Image/bannerImage8.png"),
   },
 ];

@@ -3,20 +3,27 @@ import {
   CloseButton,
   Flex,
   HStack,
+  Link,
   Square,
   Stack,
   Text,
   chakra,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Topbar = () => {
   const [open, setOpen] = useState(false);
-
+  const nav = useNavigate();
   return (
     <Stack>
-      <Flex position={"absolute"} w={"100%"} justify={"space-between"} p={16}>
+      <Flex
+        position={"absolute"}
+        w={"100%"}
+        justify={"space-between"}
+        p={16}
+        zIndex={3}
+      >
         <Text>로고</Text>
         {open ? (
           <CloseButton onClick={() => setOpen(!open)} />
@@ -27,18 +34,12 @@ export const Topbar = () => {
         )}
       </Flex>
       {open && (
-        <Box p={16} bgColor={"#1f45fc"}>
+        <Box p={16} bgColor={"#1f45fc"} zIndex={2}>
           <Flex w={"100%"} justify={"center"} pb={32}>
             <HStack gap={12}>
-              <Link to="/project">
-                <Text>PROJECT</Text>
-              </Link>
-              <Link to="/about">
-                <Text>ABOUT</Text>
-              </Link>
-              <Link to="/contact">
-                <Text>CONTACT</Text>
-              </Link>
+              <Text onClick={() => nav("/project")}>PROJECT</Text>
+              <Text>ABOUT</Text>
+              <Text>CONTACT</Text>
             </HStack>
           </Flex>
         </Box>
