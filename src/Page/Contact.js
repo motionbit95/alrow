@@ -1,6 +1,7 @@
 import { Box, Flex, HStack, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { Topbar } from "../Component/Topbar";
+import { Footer } from "../Component/Footer";
 
 const Contact = () => {
   return (
@@ -11,24 +12,37 @@ const Contact = () => {
           h={"70%"}
           bgColor={"#1f45fc"}
           align={"center"}
-          p={16}
+          p={{ base: 16, md: 0 }}
           justify={"end"}
         >
-          <Stack direction={"row"} align={"end"} justify={"space-between"}>
-            <Stack fontSize={"6xl"} fontWeight={"regular"}>
+          <Stack
+            direction={{ base: "column-reverse", md: "row" }}
+            align={"end"}
+            px={{ base: 0, md: 16 }}
+            w={"full"}
+            justify={"space-between"}
+          >
+            <Stack
+              fontSize={{ base: "2xl", md: "6xl" }}
+              fontWeight={"regular"}
+              align={{ base: "end", md: "start" }}
+            >
               <Text>051-752-2390</Text>
               <Text>artbrickco@nate.com</Text>
             </Stack>
-            <Text fontWeight={"bold"} fontSize={"200px"} textAlign={"end"}>
-              CONTACT
-              <br />
-              US
-            </Text>
+            <Stack
+              fontWeight={"bold"}
+              fontSize={{ base: "6xl", md: "200px" }}
+              textAlign={"end"}
+            >
+              <Text>CONTACT</Text>
+              <Text mt={{ base: -12, md: -36 }}>US</Text>
+            </Stack>
           </Stack>
         </Stack>
         <Stack h={"30%"} bgColor={"gray.200"} p={16}>
-          <Text fontSize={"6xl"}>OFFICE</Text>
-          <Stack fontSize={"2xl"}>
+          <Text fontSize={{ base: "2xl", md: "6xl" }}>OFFICE</Text>
+          <Stack fontSize={{ base: "lg", md: "2xl" }}>
             <Text>
               부산사옥 HQ | 부산광역시 수영구 광남로 213번길 43(민락동)
             </Text>
@@ -39,21 +53,7 @@ const Contact = () => {
           </Stack>
         </Stack>
       </Box>
-      <Flex
-        px={16}
-        py={8}
-        bgColor={"#1f45fc"}
-        justify={"space-between"}
-        align={"center"}
-      >
-        <Text fontSize={"6xl"}>LOGO</Text>
-        <Stack justify={"end"} align={"end"}>
-          <Text fontSize={"xs"}>
-            COPYRIGHT(C) {new Date().getFullYear()} DAWON CORP ALL RIGHTS
-            RESERVED.
-          </Text>
-        </Stack>
-      </Flex>
+      <Footer />
     </Flex>
   );
 };

@@ -34,12 +34,18 @@ export const Topbar = () => {
         )}
       </Flex>
       {open && (
-        <Box p={16} bgColor={"#1f45fc"} zIndex={2}>
+        <Box
+          w={"100%"}
+          p={16}
+          bgColor={"#1f45fc"}
+          position={"absolute"}
+          top={0}
+        >
           <Flex w={"100%"} justify={"center"} pb={32}>
-            <HStack gap={12}>
+            <HStack gap={12} zIndex={111} color={"white"}>
               <Text onClick={() => nav("/project")}>PROJECT</Text>
-              <Text>ABOUT</Text>
-              <Text>CONTACT</Text>
+              <Text onClick={() => nav("/about")}>ABOUT</Text>
+              <Text onClick={() => nav("/contact")}>CONTACT</Text>
             </HStack>
           </Flex>
         </Box>

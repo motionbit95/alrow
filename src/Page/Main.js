@@ -35,7 +35,6 @@ const Main = () => {
         h="100vh"
         w="100vw"
         bgColor={"gray.300"}
-        color={"white"}
       >
         <video
           autoPlay

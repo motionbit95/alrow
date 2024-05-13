@@ -4,39 +4,41 @@ import {
   Container,
   Flex,
   Image,
+  SimpleGrid,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import React from "react";
+import { Footer } from "../Component/Footer";
 
-const ProjectItem = ({ ...props }) => {
-  console.log(props);
+const ProjectItem = ({ data }) => {
+  // 안가져 와져서 포기
+  console.log("프로젝트에서 가져온 아이템정보", data);
   return (
     <Flex direction={"column"} flex={1}>
       <Box w="full">
         <AspectRatio ratio={16 / 7}>
-          <Image src={props.image} />
+          <Image
+            src={require("../Asset/Image/bannerImage1.png")}
+            objectFit="cover"
+          />
         </AspectRatio>
       </Box>
-      <Stack px={16} py={8} spacing={20}>
-        <Text>{props.title}</Text>
-        <Text>타이틀에 들어가는 아이템 이미지</Text>
+      <Stack p={16} spacing={16}>
+        <Text fontSize={"5xl"}>MACAMOYE BREADBAR</Text>
+        <SimpleGrid px={32} columns={1} spacing={16}>
+          <AspectRatio ratio={16 / 9}>
+            <Image src={require("../Asset/Image/bannerImage1.png")} />
+          </AspectRatio>
+          <AspectRatio ratio={16 / 9}>
+            <Image src={require("../Asset/Image/bannerImage1.png")} />
+          </AspectRatio>
+          <AspectRatio ratio={16 / 9}>
+            <Image src={require("../Asset/Image/bannerImage1.png")} />
+          </AspectRatio>
+        </SimpleGrid>
       </Stack>
-      <Flex
-        px={16}
-        py={8}
-        bgColor={"#1f45fc"}
-        justify={"space-between"}
-        align={"center"}
-      >
-        <Text fontSize={"6xl"}>LOGO</Text>
-        <Stack justify={"end"} align={"end"}>
-          <Text fontSize={"xs"}>
-            COPYRIGHT(C) {new Date().getFullYear()} DAWON CORP ALL RIGHTS
-            RESERVED.
-          </Text>
-        </Stack>
-      </Flex>
+      <Footer />
     </Flex>
   );
 };

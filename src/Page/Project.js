@@ -11,6 +11,7 @@ import {
 import React from "react";
 import { Topbar } from "../Component/Topbar";
 import { useNavigate } from "react-router-dom";
+import { Footer } from "../Component/Footer";
 
 const Project = () => {
   const Nav = useNavigate();
@@ -18,12 +19,20 @@ const Project = () => {
     <Flex direction={"column"} flex={1} bgColor={"gray.100"}>
       <Topbar />
       <Box px={16} py={16} mt={8}>
-        <Text fontSize={"200px"} fontWeight={"bold"}>
+        <Text fontSize={{ base: "6xl", md: "200px" }} fontWeight={"bold"}>
           PROJECTS
         </Text>
-        <SimpleGrid columns={2} columnGap={32} rowGap={16}>
+        <SimpleGrid
+          columns={{ base: 1, md: 2 }}
+          columnGap={32}
+          rowGap={{ base: 8, md: 16 }}
+        >
           {images.map((item) => (
-            <Stack spacing={3} onClick={() => Nav(`/project/${item.id}`)}>
+            <Stack
+              key={item.id}
+              spacing={3}
+              onClick={() => Nav(`/project/${item.id}`)}
+            >
               <AspectRatio ratio={16 / 9}>
                 <Image w={"full"} src={item.image} />
               </AspectRatio>
@@ -32,21 +41,7 @@ const Project = () => {
           ))}
         </SimpleGrid>
       </Box>
-      <Flex
-        px={16}
-        py={8}
-        bgColor={"#1f45fc"}
-        justify={"space-between"}
-        align={"center"}
-      >
-        <Text fontSize={"6xl"}>LOGO</Text>
-        <Stack justify={"end"} align={"end"}>
-          <Text fontSize={"xs"}>
-            COPYRIGHT(C) {new Date().getFullYear()} DAWON CORP ALL RIGHTS
-            RESERVED.
-          </Text>
-        </Stack>
-      </Flex>
+      <Footer />
     </Flex>
   );
 };

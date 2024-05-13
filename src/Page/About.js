@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { Topbar } from "../Component/Topbar";
+import { Footer } from "../Component/Footer";
 
 const About = () => {
   return (
@@ -21,16 +22,29 @@ const About = () => {
           justify={"space-between"}
           p={16}
           align={"center"}
+          spacing={{ base: 6, md: 16 }}
         >
-          <Stack zIndex={111} spacing={0}>
-            <Stack direction={"row"} align={"flex-end"}>
-              <Text fontWeight={"bold"} fontSize={"200px"}>
+          <Stack zIndex={111} spacing={{ base: 16, md: 40 }} flex={1}>
+            <Stack direction={{ base: "column", md: "row" }} align={"flex-end"}>
+              <Text
+                fontWeight={"bold"}
+                fontSize={{
+                  base: "100px",
+                  md: "200px",
+                }}
+              >
                 ART
               </Text>
               <Text>규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다</Text>
             </Stack>
             <Stack>
-              <Text fontWeight={"bold"} fontSize={"200px"}>
+              <Text
+                fontWeight={"bold"}
+                fontSize={{
+                  base: "100px",
+                  md: "200px",
+                }}
+              >
                 BRICK
               </Text>
               <Text>
@@ -38,26 +52,22 @@ const About = () => {
               </Text>
             </Stack>
           </Stack>
-          <Stack zIndex={111}>
-            <Stack spacing={60}>
+          <Stack zIndex={111} flex={1} display={{ base: "none", md: "block" }}>
+            <Stack
+              spacing={{ base: 16, md: 60 }}
+              fontSize={{ base: "lg", md: "3xl" }}
+              fontWeight={"semibold"}
+            >
               <Text>
-                ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
-                <br />
-                인테리어/건축의 영역에서 미학과 기능 사이의 균형을
-                <br />
-                찾기 위한 우리의 은유적 약속과 헌신을 상징합니다.
-                <br />
-                우리의 미션은 고객의 기능적인 요구를 충족시키는 것 뿐<br />
-                만아니라 예술적공간의 표현을 조력하는 것입니다.
+                ARTBRICK은 예술과 기술의 원활한 통합을 내포하며, 인테리어/건축의
+                영역에서 미학과 기능 사이의 균형을 찾기 위한 우리의 은유적
+                약속과 헌신을 상징합니다. 우리의 미션은 고객의 기능적인 요구를
+                충족시키는 것 뿐 만아니라 예술적공간의 표현을 조력하는 것입니다.
               </Text>
               <Text>
-                Atypical | Genuine | Classical to Contemporary
-                <br />
-                우리는, 우리의 디자인을 규정하지 않습니다.
-                <br />
-                전문적이고 명쾌한 방식으로 진정성에 집중하고,
-                <br />
-                다양한 현재를 제안하고, 클래식을 존중합니다.
+                Atypical | Genuine | Classical to Contemporary 우리는, 우리의
+                디자인을 규정하지 않습니다. 전문적이고 명쾌한 방식으로 진정성에
+                집중하고, 다양한 현재를 제안하고, 클래식을 존중합니다.
               </Text>
             </Stack>
           </Stack>
@@ -71,12 +81,18 @@ const About = () => {
         />
       </Box>
       <Box w={"100vw"}>
-        <Stack p={16}>
+        <Stack p={{ base: 8, md: 16 }}>
           <Stack>
-            <Text fontWeight={"bold"} fontSize={"200px"}>
+            <Text
+              fontWeight={"bold"}
+              fontSize={{
+                base: "5xl",
+                md: "200px",
+              }}
+            >
               HISTORY
             </Text>
-            <Stack fontSize={"lg"}>
+            <Stack fontSize={{ base: "md", md: "lg" }}>
               <Text>
                 2007.02 | 주식회사 아트브릭 전신인 D.B.P 개인사업 출발
               </Text>
@@ -89,24 +105,45 @@ const About = () => {
             </Stack>
           </Stack>
         </Stack>
-        <Stack p={16}>
-          <Stack textAlign={"end"} position={"relative"}>
-            <Text fontWeight={"bold"} fontSize={"200px"} zIndex={1}>
-              FEATURE
-              <br />
-              PROJECTS
-            </Text>
+        <Stack p={{ base: 8, md: 16 }}>
+          <Stack position={"relative"}>
+            <Stack
+              textAlign={"end"}
+              fontWeight={"bold"}
+              fontSize={{
+                base: "5xl",
+                md: "200px",
+              }}
+              zIndex={1}
+            >
+              <Text>FEATURE</Text>
+              <Text>PROJECTS</Text>
+            </Stack>
             <Box
-              w={700}
+              w={"35%"}
               h={220}
+              display={{ base: "none", md: "block" }}
               bgColor={"#1f45fc"}
               position={"absolute"}
               top={360}
-              left={100}
+              right={780}
+            />
+            <Box
+              w={"25%"}
+              h={70}
+              display={{ base: "block", md: "none" }}
+              bgColor={"#1f45fc"}
+              position={"absolute"}
+              top={84}
+              right={44}
             />
           </Stack>
-          <Stack p={16}>
-            <SimpleGrid columns={2} columnGap={32} rowGap={16} px={32}>
+          <Stack p={{ base: 8, md: 32 }}>
+            <SimpleGrid
+              columns={{ base: 1, md: 2 }}
+              columnGap={{ base: 16, md: 32 }}
+              rowGap={{ base: 8, md: 16 }}
+            >
               {years.map((year) => (
                 <Stack divider={<StackDivider borderColor={"gray.400"} />}>
                   <Text>{year}</Text>
@@ -121,21 +158,7 @@ const About = () => {
           </Stack>
         </Stack>
       </Box>
-      <Flex
-        px={16}
-        py={8}
-        bgColor={"#1f45fc"}
-        justify={"space-between"}
-        align={"center"}
-      >
-        <Text fontSize={"6xl"}>LOGO</Text>
-        <Stack justify={"end"} align={"end"}>
-          <Text fontSize={"xs"}>
-            COPYRIGHT(C) {new Date().getFullYear()} DAWON CORP ALL RIGHTS
-            RESERVED.
-          </Text>
-        </Stack>
-      </Flex>
+      <Footer />
     </Flex>
   );
 };
