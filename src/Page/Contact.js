@@ -6,8 +6,8 @@ import { Footer } from "../Component/Footer";
 const Contact = () => {
   return (
     <Flex direction={"column"} flex={1} bgColor={"gray.100"}>
-      <Topbar />
-      <Box h={"100vh"} w={"100vw"}>
+      <Topbar whitecolor />
+      <Box h={"100vh"} w={"100%"}>
         <Stack
           h={"70%"}
           bgColor={"#1f45fc"}

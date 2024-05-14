@@ -24,7 +24,7 @@ const About = () => {
           align={"center"}
           spacing={{ base: 6, md: 16 }}
         >
-          <Stack zIndex={111} spacing={{ base: 16, md: 40 }} flex={1}>
+          <Stack zIndex={2} spacing={{ base: 16, md: 40 }} flex={1}>
             <Stack direction={{ base: "column", md: "row" }} align={"flex-end"}>
               <Text
                 fontWeight={"bold"}
@@ -52,7 +52,7 @@ const About = () => {
               </Text>
             </Stack>
           </Stack>
-          <Stack zIndex={111} flex={1} display={{ base: "none", md: "block" }}>
+          <Stack zIndex={2} flex={1} display={{ base: "none", md: "block" }}>
             <Stack
               spacing={{ base: 16, md: 60 }}
               fontSize={{ base: "lg", md: "3xl" }}

@@ -4,15 +4,23 @@ import {
   CloseButton,
   Flex,
   HStack,
+  Image,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Topbar } from "../Component/Topbar";
+import { motion } from "framer-motion";
 
 const Main = () => {
   const [open, setOpen] = useState(false);
-  const [showbar, setShowbar] = useState(false);
+
+  const handlebuttonClick = () => {
+    setOpen(!open);
+  };
+
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Flex direction={"column"} flex={1}>
       {/* 애니메이션 화면 */}
@@ -24,9 +32,24 @@ const Main = () => {
         display={open ? "none" : "block"}
       >
         <Stack justify={"center"} align={"center"}>
-          <Button colorScheme="blue" onClick={() => setOpen(!open)}>
-            클릭해
-          </Button>
+          <Flex
+            onClick={handlebuttonClick}
+            position={"relative"}
+            gap={4}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <Image
+              src={require("../Asset/Image/left.png")}
+              transform={`rotate(${isHovered ? 180 : 0}deg)`}
+              transition="transform 0.12s ease-in-out"
+            />
+            <Image
+              src={require("../Asset/Image/right.png")}
+              transform={`rotate(${isHovered ? 180 : 0}deg)`}
+              transition="transform 0.12s ease-in-out"
+            />
+          </Flex>
         </Stack>
       </Box>
       {/* 메인화면 */}
@@ -50,7 +73,7 @@ const Main = () => {
         >
           <source src={require("../Asset/Video/main.mp4")} type="video/mp4" />
         </video>
-        <Topbar />
+        <Topbar whitecolor />
       </Box>
     </Flex>
   );
