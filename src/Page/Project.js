@@ -8,13 +8,29 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Topbar } from "../Component/Topbar";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../Component/Footer";
+import { searchDocument } from "../Firebase/firebase-func";
+import { collection, orderBy, query } from "firebase/firestore";
+import { db } from "../Firebase/firebase-conf";
 
 const Project = () => {
   const Nav = useNavigate();
+
+  const [portfolioList, setPortfolioList] = useState([]);
+
+  useEffect(() => {
+    const getProjects = async () => {
+      const q = query(collection(db, "Product"), orderBy("createdAt", "desc"));
+      searchDocument(q).then(async (data) => {
+        setPortfolioList(data);
+      });
+    };
+
+    getProjects();
+  }, []);
   return (
     <Flex direction={"column"} flex={1} bgColor={"gray.100"}>
       <Topbar />
@@ -27,14 +43,21 @@ const Project = () => {
           columnGap={32}
           rowGap={{ base: 8, md: 16 }}
         >
-          {images.map((item) => (
+          {portfolioList.map((item) => (
             <Stack
               key={item.id}
               spacing={3}
               onClick={() => Nav(`/project/${item.id}`)}
             >
               <AspectRatio ratio={16 / 9}>
-                <Image w={"full"} src={item.image} />
+                <Image
+                  w={"full"}
+                  src={
+                    process.env.REACT_APP_FIREBASE_STORAGE +
+                    item.image +
+                    "?alt=media"
+                  }
+                />
               </AspectRatio>
               <Text>{item.title}</Text>
             </Stack>
@@ -47,51 +70,3 @@ const Project = () => {
 };
 
 export default Project;
-
-const images = [
-  {
-    id: 1,
-    title: "MACAMOYE BREADBAR",
-    image: require("../Asset/Image/bannerImage1.png"),
-    detailImage: [
-      require("../Asset/Image/DetailImage1.png"),
-      require("../Asset/Image/DetailImage2.png"),
-      require("../Asset/Image/DetailImage3.png"),
-    ],
-  },
-  {
-    id: 2,
-    title: "AWESOME POOL VILLA",
-    image: require("../Asset/Image/bannerImage2.png"),
-  },
-  {
-    id: 3,
-    title: "REDTONGUE BOUTIQUE KAKKO",
-    image: require("../Asset/Image/bannerImage3.png"),
-  },
-  {
-    id: 4,
-    title: "KG ENGINEERING & ARCHITECTURE",
-    image: require("../Asset/Image/bannerImage4.png"),
-  },
-  {
-    id: 5,
-    title: "SAMSUNG DIGITAL PLAZA HOMEPLUS BUCHEONSANGDONG",
-    image: require("../Asset/Image/bannerImage5.png"),
-  },
-  {
-    id: 6,
-    title: "SEONGBOK LIBRARY",
-    image: require("../Asset/Image/bannerImage6.png"),
-  },
-  {
-    id: 7,
-    title: "AWESOME POOL VILLA",
-    image: require("../Asset/Image/bannerImage7.png"),
-  },
-  {
-    id: 8,
-    title: "AWESOME POOL VILLA",
-    image: require("../Asset/Image/bannerImage8.png"),
-  },
-];
