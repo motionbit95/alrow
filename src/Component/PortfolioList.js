@@ -41,7 +41,7 @@ const PortfolioList = () => {
             borderBottom={"1px solid #E5E5E5"}
           >
             <Text fontSize={"lg"} fontWeight={"bold"}>
-              나의 포트폴리오
+              나의 프로젝트
             </Text>
           </Flex>
           <Stack>
@@ -63,7 +63,7 @@ const PortfolioList = () => {
                   <Stack direction={"row"} justify={"space-between"} flex={1}>
                     <Stack>
                       <Text fontWeight={"bold"}>#CODE</Text>
-                      <Text>포트폴리오 제목</Text>
+                      <Text>프로젝트 제목</Text>
                     </Stack>
                     <Stack justify={"space-between"} align={"end"}>
                       <Icon as={DragHandleIcon} />
@@ -97,7 +97,7 @@ const PortfolioList = () => {
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader>포트폴리오 등록</ModalHeader>
+              <ModalHeader>프로젝트 등록</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
                 <Text>등록을 위해 아래 정보를 입력해 주세요.</Text>

@@ -345,7 +345,7 @@ const Portfolio = () => {
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>
-              포트폴리오 {editType === "add" ? "등록" : "수정"}
+              프로젝트 {editType === "add" ? "등록" : "수정"}
               <Text fontSize={"sm"} color={"gray.500"}>
                 등록을 위해 아래 정보를 입력해 주세요.
               </Text>
@@ -366,12 +366,12 @@ const Portfolio = () => {
                     </Select>
                   </FormControl> */}
                 <FormControl isRequired>
-                  <FormLabel>포트폴리오 제목</FormLabel>
+                  <FormLabel>프로젝트 제목</FormLabel>
                   <Input
                     defaultValue={formdata?.title}
                     name="title"
                     type="text"
-                    placeholder="포트폴리오 제목을 입력해주세요."
+                    placeholder="프로젝트 제목을 입력해주세요."
                     onChange={handleChange}
                   />
                 </FormControl>
@@ -527,7 +527,7 @@ const Portfolio = () => {
                   />
                 </FormControl>
                 <FormControl>
-                  <FormLabel>포트폴리오 설명</FormLabel>
+                  <FormLabel>프로젝트 설명</FormLabel>
                   <Textarea
                     h={100}
                     name="portfolio_Description"
