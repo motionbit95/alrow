@@ -41,7 +41,7 @@ const Portfolio = () => {
   const handleChange = (event) => {
     if (event.target.name === "main_image") {
       setFormdata({ ...formdata, [event.target.name]: event.target.files[0] });
-    } else if (event.target.name === "sub_images") {
+    } else if (event.target.name === "detail_images") {
       setFormdata({ ...formdata, [event.target.name]: [event.target.files] });
     } else {
       setFormdata({ ...formdata, [event.target.name]: event.target.value });
@@ -95,6 +95,7 @@ const Portfolio = () => {
             justify={"center"}
             align={"center"}
             w={"100%"}
+            bgColor={"white"}
             p={4}
             position={"sticky"}
             top={0}
@@ -323,34 +324,173 @@ const Portfolio = () => {
               <ModalBody>
                 <Text>등록을 위해 아래 정보를 입력해 주세요.</Text>
                 <Stack>
-                  <Text>필수 정보</Text>
-                  <Stack>
-                    <Text>1차 카테고리 선택</Text>
-                    <Input />
-                  </Stack>
-                  <Stack>
-                    <Text>2차 카테고리 선택</Text>
-                    <Input />
-                  </Stack>
-                  <Stack>
-                    <Text>메인 이미지</Text>
-                    <Input />
-                  </Stack>
-                  <Stack>
-                    <Text>상세 이미지</Text>
-                    <Input />
-                  </Stack>
-                  <Stack>
-                    <Text>핵심 키워드</Text>
-                    <Text>
-                      프로젝트를 대표할 수 있는 키워드를 입력해 주세요.(최대
-                      5개)
-                    </Text>
-                    <InputGroup>
-                      <Input />
-                      <Button>추가</Button>
+                  <FormControl>
+                    <FormLabel>카테고리 선택</FormLabel>
+                    <Select
+                      placeholder="카테고리 선택"
+                      name="category"
+                      onChange={handleChange}
+                    >
+                      <option value="option1">Option 1</option>
+                      <option value="option2">Option 2</option>
+                      <option value="option3">Option 3</option>
+                    </Select>
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel>포트폴리오 제목</FormLabel>
+                    <Input
+                      name="portfolio_Title"
+                      type="text"
+                      placeholder="포트폴리오 제목을 입력해주세요."
+                      onChange={handleChange}
+                    />
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel>메인 이미지</FormLabel>
+                    <Stack direction={"row"}>
+                      <InputGroup w={"100px"}>
+                        <Input
+                          type="file"
+                          name="main_image"
+                          onChange={handleFileChange}
+                          display={"none"}
+                          ref={imageRef}
+                          accept="image/*"
+                        />
+                        <Stack
+                          border={"1px dashed #d9d9d9"}
+                          borderRadius={"10px"}
+                          onClick={onImageUpload}
+                          w={"100px"}
+                          h={"100px"}
+                          alignItems={"center"}
+                          justifyContent={"center"}
+                          spacing={1}
+                          pt={4}
+                        >
+                          <AddIcon fontSize={"lg"} onClick={onDeleteImage} />
+                          <Text fontSize={"xs"}>0/1</Text>
+                        </Stack>
+                      </InputGroup>
+                      <InputGroup w={"100px"}>
+                        {previewImage && (
+                          <>
+                            <Image
+                              onClick={onImageUpload}
+                              src={previewImage}
+                              w={"100px"}
+                              h={"100px"}
+                              borderRadius={"xl"}
+                            />
+                            <IconButton
+                              size={"xs"}
+                              borderRadius={"full"}
+                              colorScheme="blackAlpha"
+                              position={"absolute"}
+                              top={-2}
+                              right={-2}
+                              icon={<CloseIcon />}
+                              onClick={onDeleteImage}
+                            />
+                          </>
+                        )}
+                      </InputGroup>
+                    </Stack>
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel>상세 이미지</FormLabel>
+                    <Stack direction={"row"}>
+                      <InputGroup w={"100px"}>
+                        <Input
+                          type="file"
+                          name="detail_images"
+                          onChange={handleFileChange}
+                          display={"none"}
+                          ref={imageRef}
+                          accept="image/*"
+                        />
+                        <Stack
+                          border={"1px dashed #d9d9d9"}
+                          borderRadius={"10px"}
+                          onClick={onImageUpload}
+                          w={"100px"}
+                          h={"100px"}
+                          alignItems={"center"}
+                          justifyContent={"center"}
+                          spacing={1}
+                          pt={4}
+                        >
+                          <AddIcon fontSize={"lg"} onClick={onDeleteImage} />
+                          <Text fontSize={"xs"}>/10</Text>
+                        </Stack>
+                      </InputGroup>
+                      <InputGroup w={"100px"}>
+                        {previewImage && (
+                          <>
+                            <Image
+                              src={previewImage}
+                              w={"100px"}
+                              h={"100px"}
+                              borderRadius={"xl"}
+                            />
+                            <IconButton
+                              size={"xs"}
+                              borderRadius={"full"}
+                              colorScheme="blackAlpha"
+                              position={"absolute"}
+                              top={-2}
+                              right={-2}
+                              icon={<CloseIcon />}
+                              onClick={onDeleteImage}
+                            />
+                          </>
+                        )}
+                      </InputGroup>
+                    </Stack>
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel>참여기간</FormLabel>
+                    <InputGroup alignItems={"center"} gap={2}>
+                      <Input
+                        type="date"
+                        name="start_date"
+                        onChange={handleChange}
+                      />
+                      <MinusIcon fontSize={"sm"} />
+                      <Input
+                        type="date"
+                        name="end_date"
+                        onChange={handleChange}
+                      />
                     </InputGroup>
-                  </Stack>
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel>고객사</FormLabel>
+                    <Input
+                      placeholder="고객사 명을 입력해주세요."
+                      name="customer_name"
+                      onChange={handleChange}
+                    />
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel>포트폴리오 설명</FormLabel>
+                    <Textarea
+                      h={100}
+                      name="portfolio_Description"
+                      typeof="text"
+                      placeholder="프로젝트 목적/주요기능/주요메뉴 등을 상세히 입력해 주세요."
+                      onChange={handleChange}
+                      size={"md"}
+                      resize={"none"}
+                    />
+                    <Text
+                      textAlign={"right"}
+                      color={"gray.500"}
+                      fontSize={"xs"}
+                    >
+                      {value.length}/500
+                    </Text>
+                  </FormControl>
                 </Stack>
               </ModalBody>
 

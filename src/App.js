@@ -5,9 +5,10 @@ import Main from "./Page/Main";
 import About from "./Page/About";
 import Contact from "./Page/Contact";
 import Project from "./Page/Project";
-import Portfolio from "../src/Component/Portfolio";
+import Portfolio from "./Component/Portfolio";
 import { ChakraProvider } from "@chakra-ui/react";
 import ProjectItem from "./Page/ProjectItem";
+import PortfolioList from "./Component/PortfolioList";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/project" element={<Project />} />
           <Route path="/project/*" element={<ProjectItem />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfoliolist" element={<PortfolioList />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

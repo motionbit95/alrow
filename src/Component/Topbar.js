@@ -61,9 +61,15 @@ export const Topbar = ({ ...props }) => {
       >
         <Flex w={"100%"} justify={"center"} pb={32}>
           <HStack gap={12} zIndex={111} color={"white"}>
-            <Text onClick={() => nav("/project")}>PROJECT</Text>
-            <Text onClick={() => nav("/about")}>ABOUT</Text>
-            <Text onClick={() => nav("/contact")}>CONTACT</Text>
+            <Text cursor={"pointer"} onClick={() => nav("/project")}>
+              PROJECT
+            </Text>
+            <Text cursor={"pointer"} onClick={() => nav("/about")}>
+              ABOUT
+            </Text>
+            <Text cursor={"pointer"} onClick={() => nav("/contact")}>
+              CONTACT
+            </Text>
           </HStack>
         </Flex>
       </motion.div>
