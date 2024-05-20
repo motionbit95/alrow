@@ -53,6 +53,11 @@ const images = [
     id: 1,
     title: "MACAMOYE BREADBAR",
     image: require("../Asset/Image/bannerImage1.png"),
+    detailImage: [
+      require("../Asset/Image/DetailImage1.png"),
+      require("../Asset/Image/DetailImage2.png"),
+      require("../Asset/Image/DetailImage3.png"),
+    ],
   },
   {
     id: 2,

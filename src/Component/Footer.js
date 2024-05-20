@@ -1,4 +1,5 @@
-import { Flex, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Stack, Text } from "@chakra-ui/react";
+import ArlowLogo1 from "../Asset/Logo/ArlowLogo1.svg";
 
 export const Footer = () => {
   return (
@@ -9,7 +10,10 @@ export const Footer = () => {
       justify={"space-between"}
       align={"center"}
     >
-      <Text fontSize={"6xl"}>LOGO</Text>
+      <Box w={300}>
+        <Image src={ArlowLogo1} boxSize={"full"} />
+      </Box>
+
       <Stack justify={"end"} align={"end"}>
         <Text fontSize={"xs"}>
           COPYRIGHT(C) {new Date().getFullYear()} DAWON CORP ALL RIGHTS

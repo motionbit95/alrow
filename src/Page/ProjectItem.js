@@ -28,13 +28,13 @@ const ProjectItem = ({ data }) => {
         <Text fontSize={"5xl"}>MACAMOYE BREADBAR</Text>
         <SimpleGrid px={32} columns={1} spacing={16}>
           <AspectRatio ratio={16 / 9}>
-            <Image src={require("../Asset/Image/bannerImage1.png")} />
+            <Image src={require("../Asset/Image/DetailImage1.png")} />
           </AspectRatio>
           <AspectRatio ratio={16 / 9}>
-            <Image src={require("../Asset/Image/bannerImage1.png")} />
+            <Image src={require("../Asset/Image/DetailImage2.png")} />
           </AspectRatio>
           <AspectRatio ratio={16 / 9}>
-            <Image src={require("../Asset/Image/bannerImage1.png")} />
+            <Image src={require("../Asset/Image/DetailImage3.png")} />
           </AspectRatio>
         </SimpleGrid>
       </Stack>
