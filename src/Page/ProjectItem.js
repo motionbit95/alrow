@@ -8,34 +8,45 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Footer } from "../Component/Footer";
+import { getDocument } from "../Firebase/firebase-func";
 
-const ProjectItem = ({ data }) => {
-  // 안가져 와져서 포기
-  console.log("프로젝트에서 가져온 아이템정보", data);
+const ProjectItem = () => {
+  const [data, setData] = useState({});
+  useEffect(() => {
+    const pid = window.location.pathname.split("/").pop();
+    getDocument("Product", pid).then((data) => {
+      setData(data);
+    });
+    // getDocument("Product", data.id);
+  }, []);
   return (
     <Flex direction={"column"} flex={1}>
       <Box w="full">
         <AspectRatio ratio={16 / 7}>
           <Image
-            src={require("../Asset/Image/bannerImage1.png")}
+            src={
+              process.env.REACT_APP_FIREBASE_STORAGE + data.image + "?alt=media"
+            }
             objectFit="cover"
           />
         </AspectRatio>
       </Box>
       <Stack p={16} spacing={16}>
-        <Text fontSize={"5xl"}>MACAMOYE BREADBAR</Text>
+        <Text fontSize={"5xl"}>{data.title}</Text>
         <SimpleGrid px={32} columns={1} spacing={16}>
-          <AspectRatio ratio={16 / 9}>
-            <Image src={require("../Asset/Image/DetailImage1.png")} />
-          </AspectRatio>
-          <AspectRatio ratio={16 / 9}>
-            <Image src={require("../Asset/Image/DetailImage2.png")} />
-          </AspectRatio>
-          <AspectRatio ratio={16 / 9}>
-            <Image src={require("../Asset/Image/DetailImage3.png")} />
-          </AspectRatio>
+          {data.detail_images?.map((element) => (
+            <AspectRatio ratio={16 / 9}>
+              <Image
+                src={
+                  process.env.REACT_APP_FIREBASE_STORAGE +
+                  element +
+                  "?alt=media"
+                }
+              />
+            </AspectRatio>
+          ))}
         </SimpleGrid>
       </Stack>
       <Footer />

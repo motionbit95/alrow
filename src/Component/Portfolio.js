@@ -44,7 +44,7 @@ import {
   updateDocument,
   uploadFile,
 } from "../Firebase/firebase-func";
-import { collection, orderBy, query } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../Firebase/firebase-conf";
 
 const Portfolio = () => {
@@ -65,6 +65,14 @@ const Portfolio = () => {
     };
 
     getProjects();
+
+    let unsubscribe = onSnapshot(collection(db, "Product"), (snapshot) => {
+      setPortfolioList(
+        snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
+    });
+
+    return () => unsubscribe();
   }, []);
 
   const handleSubmit = (event) => {
@@ -147,21 +155,19 @@ const Portfolio = () => {
       title: item.title,
     });
 
-    console.log(
-      process.env.REACT_APP_FIREBASE_STORAGE + item.image + "?alt=media"
-    );
-
     setPreviewImage(
-      process.env.REACT_APP_FIREBASE_STORAGE + item.image + "?alt=media"
+      process.env.REACT_APP_FIREBASE_STORAGE +
+        item.image.split("?")[0].split("/").pop() +
+        "?alt=media"
     );
 
-    if (item.detail_images)
+    if (item.detail_images) {
       setDetailImages(
         item.detail_images?.map(
           (item) => process.env.REACT_APP_FIREBASE_STORAGE + item + "?alt=media"
         )
       );
-    else setDetailImages([]);
+    } else setDetailImages([]);
 
     onOpen();
   }
@@ -211,7 +217,7 @@ const Portfolio = () => {
         detail_images: formdata?.detail_images.map((element) => element.name),
       }).then(() => {
         onClose();
-        window.location.reload();
+        // window.location.reload();
       });
     } else if (editType === "edit") {
       console.log(formdata);
@@ -220,9 +226,9 @@ const Portfolio = () => {
         console.log(previewImage);
       else uploadFile("", formdata?.main_image);
 
-      formdata?.detail_images?.forEach((element) => {
+      formdata?.detail_images?.forEach(async (element) => {
         // console.log(element);
-        uploadFile("", element);
+        await uploadFile("", element);
       });
 
       const existArray = detailImages?.filter((element) => {
@@ -261,11 +267,13 @@ const Portfolio = () => {
       );
       updateDocument("Product", formdata.id, {
         title: formdata?.title,
-        image: formdata?.main_image ? formdata?.main_image.name : previewImage,
+        image: formdata?.main_image
+          ? formdata?.main_image.name
+          : previewImage.split("?")[0].split("/").pop(),
         detail_images: newArray,
       }).then(() => {
         onClose();
-        window.location.reload();
+        // window.location.reload();
       });
     }
   }
@@ -273,7 +281,7 @@ const Portfolio = () => {
   function deleteProject(id) {
     if (window.confirm("프로젝트를 삭제하시겠습니까?")) {
       deleteDocument("Product", id).then(async () => {
-        window.location.reload();
+        // window.location.reload();
       });
     }
   }
@@ -313,9 +321,13 @@ const Portfolio = () => {
                   </ButtonGroup>
                   <Image
                     src={
-                      process.env.REACT_APP_FIREBASE_STORAGE +
-                      item.image +
-                      "?alt=media"
+                      item.image.includes(
+                        process.env.REACT_APP_FIREBASE_STORAGE
+                      )
+                        ? ""
+                        : process.env.REACT_APP_FIREBASE_STORAGE +
+                          item.image +
+                          "?alt=media"
                     }
                   />
                 </Box>
