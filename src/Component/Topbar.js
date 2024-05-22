@@ -1,5 +1,7 @@
 import {
   Box,
+  Button,
+  ButtonGroup,
   CloseButton,
   Flex,
   HStack,
@@ -20,24 +22,39 @@ export const Topbar = ({ ...props }) => {
 
   const { whitecolor } = props;
 
+  const variants = {
+    open: { opacity: 1, y: 0 },
+    closed: { opacity: 0, y: "-100%" },
+  };
+
   return (
     <Stack zIndex={999} position={"absolute"} w={"100%"} top={0}>
       <Flex
         w={"100%"}
         justify={"space-between"}
-        p={16}
+        p={{ base: 8, md: 16 }}
         color={whitecolor ? "white" : "black"}
       >
-        <Image
-          src={
-            whitecolor
-              ? require("../Asset/Image/logoWhite.png")
-              : require("../Asset/Image/logo.png")
-          }
-          w={"2rem"}
-          h={"2rem"}
-        />
+        <Box
+          zIndex={111}
+          onClick={() => nav("/")}
+          transform={open ? "scale(0)" : "scale(1)"}
+          transition={"all 0.1s ease-in-out"}
+        >
+          <Image
+            display={open ? "none" : "block"}
+            cursor={"pointer"}
+            src={
+              whitecolor
+                ? require("../Asset/Image/logoWhite.png")
+                : require("../Asset/Image/logo.png")
+            }
+            w={"2rem"}
+            h={"2rem"}
+          />
+        </Box>
         <Square
+          cursor={"pointer"}
           size={"1.5rem"}
           onClick={() => setOpen(!open)}
           zIndex={111}
@@ -51,25 +68,56 @@ export const Topbar = ({ ...props }) => {
         style={{
           width: "100%",
           padding: "64px 16px 16px 16px",
+          height: "30vh",
           backgroundColor: "#1f45fc",
           position: "absolute",
           top: 0,
-          opacity: open ? 1 : 0,
-          transition: "opacity 0.5s ease-in-out",
         }}
-        animate={{ opacity: open ? 1 : 0 }}
+        animate={open ? "open" : "closed"}
+        variants={variants}
+        transition={{ duration: 0.2 }}
       >
-        <Flex w={"100%"} justify={"center"} pb={32}>
-          <HStack gap={12} zIndex={111} color={"white"}>
-            <Text cursor={"pointer"} onClick={() => nav("/project")}>
-              PROJECT
-            </Text>
-            <Text cursor={"pointer"} onClick={() => nav("/about")}>
-              ABOUT
-            </Text>
-            <Text cursor={"pointer"} onClick={() => nav("/contact")}>
-              CONTACT
-            </Text>
+        <Flex w={"100%"} justify={"center"}>
+          <HStack
+            w={"350px"}
+            justify={"space-around"}
+            zIndex={111}
+            color={"white"}
+            h={30}
+          >
+            <Box w={"100px"}>
+              <Text
+                textAlign={"center"}
+                fontSize={"md"}
+                _hover={{ fontSize: "lg" }}
+                cursor={"pointer"}
+                onClick={() => nav("/project")}
+              >
+                PROJECT
+              </Text>
+            </Box>
+            <Box w={"100px"}>
+              <Text
+                textAlign={"center"}
+                fontSize={"md"}
+                _hover={{ fontSize: "lg" }}
+                cursor={"pointer"}
+                onClick={() => nav("/about")}
+              >
+                ABOUT
+              </Text>
+            </Box>
+            <Box w={"100px"}>
+              <Text
+                textAlign={"center"}
+                fontSize={"md"}
+                _hover={{ fontSize: "lg" }}
+                cursor={"pointer"}
+                onClick={() => nav("/contact")}
+              >
+                CONTACT
+              </Text>
+            </Box>
           </HStack>
         </Flex>
       </motion.div>

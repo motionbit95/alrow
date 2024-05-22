@@ -6,72 +6,201 @@ import {
   Stack,
   StackDivider,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { Topbar } from "../Component/Topbar";
 import { Footer } from "../Component/Footer";
+import { motion } from "framer-motion";
 
 const About = () => {
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
+  const MotionBox = ({ children, y = 0 }) => (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: y }}
+      viewport={{ once: true }}
+      transition={{
+        ease: "easeInOut",
+        duration: 1,
+        y: { duration: 2 },
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+
   return (
     <Flex direction={"column"} flex={1} bgColor={"gray.100"}>
       <Topbar />
       <Box h={"100vh"} w={"100vw"} position={"relative"}>
-        <Stack
-          direction={"row"}
+        <Box
           h={"100vh"}
-          justify={"space-between"}
-          p={16}
+          p={{ base: 8, md: 16 }}
           align={"center"}
-          spacing={{ base: 6, md: 16 }}
+          justify={"center"}
         >
-          <Stack zIndex={2} spacing={{ base: 16, md: 40 }} flex={1}>
-            <Stack direction={{ base: "column", md: "row" }} align={"flex-end"}>
-              <Text
-                fontWeight={"bold"}
-                fontSize={{
-                  base: "100px",
-                  md: "200px",
-                }}
-              >
-                ART
-              </Text>
-              <Text>규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다</Text>
-            </Stack>
-            <Stack>
-              <Text
-                fontWeight={"bold"}
-                fontSize={{
-                  base: "100px",
-                  md: "200px",
-                }}
-              >
-                BRICK
-              </Text>
-              <Text>
-                인간이 구현하는 건축의 태초적이고, 인공적인 기초 단위를 추종한다
-              </Text>
-            </Stack>
-          </Stack>
-          <Stack zIndex={2} flex={1} display={{ base: "none", md: "block" }}>
-            <Stack
-              spacing={{ base: 16, md: 60 }}
-              fontSize={{ base: "lg", md: "3xl" }}
-              fontWeight={"semibold"}
-            >
-              <Text>
-                ARTBRICK은 예술과 기술의 원활한 통합을 내포하며, 인테리어/건축의
-                영역에서 미학과 기능 사이의 균형을 찾기 위한 우리의 은유적
-                약속과 헌신을 상징합니다. 우리의 미션은 고객의 기능적인 요구를
-                충족시키는 것 뿐 만아니라 예술적공간의 표현을 조력하는 것입니다.
-              </Text>
-              <Text>
-                Atypical | Genuine | Classical to Contemporary 우리는, 우리의
-                디자인을 규정하지 않습니다. 전문적이고 명쾌한 방식으로 진정성에
-                집중하고, 다양한 현재를 제안하고, 클래식을 존중합니다.
-              </Text>
-            </Stack>
-          </Stack>
-        </Stack>
+          {isMobile ? (
+            <>
+              <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
+                <Box w={"full"} position={"relative"} top={"36%"}>
+                  <Box position={"absolute"} right={0}>
+                    <Text
+                      fontWeight={"bold"}
+                      fontSize={{
+                        base: "100px",
+                      }}
+                    >
+                      ART
+                    </Text>
+                  </Box>
+                  <Box
+                    position={"absolute"}
+                    top={"32"}
+                    right={0}
+                    gap={4}
+                    display={"flex"}
+                    flexDirection={"column"}
+                    textAlign={"end"}
+                  >
+                    <Text fontSize={"xs"}>
+                      규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다
+                    </Text>
+                    <Text fontSize={"sm"}>
+                      ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
+                      인테리어/건축의 영역에서 미학과 기능 사이의 균형을 찾기
+                      위한 우리의 은유적 약속과 헌신을 상징합니다. 우리의 미션은
+                      고객의 기능적인 요구를 충족시키는 것 뿐 만아니라
+                      예술적공간의 표현을 조력하는 것입니다.
+                    </Text>
+                  </Box>
+                </Box>
+              </Box>
+              <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
+                <Box w={"full"} position={"relative"} top={"18%"}>
+                  <Box position={"absolute"} left={0}>
+                    <Text
+                      fontWeight={"bold"}
+                      fontSize={{
+                        base: "100px",
+                      }}
+                    >
+                      BRICK
+                    </Text>
+                  </Box>
+                  <Box
+                    position={"absolute"}
+                    top={120}
+                    gap={4}
+                    display={"flex"}
+                    flexDirection={"column"}
+                  >
+                    <Text fontSize={"xs"} textAlign={"start"}>
+                      인간이 구현하는 건축의 태초적이고, 인공적인 기초 단위를
+                      추종한다
+                    </Text>
+                    <Text fontSize={"sm"} textAlign={"start"}>
+                      Atypical | Genuine | Classical to Contemporary 우리는,
+                      우리의 디자인을 규정하지 않습니다. 전문적이고 명쾌한
+                      방식으로 진정성에 집중하고, 다양한 현재를 제안하고,
+                      클래식을 존중합니다.
+                    </Text>
+                  </Box>
+                </Box>
+              </Box>
+            </>
+          ) : (
+            <>
+              <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
+                <motion.div
+                  initial={{ opacity: 0, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    ease: "easeInOut",
+                    duration: 1,
+                    y: { duration: 2 },
+                  }}
+                >
+                  <Box w={"full"} position={"relative"} top={20}>
+                    <Box position={"absolute"} left={0}>
+                      <Text fontWeight={"bold"} fontSize={180}>
+                        ART
+                      </Text>
+                    </Box>
+                    <Box position={"absolute"} left={330} top={180}>
+                      <Text fontSize={"sm"}>
+                        규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다
+                      </Text>
+                    </Box>
+                  </Box>
+                  <Box
+                    w={"calc(60% - 200px)"}
+                    position={"absolute"}
+                    bottom={20}
+                    right={0}
+                    fontSize={"calc(1em + 0.5vw)"}
+                    textAlign={"start"}
+                    minW={"440px"}
+                  >
+                    <Text>
+                      {`ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
+                      인테리어/건축의 영역에서 미학과 기능 사이의 균형을 찾기
+                      위한 우리의 은유적 약속과 헌신을 상징합니다. 우리의 미션은
+                      고객의 기능적인 요구를 충족시키는 것 뿐 만아니라
+                      예술적공간의 표현을 조력하는 것입니다.`}
+                    </Text>
+                  </Box>
+                </motion.div>
+              </Box>
+              <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
+                <motion.div
+                  initial={{ opacity: 0, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    ease: "easeInOut",
+                    duration: 1,
+                    y: { duration: 2 },
+                  }}
+                >
+                  <Box w={"full"} position={"relative"} top={0}>
+                    <Box position={"absolute"} left={0}>
+                      <Text fontWeight={"bold"} fontSize={180}>
+                        BRICK
+                      </Text>
+                    </Box>
+                    <Box position={"absolute"} left={2} top={220}>
+                      <Text fontSize={"sm"}>
+                        인간이 구현하는 건축의 태초적이고, 인공적인 기초 단위를
+                        추종한다
+                      </Text>
+                    </Box>
+                  </Box>
+                  <Box
+                    w={"calc(60% - 200px)"}
+                    position={"absolute"}
+                    bottom={10}
+                    right={0}
+                    fontSize={"calc(1em + 0.5vw)"}
+                    textAlign={"start"}
+                    minW={"440px"}
+                  >
+                    <Text>
+                      {`Atypical | Genuine | Classical to Contemporary`}
+                    </Text>
+                    <Text>
+                      {`우리는, 우리의 디자인을 규정하지 않습니다. `}
+                      {`전문적이고 명쾌한 방식으로 진정성에 집중하고, 다양한 현재를 제안하고, `}
+                      {`클래식을 존중합니다.`}
+                    </Text>
+                  </Box>
+                </motion.div>
+              </Box>
+            </>
+          )}
+        </Box>
         <Box
           w={"100%"}
           h={"36%"}
@@ -83,61 +212,85 @@ const About = () => {
       <Box w={"100vw"}>
         <Stack p={{ base: 8, md: 16 }}>
           <Stack>
-            <Text
-              fontWeight={"bold"}
-              fontSize={{
-                base: "5xl",
-                md: "200px",
-              }}
-            >
-              HISTORY
-            </Text>
-            <Stack fontSize={{ base: "md", md: "lg" }}>
-              <Text>
-                2007.02 | 주식회사 아트브릭 전신인 D.B.P 개인사업 출발
+            <MotionBox>
+              <Text
+                fontWeight={"bold"}
+                fontSize={{
+                  base: "5xl",
+                  md: "200px",
+                }}
+              >
+                HISTORY
               </Text>
-              <Text>2015.07 | 주식회사 D&T 법인사업 출범</Text>
-              <Text>2019.01 | 주식회사 아트브릭 법인사업 출범</Text>
-              <Text>2019.01 | 주식회사 아트브릭 서울사무소 설립</Text>
-              <Text>2019.03 | 주식회사 아트브릭 실내건축공사업 취득</Text>
-              <Text>2019.04 | 주식회사 아트브릭 디자인전문회사 취득</Text>
-              <Text>2019.08 | 주식회사 아트브릭 여성전문기업 등록</Text>
+            </MotionBox>
+            <Stack fontSize={{ base: "md", md: "lg" }}>
+              <MotionBox>
+                <Text>
+                  2007.02 | 주식회사 아트브릭 전신인 D.B.P 개인사업 출발
+                </Text>
+              </MotionBox>
+              <MotionBox>
+                <Text>2015.07 | 주식회사 D&T 법인사업 출범</Text>
+              </MotionBox>
+
+              <MotionBox>
+                <Text>2019.01 | 주식회사 아트브릭 법인사업 출범</Text>
+              </MotionBox>
+
+              <MotionBox>
+                <Text>2019.01 | 주식회사 아트브릭 서울사무소 설립</Text>
+              </MotionBox>
+
+              <MotionBox>
+                <Text>2019.03 | 주식회사 아트브릭 실내건축공사업 취득</Text>
+              </MotionBox>
+
+              <MotionBox>
+                <Text>2019.04 | 주식회사 아트브릭 디자인전문회사 취득</Text>
+              </MotionBox>
+
+              <MotionBox>
+                <Text>2019.08 | 주식회사 아트브릭 여성전문기업 등록</Text>
+              </MotionBox>
             </Stack>
           </Stack>
         </Stack>
         <Stack p={{ base: 8, md: 16 }}>
-          <Stack position={"relative"}>
-            <Stack
-              textAlign={"end"}
-              fontWeight={"bold"}
-              fontSize={{
-                base: "5xl",
-                md: "200px",
-              }}
-              zIndex={1}
-            >
-              <Text>FEATURE</Text>
-              <Text>PROJECTS</Text>
+          <MotionBox>
+            <Stack position={"relative"}>
+              <Stack
+                textAlign={"end"}
+                fontWeight={"bold"}
+                lineHeight={1}
+                fontSize={{
+                  base: "5xl",
+                  md: "200px",
+                }}
+                zIndex={1}
+              >
+                <Text>FEATURE</Text>
+                <Text>PROJECTS</Text>
+              </Stack>
+              <Box
+                w={"35%"}
+                h={220}
+                display={{ base: "none", md: "block" }}
+                bgColor={"#1f45fc"}
+                position={"absolute"}
+                top={200}
+                right={780}
+              />
+              <Box
+                w={"25%"}
+                h={70}
+                display={{ base: "block", md: "none" }}
+                bgColor={"#1f45fc"}
+                position={"absolute"}
+                top={12}
+                right={44}
+              />
             </Stack>
-            <Box
-              w={"35%"}
-              h={220}
-              display={{ base: "none", md: "block" }}
-              bgColor={"#1f45fc"}
-              position={"absolute"}
-              top={360}
-              right={780}
-            />
-            <Box
-              w={"25%"}
-              h={70}
-              display={{ base: "block", md: "none" }}
-              bgColor={"#1f45fc"}
-              position={"absolute"}
-              top={84}
-              right={44}
-            />
-          </Stack>
+          </MotionBox>
           <Stack p={{ base: 8, md: 32 }}>
             <SimpleGrid
               columns={{ base: 1, md: 2 }}
@@ -145,11 +298,18 @@ const About = () => {
               rowGap={{ base: 8, md: 16 }}
             >
               {years.map((year) => (
-                <Stack divider={<StackDivider borderColor={"gray.400"} />}>
-                  <Text>{year}</Text>
+                <Stack>
+                  <MotionBox>
+                    <Text>{year}</Text>
+                  </MotionBox>
+                  <MotionBox>
+                    <Box borderTop={"1px"} borderColor={"gray.300"} />
+                  </MotionBox>
                   <Stack>
                     {projects[year].map((project) => (
-                      <Text key={project}>- {project}</Text>
+                      <MotionBox>
+                        <Text key={project}>- {project}</Text>
+                      </MotionBox>
                     ))}
                   </Stack>
                 </Stack>
