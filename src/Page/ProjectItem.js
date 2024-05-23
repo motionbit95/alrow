@@ -26,13 +26,13 @@ const ProjectItem = () => {
 
   const MotionBox = ({ children, y = 0 }) => (
     <motion.div
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 200 }}
       whileInView={{ opacity: 1, y: y }}
       viewport={{ once: true }}
       transition={{
         ease: "easeInOut",
         duration: 1,
-        y: { duration: 2 },
+        y: { duration: 0.7 },
       }}
     >
       {children}
@@ -85,7 +85,15 @@ const ProjectItem = () => {
               {data.title}
             </Text>
             <Box maxW={{ base: "100%", lg: "350" }}>
-              <Text fontSize={{ base: "sm", md: "md" }} textAlign={"end"}>
+              <Text
+                fontSize={
+                  data.portfolio_Description?.length > 150
+                    ? "xs"
+                    : { base: "sm", md: "md" }
+                }
+                textAlign={"end"}
+                lineHeight={1.2}
+              >
                 {data.portfolio_Description}
               </Text>
             </Box>

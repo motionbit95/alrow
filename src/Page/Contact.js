@@ -5,20 +5,6 @@ import { Footer } from "../Component/Footer";
 import { motion } from "framer-motion";
 
 const Contact = () => {
-  const MotionBox = ({ children, y = 0 }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: y }}
-      viewport={{ once: true }}
-      transition={{
-        ease: "easeInOut",
-        duration: 1,
-        y: { duration: 2 },
-      }}
-    >
-      {children}
-    </motion.div>
-  );
   return (
     <Flex direction={"column"} flex={1} bgColor={"gray.100"}>
       <Topbar whitecolor />
@@ -46,24 +32,65 @@ const Contact = () => {
               spacing={0}
               pt={{ base: 4, lg: 0 }}
             >
-              <MotionBox>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  ease: "easeInOut",
+                  duration: 1,
+                  y: { duration: 1 },
+                }}
+              >
                 <Text>1551-2390</Text>
-              </MotionBox>
-              <MotionBox>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  ease: "easeInOut",
+                  duration: 1,
+                  delay: 0.5,
+                  y: { duration: 1 },
+                }}
+              >
                 <Text>artbrickco@nate.com</Text>
-              </MotionBox>
+              </motion.div>
             </Stack>
-            <MotionBox>
-              <Stack
-                fontWeight={"bold"}
-                fontSize={{ base: "6xl", md: "8xl", lg: "160px" }}
-                textAlign={"end"}
-                lineHeight={0.9}
+
+            <Stack
+              fontWeight={"bold"}
+              fontSize={{ base: "6xl", md: "8xl", lg: "160px" }}
+              textAlign={"end"}
+              lineHeight={0.9}
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  ease: "easeInOut",
+                  duration: 1,
+                  y: { duration: 1 },
+                }}
               >
                 <Text>CONTACT</Text>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  ease: "easeInOut",
+                  delay: 0.5,
+                  duration: 1,
+                  y: { duration: 1 },
+                }}
+              >
                 <Text>US</Text>
-              </Stack>
-            </MotionBox>
+              </motion.div>
+            </Stack>
           </Stack>
         </Stack>
         <Stack
@@ -72,21 +99,51 @@ const Contact = () => {
           py={16}
           px={{ base: 8, md: 16, lg: 32 }}
         >
-          <MotionBox>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              ease: "easeInOut",
+              delay: 1,
+              duration: 1,
+              y: { duration: 1 },
+            }}
+          >
             <Text fontSize={{ base: "3xl", md: "5xl" }}>OFFICE</Text>
-          </MotionBox>
+          </motion.div>
           <Stack fontSize={{ base: "sm", md: "xl" }} spacing={2}>
-            <MotionBox>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                ease: "easeInOut",
+                delay: 1.5,
+                duration: 1,
+                y: { duration: 1 },
+              }}
+            >
               <Text>
                 부산사옥 HQ | 부산광역시 수영구 광남로 213번길 43(민락동)
               </Text>
-            </MotionBox>
-            <MotionBox>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                ease: "easeInOut",
+                delay: 1.5,
+                duration: 1,
+                y: { duration: 1 },
+              }}
+            >
               <Text>
                 서울사옥 | 서울특별시 강서구 양천로 551-24 한화비즈메트로 2차
                 306호
               </Text>
-            </MotionBox>
+            </motion.div>
           </Stack>
         </Stack>
       </Box>

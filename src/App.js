@@ -8,7 +8,6 @@ import Project from "./Page/Project";
 import Portfolio from "./Component/Portfolio";
 import { ChakraProvider } from "@chakra-ui/react";
 import ProjectItem from "./Page/ProjectItem";
-import PortfolioList from "./Component/PortfolioList";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
           <Route path="/project" element={<Project />} />
           <Route path="/project/*" element={<ProjectItem />} />
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/portfoliolist" element={<PortfolioList />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

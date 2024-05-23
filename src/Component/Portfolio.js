@@ -93,6 +93,7 @@ const Portfolio = () => {
         });
       }
     } else {
+      console.log(event.target.name, event.target.value);
       setFormdata({ ...formdata, [event.target.name]: event.target.value });
     }
   };
@@ -544,12 +545,18 @@ const Portfolio = () => {
                     name="portfolio_Description"
                     typeof="text"
                     placeholder="프로젝트 목적/주요기능/주요메뉴 등을 상세히 입력해 주세요."
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      setFormdata({
+                        ...formdata,
+                        portfolio_Description: e.target.value,
+                      });
+                    }}
                     size={"md"}
                     resize={"none"}
+                    maxLength={500}
                   />
                   <Text textAlign={"right"} color={"gray.500"} fontSize={"xs"}>
-                    {value.length}/500
+                    {formdata?.portfolio_Description?.length}/500
                   </Text>
                 </FormControl>
               </Stack>

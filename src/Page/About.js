@@ -43,7 +43,16 @@ const About = () => {
             <>
               <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
                 <Stack spacing={0} w={"full"} position={"relative"} top={"48%"}>
-                  <MotionBox>
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      ease: "easeInOut",
+                      duration: 1,
+                      y: { duration: 2 },
+                    }}
+                  >
                     <Box textAlign={"end"}>
                       <Text
                         fontWeight={"bold"}
@@ -55,8 +64,17 @@ const About = () => {
                         ART
                       </Text>
                     </Box>
-                  </MotionBox>
-                  <MotionBox>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      ease: "easeInOut",
+                      duration: 1,
+                      y: { duration: 2 },
+                    }}
+                  >
                     <Box
                       gap={4}
                       display={"flex"}
@@ -78,12 +96,22 @@ const About = () => {
                         아니라 예술적공간의 표현을 조력하는 것입니다.
                       </Text>
                     </Box>
-                  </MotionBox>
+                  </motion.div>
                 </Stack>
               </Box>
               <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
                 <Stack w={"full"} position={"relative"} top={"25%"} spacing={0}>
-                  <MotionBox>
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      ease: "easeInOut",
+                      duration: 1,
+                      delay: 0.5,
+                      y: { duration: 2 },
+                    }}
+                  >
                     <Box textAlign={"start"}>
                       <Text
                         fontWeight={"bold"}
@@ -95,8 +123,17 @@ const About = () => {
                         BRICK
                       </Text>
                     </Box>
-                  </MotionBox>
-                  <MotionBox>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      ease: "easeInOut",
+                      duration: 1,
+                      y: { duration: 2 },
+                    }}
+                  >
                     <Box
                       gap={4}
                       display={"flex"}
@@ -117,14 +154,23 @@ const About = () => {
                         다양한 현재를 제안하고, 클래식을 존중합니다.
                       </Text>
                     </Box>
-                  </MotionBox>
+                  </motion.div>
                 </Stack>
               </Box>
             </>
           ) : (
             <>
               <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
-                <MotionBox>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    ease: "easeInOut",
+                    duration: 1,
+                    y: { duration: 1 },
+                  }}
+                >
                   <Stack direction={{ base: "column", lg: "row" }}>
                     <Box
                       w={"full"}
@@ -175,10 +221,20 @@ const About = () => {
                       </Text>
                     </Box>
                   </Stack>
-                </MotionBox>
+                </motion.div>
               </Box>
               <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
-                <MotionBox>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    ease: "easeInOut",
+                    duration: 1,
+                    delay: 0.5,
+                    y: { duration: 1.5 },
+                  }}
+                >
                   <Stack>
                     <Box
                       w={"full"}
@@ -222,7 +278,7 @@ const About = () => {
                       </Text>
                     </Box>
                   </Stack>
-                </MotionBox>
+                </motion.div>
               </Box>
             </>
           )}
