@@ -1,21 +1,13 @@
-import {
-  AddIcon,
-  CloseIcon,
-  DeleteIcon,
-  EditIcon,
-  MinusIcon,
-} from "@chakra-ui/icons";
+import { AddIcon, CloseIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
   ButtonGroup,
   Container,
-  Flex,
   FormControl,
   FormLabel,
   GridItem,
   HStack,
-  Icon,
   IconButton,
   Image,
   Input,
@@ -27,13 +19,11 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Select,
   SimpleGrid,
   Stack,
   Text,
   Textarea,
   Wrap,
-  useBreakpointValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
@@ -48,7 +38,6 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../Firebase/firebase-conf";
 
 const Portfolio = () => {
-  const isMobile = useBreakpointValue({ base: true, md: false });
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [value, setValue] = useState("");
   const [formdata, setFormdata] = useState();

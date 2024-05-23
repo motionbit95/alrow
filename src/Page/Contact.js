@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { Topbar } from "../Component/Topbar";
 import { Footer } from "../Component/Footer";
@@ -66,7 +66,12 @@ const Contact = () => {
             </MotionBox>
           </Stack>
         </Stack>
-        <Stack h={"40%"} bgColor={"gray.200"} py={16} px={{ base: 16, lg: 32 }}>
+        <Stack
+          h={"40%"}
+          bgColor={"gray.200"}
+          py={16}
+          px={{ base: 8, md: 16, lg: 32 }}
+        >
           <MotionBox>
             <Text fontSize={{ base: "3xl", md: "5xl" }}>OFFICE</Text>
           </MotionBox>

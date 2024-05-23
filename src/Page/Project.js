@@ -1,8 +1,6 @@
 import {
   AspectRatio,
-  Box,
   Flex,
-  Heading,
   Image,
   SimpleGrid,
   Stack,
@@ -46,6 +44,7 @@ const Project = () => {
           fontSize={{ base: "6xl", md: "8xl", lg: "180px" }}
           fontWeight={"bold"}
           lineHeight={1}
+          whiteSpace={"nowrap"}
         >
           PROJECTS
         </Text>

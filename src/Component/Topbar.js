@@ -1,19 +1,15 @@
 import {
   Box,
-  Button,
-  ButtonGroup,
-  CloseButton,
   Flex,
   HStack,
   Image,
-  Link,
   Square,
   Stack,
   Text,
   chakra,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Topbar = ({ ...props }) => {

@@ -1,10 +1,8 @@
 import {
   Box,
   Flex,
-  HStack,
   SimpleGrid,
   Stack,
-  StackDivider,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
@@ -390,7 +388,6 @@ const projects = {
   ],
   2023: [
     "더현대 서울 꼬네 팝업스토어 조성 공사",
-    ,
     "깔라마리 리모델링",
     "광안어썸 인테리어",
     "뚜레쥬르 울산매곡점 인테리어",

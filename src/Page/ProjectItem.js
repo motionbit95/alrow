@@ -1,14 +1,11 @@
 import {
   AspectRatio,
   Box,
-  Container,
   Flex,
-  HStack,
   Image,
   SimpleGrid,
   Stack,
   Text,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Footer } from "../Component/Footer";
@@ -18,7 +15,6 @@ import { Topbar } from "../Component/Topbar";
 
 const ProjectItem = () => {
   const [data, setData] = useState({});
-  const isMobile = useBreakpointValue({ base: true, md: false });
 
   useEffect(() => {
     const pid = window.location.pathname.split("/").pop();
