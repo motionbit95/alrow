@@ -292,9 +292,11 @@ const Portfolio = () => {
             </Text>
             <Button
               onClick={() => {
-                onOpen();
-                setEditType("add");
+                setDetailImages([]);
+                setPreviewImage(null);
                 setFormdata({});
+                setEditType("add");
+                onOpen();
               }}
             >
               프로젝트 등록
