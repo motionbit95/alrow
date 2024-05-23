@@ -50,7 +50,7 @@ const About = () => {
                     transition={{
                       ease: "easeInOut",
                       duration: 1,
-                      y: { duration: 2 },
+                      y: { duration: 1 },
                     }}
                   >
                     <Box textAlign={"end"}>
@@ -72,7 +72,7 @@ const About = () => {
                     transition={{
                       ease: "easeInOut",
                       duration: 1,
-                      y: { duration: 2 },
+                      y: { duration: 1 },
                     }}
                   >
                     <Box
@@ -81,13 +81,13 @@ const About = () => {
                       flexDirection={"column"}
                       textAlign={"end"}
                     >
-                      <Text fontSize={"11px"} pr={2}>
+                      <Text fontSize={"11px"} pr={1}>
                         규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다
                       </Text>
                       <Text fontSize={"xs"} fontWeight={"600"}>
                         ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
                         <br />
-                        인테리어/건축의 영역에서 미학과 기능 사이의 균형을{" "}
+                        인테리어/건축의 영역에서 미학과 기능 사이의 균형을
                         <br />
                         찾기 위한 우리의 은유적 약속과 헌신을 상징합니다.
                         <br />
@@ -106,10 +106,9 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{
-                      ease: "easeInOut",
                       duration: 1,
                       delay: 0.5,
-                      y: { duration: 2 },
+                      y: { duration: 1.5 },
                     }}
                   >
                     <Box textAlign={"start"}>
@@ -129,9 +128,9 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{
-                      ease: "easeInOut",
                       duration: 1,
-                      y: { duration: 2 },
+                      delay: 0.5,
+                      y: { duration: 1.5 },
                     }}
                   >
                     <Box
@@ -139,6 +138,7 @@ const About = () => {
                       display={"flex"}
                       flexDirection={"column"}
                       textAlign={"start"}
+                      pl={1}
                     >
                       <Text fontSize={"11px"}>
                         인간이 구현하는 건축의 태초적이고, 인공적인 기초 단위를
@@ -175,7 +175,7 @@ const About = () => {
                     <Box
                       w={"full"}
                       position={"relative"}
-                      pt={{ base: 36, lg: 28 }}
+                      pt={{ base: 36, lg: 32 }}
                     >
                       <Box
                         display={"flex"}
@@ -186,7 +186,8 @@ const About = () => {
                           textAlign={"start"}
                           fontWeight={"bold"}
                           fontSize={180}
-                          lineHeight={1.0}
+                          lineHeight={0.9}
+                          whiteSpace={"nowrap"}
                         >
                           ART
                         </Text>
@@ -196,7 +197,7 @@ const About = () => {
                           py={{ base: 0, lg: 4 }}
                           ml={{ base: 0, lg: -8 }}
                         >
-                          <Text fontSize={"sm"}>
+                          <Text fontSize={"sm"} whiteSpace={"nowrap"}>
                             규정할수 없는, 규정 되어지지 않음을 인지하고
                             탐미한다
                           </Text>
@@ -215,9 +216,10 @@ const About = () => {
                       <Text>
                         ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
                         인테리어/건축의 영역에서 미학과 기능 사이의 균형을 찾기
-                        위한 우리의 은유적 약속과 헌신을 상징합니다. 우리의
-                        미션은 고객의 기능적인 요구를 충족시키는 것 뿐 만아니라
-                        예술적공간의 표현을 조력하는 것입니다.
+                        위한 우리의 은유적 약속과 헌신을 상징합니다.
+                        <br />
+                        우리의 미션은 고객의 기능적인 요구를 충족시키는 것 뿐
+                        만아니라 예술적공간의 표현을 조력하는 것입니다.
                       </Text>
                     </Box>
                   </Stack>
@@ -241,19 +243,18 @@ const About = () => {
                       position={"relative"}
                       pt={{ base: 20, lg: 16 }}
                     >
-                      {/* <Box position={"absolute"} left={0}> */}
                       <Box display={"flex"} alignSelf={"flex-start"}>
                         <Text
                           fontWeight={"bold"}
                           fontSize={180}
-                          lineHeight={1.0}
+                          lineHeight={0.9}
+                          whiteSpace={"nowrap"}
                         >
                           BRICK
                         </Text>
                       </Box>
-                      {/* <Box position={"absolute"} left={2} top={220}> */}
                       <Box display={"flex"} alignSelf={"flex-start"}>
-                        <Text fontSize={"sm"} ml={2}>
+                        <Text fontSize={"sm"} ml={2} whiteSpace={"nowrap"}>
                           인간이 구현하는 건축의 태초적이고, 인공적인 기초
                           단위를 추종한다
                         </Text>
@@ -273,6 +274,7 @@ const About = () => {
                       </Text>
                       <Text>
                         {`우리는, 우리의 디자인을 규정하지 않습니다. `}
+                        <br />
                         {`전문적이고 명쾌한 방식으로 진정성에 집중하고, 다양한 현재를 제안하고, `}
                         {`클래식을 존중합니다.`}
                       </Text>

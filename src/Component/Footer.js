@@ -16,7 +16,11 @@ export const Footer = () => {
         <Image src={ArlowLogo1} boxSize={"full"} />
       </Box>
       <Stack justify={"end"} align={"end"} h={{ base: 6, md: 12 }}>
-        <Text fontSize={{ base: "2xs", md: "xs" }} textAlign={"end"}>
+        <Text
+          fontSize={{ base: "2xs", md: "xs" }}
+          textAlign={"end"}
+          whiteSpace={"nowrap"}
+        >
           COPYRIGHT(C) {new Date().getFullYear()} ARTBRICK ALL RIGHTS RESERVED.
         </Text>
       </Stack>
