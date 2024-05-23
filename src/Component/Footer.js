@@ -17,8 +17,7 @@ export const Footer = () => {
       </Box>
       <Stack justify={"end"} align={"end"} h={{ base: 6, md: 12 }}>
         <Text fontSize={{ base: "2xs", md: "xs" }} textAlign={"end"}>
-          COPYRIGHT(C) {new Date().getFullYear()} DAWON CORP ALL RIGHTS
-          RESERVED.
+          COPYRIGHT(C) {new Date().getFullYear()} ARTBRICK ALL RIGHTS RESERVED.
         </Text>
       </Stack>
     </Flex>

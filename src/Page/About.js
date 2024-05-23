@@ -44,90 +44,94 @@ const About = () => {
           {isMobile ? (
             <>
               <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
-                <Box w={"full"} position={"relative"} top={"36%"}>
-                  <Box position={"absolute"} right={0}>
-                    <Text
-                      fontWeight={"bold"}
-                      fontSize={{
-                        base: "100px",
-                      }}
+                <Stack spacing={0} w={"full"} position={"relative"} top={"48%"}>
+                  <MotionBox>
+                    <Box textAlign={"end"}>
+                      <Text
+                        fontWeight={"bold"}
+                        fontSize={{
+                          base: "100px",
+                        }}
+                        lineHeight={1}
+                      >
+                        ART
+                      </Text>
+                    </Box>
+                  </MotionBox>
+                  <MotionBox>
+                    <Box
+                      gap={4}
+                      display={"flex"}
+                      flexDirection={"column"}
+                      textAlign={"end"}
                     >
-                      ART
-                    </Text>
-                  </Box>
-                  <Box
-                    position={"absolute"}
-                    top={"32"}
-                    right={0}
-                    gap={4}
-                    display={"flex"}
-                    flexDirection={"column"}
-                    textAlign={"end"}
-                  >
-                    <Text fontSize={"xs"}>
-                      규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다
-                    </Text>
-                    <Text fontSize={"sm"}>
-                      ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
-                      인테리어/건축의 영역에서 미학과 기능 사이의 균형을 찾기
-                      위한 우리의 은유적 약속과 헌신을 상징합니다. 우리의 미션은
-                      고객의 기능적인 요구를 충족시키는 것 뿐 만아니라
-                      예술적공간의 표현을 조력하는 것입니다.
-                    </Text>
-                  </Box>
-                </Box>
+                      <Text fontSize={"11px"} pr={2}>
+                        규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다
+                      </Text>
+                      <Text fontSize={"xs"} fontWeight={"600"}>
+                        ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
+                        <br />
+                        인테리어/건축의 영역에서 미학과 기능 사이의 균형을{" "}
+                        <br />
+                        찾기 위한 우리의 은유적 약속과 헌신을 상징합니다.
+                        <br />
+                        우리의 미션은 고객의 기능적인 요구를 충족시키는 것 뿐 만
+                        <br />
+                        아니라 예술적공간의 표현을 조력하는 것입니다.
+                      </Text>
+                    </Box>
+                  </MotionBox>
+                </Stack>
               </Box>
               <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
-                <Box w={"full"} position={"relative"} top={"18%"}>
-                  <Box position={"absolute"} left={0}>
-                    <Text
-                      fontWeight={"bold"}
-                      fontSize={{
-                        base: "100px",
-                      }}
+                <Stack w={"full"} position={"relative"} top={"25%"} spacing={0}>
+                  <MotionBox>
+                    <Box textAlign={"start"}>
+                      <Text
+                        fontWeight={"bold"}
+                        fontSize={{
+                          base: "100px",
+                        }}
+                        lineHeight={1}
+                      >
+                        BRICK
+                      </Text>
+                    </Box>
+                  </MotionBox>
+                  <MotionBox>
+                    <Box
+                      gap={4}
+                      display={"flex"}
+                      flexDirection={"column"}
+                      textAlign={"start"}
                     >
-                      BRICK
-                    </Text>
-                  </Box>
-                  <Box
-                    position={"absolute"}
-                    top={120}
-                    gap={4}
-                    display={"flex"}
-                    flexDirection={"column"}
-                  >
-                    <Text fontSize={"xs"} textAlign={"start"}>
-                      인간이 구현하는 건축의 태초적이고, 인공적인 기초 단위를
-                      추종한다
-                    </Text>
-                    <Text fontSize={"sm"} textAlign={"start"}>
-                      Atypical | Genuine | Classical to Contemporary 우리는,
-                      우리의 디자인을 규정하지 않습니다. 전문적이고 명쾌한
-                      방식으로 진정성에 집중하고, 다양한 현재를 제안하고,
-                      클래식을 존중합니다.
-                    </Text>
-                  </Box>
-                </Box>
+                      <Text fontSize={"11px"}>
+                        인간이 구현하는 건축의 태초적이고, 인공적인 기초 단위를
+                        추종한다
+                      </Text>
+                      <Text fontSize={"xs"} fontWeight={"600"}>
+                        Atypical | Genuine | Classical to Contemporary
+                        <br />
+                        우리는, 우리의 디자인을 규정하지 않습니다. 전문적이고
+                        <br />
+                        명쾌한 방식으로 진정성에 집중하고,
+                        <br />
+                        다양한 현재를 제안하고, 클래식을 존중합니다.
+                      </Text>
+                    </Box>
+                  </MotionBox>
+                </Stack>
               </Box>
             </>
           ) : (
             <>
               <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
-                <motion.div
-                  initial={{ opacity: 0, y: 0 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    ease: "easeInOut",
-                    duration: 1,
-                    y: { duration: 2 },
-                  }}
-                >
+                <MotionBox>
                   <Stack direction={{ base: "column", lg: "row" }}>
                     <Box
                       w={"full"}
                       position={"relative"}
-                      pt={{ base: 20, lg: 28 }}
+                      pt={{ base: 36, lg: 28 }}
                     >
                       <Box
                         display={"flex"}
@@ -158,34 +162,25 @@ const About = () => {
                     <Box
                       display={"flex"}
                       alignSelf={"flex-end"}
-                      fontSize={"calc(1em + 0.5vw)"}
+                      fontSize={{ base: "xl", lg: "2xl" }}
                       textAlign={"start"}
                       maxW={{ base: "70%", lg: "50%" }}
                       flexDirection={"column"}
-                      fontWeight={"500"}
+                      fontWeight={"600"}
                     >
                       <Text>
-                        {`ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
-                      인테리어/건축의 영역에서 미학과 기능 사이의 균형을 찾기
-                      위한 우리의 은유적 약속과 헌신을 상징합니다. 우리의 미션은
-                      고객의 기능적인 요구를 충족시키는 것 뿐 만아니라
-                      예술적공간의 표현을 조력하는 것입니다.`}
+                        ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
+                        인테리어/건축의 영역에서 미학과 기능 사이의 균형을 찾기
+                        위한 우리의 은유적 약속과 헌신을 상징합니다. 우리의
+                        미션은 고객의 기능적인 요구를 충족시키는 것 뿐 만아니라
+                        예술적공간의 표현을 조력하는 것입니다.
                       </Text>
                     </Box>
                   </Stack>
-                </motion.div>
+                </MotionBox>
               </Box>
               <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
-                <motion.div
-                  initial={{ opacity: 0, y: 0 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    ease: "easeInOut",
-                    duration: 1,
-                    y: { duration: 2 },
-                  }}
-                >
+                <MotionBox>
                   <Stack>
                     <Box
                       w={"full"}
@@ -213,11 +208,7 @@ const About = () => {
                     <Box
                       display={"flex"}
                       alignSelf={"flex-end"}
-                      // w={"calc(60% - 200px)"}
-                      // position={"absolute"}
-                      // bottom={0}
-                      // right={0}
-                      fontSize={"calc(1em + 0.5vw)"}
+                      fontSize={{ base: "xl", lg: "2xl" }}
                       textAlign={"start"}
                       maxW={{ base: "70%", lg: "50%" }}
                       flexDirection={"column"}
@@ -233,7 +224,7 @@ const About = () => {
                       </Text>
                     </Box>
                   </Stack>
-                </motion.div>
+                </MotionBox>
               </Box>
             </>
           )}
