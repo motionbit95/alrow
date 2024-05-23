@@ -37,7 +37,10 @@ const Project = () => {
     <Flex direction={"column"} flex={1} bgColor={"gray.100"}>
       <Topbar />
       <Stack spacing={4} px={{ base: 8, md: 16 }} py={16} mt={8}>
-        <Text fontSize={{ base: "6xl", md: "200px" }} fontWeight={"bold"}>
+        <Text
+          fontSize={{ base: "6xl", md: "8xl", lg: "200px" }}
+          fontWeight={"bold"}
+        >
           PROJECTS
         </Text>
         <SimpleGrid

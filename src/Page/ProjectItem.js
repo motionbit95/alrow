@@ -81,15 +81,18 @@ const ProjectItem = () => {
           }}
         >
           <Stack
-            direction={{ base: "column", md: "row" }}
+            direction={{ base: "column", lg: "row" }}
             justify={"space-between"}
+            align={"center"}
           >
             <Text fontSize={{ base: "3xl", md: "5xl" }} fontWeight={"bold"}>
               {data.title}
             </Text>
-            <Text fontSize={{ base: "sm", md: "md" }} textAlign={"end"}>
-              문구
-            </Text>
+            <Box maxW={{ base: "100%", lg: "350" }}>
+              <Text fontSize={{ base: "sm", md: "md" }} textAlign={"end"}>
+                {data.portfolio_Description}
+              </Text>
+            </Box>
           </Stack>
         </motion.div>
         <SimpleGrid px={{ base: 0, md: 32 }} columns={1} spacing={16}>

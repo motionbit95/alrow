@@ -34,7 +34,7 @@ const About = () => {
   return (
     <Flex direction={"column"} flex={1} bgColor={"gray.100"}>
       <Topbar />
-      <Box h={"100vh"} w={"100vw"} position={"relative"}>
+      <Box h={"100vh"} w={"100%"} position={"relative"}>
         <Box
           h={"100vh"}
           p={{ base: 8, md: 16 }}
@@ -123,35 +123,56 @@ const About = () => {
                     y: { duration: 2 },
                   }}
                 >
-                  <Box w={"full"} position={"relative"} top={20}>
-                    <Box position={"absolute"} left={0}>
-                      <Text fontWeight={"bold"} fontSize={180}>
-                        ART
-                      </Text>
+                  <Stack direction={{ base: "column", lg: "row" }}>
+                    <Box
+                      w={"full"}
+                      position={"relative"}
+                      pt={{ base: 20, lg: 28 }}
+                    >
+                      <Box
+                        display={"flex"}
+                        alignSelf={"flex-start"}
+                        flexDirection={{ base: "column", lg: "row" }}
+                      >
+                        <Text
+                          textAlign={"start"}
+                          fontWeight={"bold"}
+                          fontSize={180}
+                          lineHeight={1.0}
+                        >
+                          ART
+                        </Text>
+                        <Box
+                          display={"flex"}
+                          alignSelf={{ base: "flex-start", lg: "flex-end" }}
+                          py={{ base: 0, lg: 4 }}
+                          ml={{ base: 0, lg: -8 }}
+                        >
+                          <Text fontSize={"sm"}>
+                            규정할수 없는, 규정 되어지지 않음을 인지하고
+                            탐미한다
+                          </Text>
+                        </Box>
+                      </Box>
                     </Box>
-                    <Box position={"absolute"} left={330} top={180}>
-                      <Text fontSize={"sm"}>
-                        규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다
-                      </Text>
-                    </Box>
-                  </Box>
-                  <Box
-                    w={"calc(60% - 200px)"}
-                    position={"absolute"}
-                    bottom={20}
-                    right={0}
-                    fontSize={"calc(1em + 0.5vw)"}
-                    textAlign={"start"}
-                    minW={"440px"}
-                  >
-                    <Text>
-                      {`ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
+                    <Box
+                      display={"flex"}
+                      alignSelf={"flex-end"}
+                      fontSize={"calc(1em + 0.5vw)"}
+                      textAlign={"start"}
+                      maxW={{ base: "70%", lg: "50%" }}
+                      flexDirection={"column"}
+                      fontWeight={"500"}
+                    >
+                      <Text>
+                        {`ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
                       인테리어/건축의 영역에서 미학과 기능 사이의 균형을 찾기
                       위한 우리의 은유적 약속과 헌신을 상징합니다. 우리의 미션은
                       고객의 기능적인 요구를 충족시키는 것 뿐 만아니라
                       예술적공간의 표현을 조력하는 것입니다.`}
-                    </Text>
-                  </Box>
+                      </Text>
+                    </Box>
+                  </Stack>
                 </motion.div>
               </Box>
               <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
@@ -165,65 +186,83 @@ const About = () => {
                     y: { duration: 2 },
                   }}
                 >
-                  <Box w={"full"} position={"relative"} top={0}>
-                    <Box position={"absolute"} left={0}>
-                      <Text fontWeight={"bold"} fontSize={180}>
-                        BRICK
+                  <Stack>
+                    <Box
+                      w={"full"}
+                      position={"relative"}
+                      pt={{ base: 20, lg: 16 }}
+                    >
+                      {/* <Box position={"absolute"} left={0}> */}
+                      <Box display={"flex"} alignSelf={"flex-start"}>
+                        <Text
+                          fontWeight={"bold"}
+                          fontSize={180}
+                          lineHeight={1.0}
+                        >
+                          BRICK
+                        </Text>
+                      </Box>
+                      {/* <Box position={"absolute"} left={2} top={220}> */}
+                      <Box display={"flex"} alignSelf={"flex-start"}>
+                        <Text fontSize={"sm"} ml={2}>
+                          인간이 구현하는 건축의 태초적이고, 인공적인 기초
+                          단위를 추종한다
+                        </Text>
+                      </Box>
+                    </Box>
+                    <Box
+                      display={"flex"}
+                      alignSelf={"flex-end"}
+                      // w={"calc(60% - 200px)"}
+                      // position={"absolute"}
+                      // bottom={0}
+                      // right={0}
+                      fontSize={"calc(1em + 0.5vw)"}
+                      textAlign={"start"}
+                      maxW={{ base: "70%", lg: "50%" }}
+                      flexDirection={"column"}
+                      fontWeight={"500"}
+                    >
+                      <Text>
+                        {`Atypical | Genuine | Classical to Contemporary`}
+                      </Text>
+                      <Text>
+                        {`우리는, 우리의 디자인을 규정하지 않습니다. `}
+                        {`전문적이고 명쾌한 방식으로 진정성에 집중하고, 다양한 현재를 제안하고, `}
+                        {`클래식을 존중합니다.`}
                       </Text>
                     </Box>
-                    <Box position={"absolute"} left={2} top={220}>
-                      <Text fontSize={"sm"}>
-                        인간이 구현하는 건축의 태초적이고, 인공적인 기초 단위를
-                        추종한다
-                      </Text>
-                    </Box>
-                  </Box>
-                  <Box
-                    w={"calc(60% - 200px)"}
-                    position={"absolute"}
-                    bottom={10}
-                    right={0}
-                    fontSize={"calc(1em + 0.5vw)"}
-                    textAlign={"start"}
-                    minW={"440px"}
-                  >
-                    <Text>
-                      {`Atypical | Genuine | Classical to Contemporary`}
-                    </Text>
-                    <Text>
-                      {`우리는, 우리의 디자인을 규정하지 않습니다. `}
-                      {`전문적이고 명쾌한 방식으로 진정성에 집중하고, 다양한 현재를 제안하고, `}
-                      {`클래식을 존중합니다.`}
-                    </Text>
-                  </Box>
+                  </Stack>
                 </motion.div>
               </Box>
             </>
           )}
         </Box>
         <Box
-          w={"100%"}
+          w={"full"}
           h={"36%"}
           position={"absolute"}
           top={"32%"}
           bgColor={"#1f45fc"}
         />
       </Box>
-      <Box w={"100vw"}>
+      <Box w={"100%"}>
         <Stack p={{ base: 8, md: 16 }}>
           <Stack>
             <MotionBox>
               <Text
                 fontWeight={"bold"}
+                lineHeight={1.0}
                 fontSize={{
                   base: "5xl",
-                  md: "200px",
+                  md: "8xl",
+                  lg: "160px",
                 }}
               >
                 HISTORY
               </Text>
             </MotionBox>
-            <Stack fontSize={{ base: "md", md: "lg" }}>
+            <Stack fontSize={{ base: "sm", md: "lg" }}>
               <MotionBox>
                 <Text>
                   2007.02 | 주식회사 아트브릭 전신인 D.B.P 개인사업 출발
@@ -258,44 +297,45 @@ const About = () => {
         <Stack p={{ base: 8, md: 16 }}>
           <MotionBox>
             <Stack position={"relative"}>
+              <Box
+                h={{ base: 24, md: 180, lg: 320 }}
+                w={"full"}
+                display={"flex"}
+                alignItems={"end"}
+                justifyContent={"end"}
+                pb={{ base: 2, md: 2, lg: 8 }}
+                pr={{ base: 200, md: 400, lg: 660 }}
+              >
+                <Box w={"70%"} h={"50%"} bgColor={"#1f45fc"} />
+              </Box>
               <Stack
                 textAlign={"end"}
                 fontWeight={"bold"}
-                lineHeight={1}
+                lineHeight={0.9}
                 fontSize={{
                   base: "5xl",
-                  md: "200px",
+                  md: "8xl",
+                  lg: "160px",
                 }}
                 zIndex={1}
+                spacing={0}
+                position={"absolute"}
+                right={0}
               >
                 <Text>FEATURE</Text>
                 <Text>PROJECTS</Text>
               </Stack>
-              <Box
-                w={"35%"}
-                h={220}
-                display={{ base: "none", md: "block" }}
-                bgColor={"#1f45fc"}
-                position={"absolute"}
-                top={200}
-                right={780}
-              />
-              <Box
-                w={"25%"}
-                h={70}
-                display={{ base: "block", md: "none" }}
-                bgColor={"#1f45fc"}
-                position={"absolute"}
-                top={12}
-                right={44}
-              />
             </Stack>
           </MotionBox>
-          <Stack p={{ base: 8, md: 32 }}>
+          <Stack
+            py={{ base: 8, md: 16, lg: 32 }}
+            px={{ base: 0, md: 16 }}
+            fontSize={{ base: "xs", md: "md", lg: "lg" }}
+          >
             <SimpleGrid
-              columns={{ base: 1, md: 2 }}
-              columnGap={{ base: 16, md: 32 }}
-              rowGap={{ base: 8, md: 16 }}
+              columns={{ base: 1, lg: 2 }}
+              columnGap={{ base: 16, lg: 32 }}
+              rowGap={{ base: 8, lg: 16 }}
             >
               {years.map((year) => (
                 <Stack>

@@ -31,19 +31,20 @@ const Contact = () => {
           justify={"end"}
         >
           <Stack
-            direction={{ base: "column-reverse", md: "row" }}
+            direction={{ base: "column-reverse", lg: "row" }}
             align={"end"}
-            p={{ base: 0, md: 16 }}
+            p={{ base: 0, md: 8, lg: 16 }}
             w={"full"}
             justify={"space-between"}
             spacing={{ base: 4, md: 0 }}
           >
             <Stack
-              fontSize={{ base: "xl", md: "calc(1.5vw + 24px)" }}
-              pl={{ base: 0, md: 16 }}
+              fontSize={{ base: "xl", md: "2xl", lg: "5xl" }}
+              pl={{ base: 0, lg: 16 }}
               fontWeight={"semibold"}
-              align={{ base: "end", md: "start" }}
+              align={{ base: "end", lg: "start" }}
               spacing={0}
+              pt={{ base: 4, lg: 0 }}
             >
               <MotionBox>
                 <Text>1551-2390</Text>
@@ -52,13 +53,12 @@ const Contact = () => {
                 <Text>artbrickco@nate.com</Text>
               </MotionBox>
             </Stack>
-
             <MotionBox>
               <Stack
                 fontWeight={"bold"}
-                fontSize={{ base: "calc(4vw + 24px)", md: "calc(6vw + 48px)" }}
+                fontSize={{ base: "6xl", md: "8xl", lg: "160px" }}
                 textAlign={"end"}
-                lineHeight={1}
+                lineHeight={0.9}
               >
                 <Text>CONTACT</Text>
                 <Text>US</Text>
@@ -66,13 +66,7 @@ const Contact = () => {
             </MotionBox>
           </Stack>
         </Stack>
-        <Stack
-          h={"40%"}
-          bgColor={"gray.200"}
-          py={{ base: 0, md: 16 }}
-          px={{ base: 8, md: 32 }}
-          justify={"center"}
-        >
+        <Stack h={"40%"} bgColor={"gray.200"} py={16} px={{ base: 16, lg: 32 }}>
           <MotionBox>
             <Text fontSize={{ base: "3xl", md: "5xl" }}>OFFICE</Text>
           </MotionBox>

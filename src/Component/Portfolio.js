@@ -67,9 +67,12 @@ const Portfolio = () => {
     getProjects();
 
     let unsubscribe = onSnapshot(collection(db, "Product"), (snapshot) => {
-      setPortfolioList(
-        snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-      );
+      let oldList = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      let newList = oldList.sort((a, b) => b.createdAt - a.createdAt);
+      setPortfolioList(newList);
+      // setPortfolioList(
+      //   snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      // );
     });
 
     return () => unsubscribe();
@@ -153,6 +156,7 @@ const Portfolio = () => {
     setFormdata({
       id: item.id,
       title: item.title,
+      portfolio_Description: item.portfolio_Description,
     });
 
     setPreviewImage(
@@ -215,6 +219,7 @@ const Portfolio = () => {
         image: formdata?.main_image.name,
         title: formdata?.title,
         detail_images: formdata?.detail_images.map((element) => element.name),
+        portfolio_Description: formdata?.portfolio_Description,
       }).then(() => {
         onClose();
         // window.location.reload();
@@ -271,6 +276,7 @@ const Portfolio = () => {
           ? formdata?.main_image.name
           : previewImage.split("?")[0].split("/").pop(),
         detail_images: newArray,
+        portfolio_Description: formdata?.portfolio_Description,
       }).then(() => {
         onClose();
         // window.location.reload();
@@ -320,6 +326,8 @@ const Portfolio = () => {
                     />
                   </ButtonGroup>
                   <Image
+                    aspectRatio={16 / 10}
+                    objectFit={"cover"}
                     src={
                       item.image.includes(
                         process.env.REACT_APP_FIREBASE_STORAGE
@@ -331,6 +339,17 @@ const Portfolio = () => {
                     }
                   />
                 </Box>
+                <Text opacity={0.5}>
+                  {"등록 시간 : "}
+                  {item.createdAt.toDate().toISOString().split("T")[0]}{" "}
+                  {
+                    item.createdAt
+                      .toDate()
+                      .toISOString()
+                      .split("T")[1]
+                      .split(".")[0]
+                  }
+                </Text>
                 <Text>{item.title}</Text>
               </GridItem>
             ))}
@@ -526,10 +545,13 @@ const Portfolio = () => {
                     onChange={handleChange}
                   />
                 </FormControl>
+                  */}
                 <FormControl>
                   <FormLabel>프로젝트 설명</FormLabel>
                   <Textarea
                     h={100}
+                    defaultValue={formdata?.portfolio_Description}
+                    value={formdata?.portfolio_Description}
                     name="portfolio_Description"
                     typeof="text"
                     placeholder="프로젝트 목적/주요기능/주요메뉴 등을 상세히 입력해 주세요."
@@ -540,7 +562,7 @@ const Portfolio = () => {
                   <Text textAlign={"right"} color={"gray.500"} fontSize={"xs"}>
                     {value.length}/500
                   </Text>
-                </FormControl> */}
+                </FormControl>
               </Stack>
             </ModalBody>
 
