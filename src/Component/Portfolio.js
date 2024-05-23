@@ -177,11 +177,11 @@ const Portfolio = () => {
       alert("프로젝트 정보를 입력해주세요.");
       return;
     }
-    if (formdata?.title === null) {
+    if (!formdata?.title) {
       alert("프로젝트 제목을 입력해주세요.");
       return;
     }
-    if (formdata?.main_image === null || previewImage === null) {
+    if (!formdata?.main_image || !previewImage) {
       alert("프로젝트 메인 이미지는 필수입니다.");
       return;
     }
@@ -208,8 +208,13 @@ const Portfolio = () => {
         createdAt: new Date(),
         image: formdata?.main_image.name,
         title: formdata?.title,
-        detail_images: formdata?.detail_images.map((element) => element.name),
-        portfolio_Description: formdata?.portfolio_Description,
+        // detail_images: formdata?.detail_images.map((element) => element.name),
+        detail_images: formdata?.detail_images
+          ? formdata?.detail_images.map((element) => element.name)
+          : [],
+        portfolio_Description: formdata?.portfolio_Description
+          ? formdata?.portfolio_Description
+          : "",
       }).then(() => {
         onClose();
         // window.location.reload();
@@ -266,7 +271,9 @@ const Portfolio = () => {
           ? formdata?.main_image.name
           : previewImage.split("?")[0].split("/").pop(),
         detail_images: newArray,
-        portfolio_Description: formdata?.portfolio_Description,
+        portfolio_Description: formdata?.portfolio_Description
+          ? formdata?.portfolio_Description
+          : "",
       }).then(() => {
         onClose();
         // window.location.reload();
@@ -333,14 +340,32 @@ const Portfolio = () => {
                 </Box>
                 <Text opacity={0.5}>
                   {"등록 시간 : "}
-                  {item.createdAt.toDate().toISOString().split("T")[0]}{" "}
+                  {/* {item.createdAt.toDate().toISOString().split("T")[0]}{" "}
                   {
                     item.createdAt
                       .toDate()
                       .toISOString()
                       .split("T")[1]
                       .split(".")[0]
-                  }
+                  } */}
+                  {/* {item.createdAt
+                    ? `${item.createdAt.toDate().toISOString().split("T")[0]} ${
+                        item.createdAt
+                          .toDate()
+                          .toISOString()
+                          .split("T")[1]
+                          .split(".")[0]
+                      }`
+                    : "시간 정보 없음"} */}
+                  {item.createdAt
+                    ? (() => {
+                        const date = new Date(item.createdAt.toDate());
+                        console.log("Converted Date:", date);
+                        return date.toLocaleString("ko-KR", {
+                          timeZone: "Asia/Seoul",
+                        });
+                      })()
+                    : "시간 정보 없음"}
                 </Text>
                 <Text>{item.title}</Text>
               </GridItem>
@@ -558,7 +583,10 @@ const Portfolio = () => {
                     maxLength={500}
                   />
                   <Text textAlign={"right"} color={"gray.500"} fontSize={"xs"}>
-                    {formdata?.portfolio_Description?.length}/500
+                    {formdata?.portfolio_Description
+                      ? formdata?.portfolio_Description?.length
+                      : 0}
+                    /500
                   </Text>
                 </FormControl>
               </Stack>
