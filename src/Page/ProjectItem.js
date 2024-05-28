@@ -79,19 +79,19 @@ const ProjectItem = () => {
           <Stack
             direction={{ base: "column", lg: "row" }}
             justify={"space-between"}
-            align={"center"}
+            align={"start"}
           >
             <Text fontSize={{ base: "3xl", md: "5xl" }} fontWeight={"bold"}>
               {data.title}
             </Text>
-            <Box maxW={{ base: "100%", lg: "350" }}>
+            <Box maxW={{ base: "100%", lg: "350" }} pt={{ base: 0, lg: 5 }}>
               <Text
                 fontSize={
                   data.portfolio_Description?.length > 150
                     ? "xs"
                     : { base: "sm", md: "md" }
                 }
-                textAlign={"end"}
+                textAlign={{ base: "start", md: "end" }}
                 lineHeight={1.2}
               >
                 {data.portfolio_Description}

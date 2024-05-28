@@ -6,12 +6,24 @@ import About from "./Page/About";
 import Contact from "./Page/Contact";
 import Project from "./Page/Project";
 import Portfolio from "./Component/Portfolio";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import ProjectItem from "./Page/ProjectItem";
+import MouseControl from "./Component/MouseControl";
 
 function App() {
+  const customTheme = extendTheme({
+    breakpoints: {
+      sm: "30em", // 480px
+      md: "48em", // 768px
+      lg: "90em", // 1440px
+      xl: "120em", // 1920px
+      "2xl": "160em", // 2560px
+    },
+  });
+
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={customTheme}>
+      {/* {window.location.pathname.includes("/contact") && <MouseControl />} */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />

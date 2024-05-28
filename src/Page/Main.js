@@ -20,7 +20,7 @@ const Main = () => {
     setTimeout(() => {
       setIsLoading(false); // 2초 후에 로딩 상태 변경
       setOpen(true); // 메인 화면으로 전환
-    }, 2000);
+    }, 1600);
   }, []);
 
   const rotationVariants = {
@@ -28,9 +28,10 @@ const Main = () => {
     animate: {
       rotate: [0, -360],
       transition: {
-        duration: 0.5,
-        repeat: Infinity, // 무한 반복 설정
-        repeatDelay: 0.8, // 반복 딜레이 설정
+        duration: 0.25,
+        delay: 0.3,
+        repeat: 1, // 무한 반복 설정
+        // repeatDelay: 0.25, // 반복 딜레이 설정
         ease: "linear",
       },
     },

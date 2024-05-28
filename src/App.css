@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+
+.flip-text {
+  font-size: 2rem;
+  color: #333;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 2px solid #333;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 1.0s;
+}
+
+.flip-text:hover {
+  animation: flipAnimation 1.0s;
+}
+
+@keyframes flipAnimation {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes lineAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}

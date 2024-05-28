@@ -1,5 +1,6 @@
 import {
   Box,
+  Container,
   Flex,
   SimpleGrid,
   Stack,
@@ -10,13 +11,16 @@ import React from "react";
 import { Topbar } from "../Component/Topbar";
 import { Footer } from "../Component/Footer";
 import { motion } from "framer-motion";
+import ScrollFillText from "../Component/ScrollRevealText";
+import ScrollFillLine from "../Component/ScrollRevealLine";
+import ScrollAnimation from "../Component/ScrollRevealLine";
 
 const About = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const MotionBox = ({ children, y = 0 }) => (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: y }}
       viewport={{ once: true }}
       transition={{
@@ -35,9 +39,13 @@ const About = () => {
       <Box h={"100vh"} w={"100%"} position={"relative"}>
         <Box
           h={"100vh"}
-          p={{ base: 8, md: 16 }}
+          px={{ base: 8, md: 16 }}
+          py={{ base: 8, md: 16, lg: 32 }}
           align={"center"}
-          justify={"center"}
+          pt={{ base: 0, xl: 48 }}
+          justifyContent={"center"}
+          display={"flex"}
+          flexDirection={"column"}
         >
           {isMobile ? (
             <>
@@ -160,7 +168,15 @@ const About = () => {
             </>
           ) : (
             <>
-              <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
+              <Box
+                zIndex={111}
+                w={"full"}
+                position={"relative"}
+                h={"50%"}
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"center"}
+              >
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -171,21 +187,23 @@ const About = () => {
                     y: { duration: 1 },
                   }}
                 >
-                  <Stack direction={{ base: "column", lg: "row" }}>
-                    <Box
-                      w={"full"}
-                      position={"relative"}
-                      pt={{ base: 36, lg: 32 }}
-                    >
+                  <Stack h={"full"} direction={{ base: "column", lg: "row" }}>
+                    <Box w={"full"} position={"relative"}>
                       <Box
                         display={"flex"}
                         alignSelf={"flex-start"}
                         flexDirection={{ base: "column", lg: "row" }}
+                        pt={{ base: 36, lg: 0 }}
                       >
                         <Text
                           textAlign={"start"}
                           fontWeight={"bold"}
-                          fontSize={180}
+                          fontSize={{
+                            base: "160px",
+                            lg: "180px",
+                            xl: "200px",
+                            "2xl": "240px",
+                          }}
                           lineHeight={0.9}
                           whiteSpace={"nowrap"}
                         >
@@ -195,9 +213,16 @@ const About = () => {
                           display={"flex"}
                           alignSelf={{ base: "flex-start", lg: "flex-end" }}
                           py={{ base: 0, lg: 4 }}
-                          ml={{ base: 0, lg: -8 }}
+                          ml={{ base: 0, lg: "-1.5vw" }}
                         >
-                          <Text fontSize={"sm"} whiteSpace={"nowrap"}>
+                          <Text
+                            fontSize={{
+                              base: "xs",
+                              lg: "sm",
+                              "2xl": "md",
+                            }}
+                            whiteSpace={"nowrap"}
+                          >
                             규정할수 없는, 규정 되어지지 않음을 인지하고
                             탐미한다
                           </Text>
@@ -206,12 +231,17 @@ const About = () => {
                     </Box>
                     <Box
                       display={"flex"}
-                      alignSelf={"flex-end"}
-                      fontSize={{ base: "xl", lg: "2xl" }}
+                      alignSelf={{ base: "flex-end", lg: "center" }}
+                      fontSize={{
+                        base: "xl",
+                        lg: "2xl",
+                        "2xl": "4xl",
+                      }}
                       textAlign={"start"}
                       maxW={{ base: "70%", lg: "50%" }}
                       flexDirection={"column"}
                       fontWeight={"600"}
+                      pt={{ base: 8, md: 0, lg: 2, xl: 2, "2xl": 8 }}
                     >
                       <Text>
                         ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
@@ -224,7 +254,7 @@ const About = () => {
                   </Stack>
                 </motion.div>
               </Box>
-              <Box zIndex={111} w={"full"} h={"50%"} position={"relative"}>
+              <Box zIndex={111} w={"full"} position={"relative"} h={"50%"}>
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -239,13 +269,21 @@ const About = () => {
                   <Stack>
                     <Box
                       w={"full"}
+                      h={"40%"}
                       position={"relative"}
-                      pt={{ base: 20, lg: 16 }}
+                      display={"flex"}
+                      flexDirection={"column"}
+                      pt={{ base: 12, md: 16, lg: 16, xl: 8, "2xl": 4 }}
                     >
                       <Box display={"flex"} alignSelf={"flex-start"}>
                         <Text
                           fontWeight={"bold"}
-                          fontSize={180}
+                          fontSize={{
+                            base: "160px",
+                            lg: "180px",
+                            xl: "200px",
+                            "2xl": "240px",
+                          }}
                           lineHeight={0.9}
                           whiteSpace={"nowrap"}
                         >
@@ -253,7 +291,15 @@ const About = () => {
                         </Text>
                       </Box>
                       <Box display={"flex"} alignSelf={"flex-start"}>
-                        <Text fontSize={"sm"} ml={2} whiteSpace={"nowrap"}>
+                        <Text
+                          fontSize={{
+                            base: "xs",
+                            lg: "sm",
+                            "2xl": "md",
+                          }}
+                          ml={{ base: "0.5vw", lg: 2 }}
+                          whiteSpace={"nowrap"}
+                        >
                           인간이 구현하는 건축의 태초적이고, 인공적인 기초
                           단위를 추종한다
                         </Text>
@@ -262,7 +308,11 @@ const About = () => {
                     <Box
                       display={"flex"}
                       alignSelf={"flex-end"}
-                      fontSize={{ base: "xl", lg: "2xl" }}
+                      fontSize={{
+                        base: "xl",
+                        lg: "2xl",
+                        "2xl": "4xl",
+                      }}
                       textAlign={"start"}
                       maxW={{ base: "70%", lg: "50%" }}
                       flexDirection={"column"}
@@ -283,19 +333,39 @@ const About = () => {
             </>
           )}
         </Box>
-        <Box
-          w={"full"}
-          h={"36%"}
-          position={"absolute"}
-          top={"32%"}
-          bgColor={"#1f45fc"}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            ease: "easeInOut",
+            duration: 1,
+            delay: 1,
+            y: { duration: 1 },
+          }}
+          style={{
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <Box
+            w={"full"}
+            h={"36%"}
+            position={"absolute"}
+            top={"32%"}
+            bgColor={"#1f45fc"}
+          />
+        </motion.div>
       </Box>
       <Box w={"100%"}>
         <Stack p={{ base: 8, md: 16 }}>
           <Stack>
             <MotionBox>
-              <Text
+              <ScrollFillText
+                index={0}
                 fontWeight={"bold"}
                 lineHeight={1.0}
                 fontSize={{
@@ -305,7 +375,7 @@ const About = () => {
                 }}
               >
                 HISTORY
-              </Text>
+              </ScrollFillText>
             </MotionBox>
             <Stack fontSize={{ base: "sm", md: "lg" }}>
               <MotionBox>
@@ -332,10 +402,6 @@ const About = () => {
               <MotionBox>
                 <Text>2019.04 | 주식회사 아트브릭 디자인전문회사 취득</Text>
               </MotionBox>
-
-              <MotionBox>
-                <Text>2019.08 | 주식회사 아트브릭 여성전문기업 등록</Text>
-              </MotionBox>
             </Stack>
           </Stack>
         </Stack>
@@ -354,6 +420,7 @@ const About = () => {
                 <Box w={"70%"} h={"50%"} bgColor={"#1f45fc"} />
               </Box>
               <Stack
+                align={"end"}
                 textAlign={"end"}
                 fontWeight={"bold"}
                 lineHeight={0.9}
@@ -367,12 +434,17 @@ const About = () => {
                 position={"absolute"}
                 right={0}
               >
-                <Text>FEATURE</Text>
-                <Text>PROJECTS</Text>
+                <ScrollFillText index={1} textAlign={"end"}>
+                  FEATURE
+                </ScrollFillText>
+                <ScrollFillText index={1} textAlign={"end"}>
+                  PROJECTS
+                </ScrollFillText>
               </Stack>
             </Stack>
           </MotionBox>
           <Stack
+            id="historyArea"
             py={{ base: 8, md: 16, lg: 32 }}
             px={{ base: 0, md: 16 }}
             fontSize={{ base: "xs", md: "md", lg: "lg" }}
@@ -382,14 +454,19 @@ const About = () => {
               columnGap={{ base: 16, lg: 32 }}
               rowGap={{ base: 8, lg: 16 }}
             >
-              {years.map((year) => (
-                <Stack>
+              {years.map((year, index) => (
+                <Stack key={year}>
                   <MotionBox>
-                    <Text>{year}</Text>
+                    <Text
+                      fontSize={{ base: "sm", md: "lg", lg: "xl" }}
+                      fontWeight={"bold"}
+                    >
+                      {year}
+                    </Text>
                   </MotionBox>
-                  <MotionBox>
-                    <Box borderTop={"1px"} borderColor={"gray.300"} />
-                  </MotionBox>
+
+                  <ScrollAnimation index={index} />
+
                   <Stack>
                     {projects[year].map((project) => (
                       <MotionBox>

@@ -51,7 +51,7 @@ const Project = () => {
         <SimpleGrid
           columns={{ base: 1, md: 2 }}
           columnGap={32}
-          rowGap={{ base: 16, md: 24 }}
+          rowGap={{ base: 8, md: 16 }}
         >
           {portfolioList.map((item) => (
             <motion.div
