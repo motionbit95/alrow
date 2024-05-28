@@ -50,7 +50,14 @@ const ScrollFillText = ({ children, index, ...props }) => {
       whiteSpace="nowrap"
       id={`scrollText${index}`}
     >
-      <Text position="relative" zIndex={2} {...props} w={"100%"} opacity={0.1}>
+      <Text
+        position="relative"
+        zIndex={2}
+        {...props}
+        w={"100%"}
+        opacity={0.1}
+        lineHeight={1.0}
+      >
         {children}
       </Text>
       <motion.div
@@ -68,7 +75,14 @@ const ScrollFillText = ({ children, index, ...props }) => {
           textAlign: props.textAlign ? props.textAlign : "left",
         }}
       >
-        <Text position="absolute" zIndex={2} {...props} w={"100%"} opacity={1}>
+        <Text
+          position="absolute"
+          zIndex={2}
+          {...props}
+          w={"100%"}
+          opacity={1}
+          lineHeight={1.0}
+        >
           {children}
         </Text>
       </motion.div>

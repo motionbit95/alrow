@@ -23,7 +23,7 @@ function App() {
 
   return (
     <ChakraProvider theme={customTheme}>
-      {/* {window.location.pathname.includes("/contact") && <MouseControl />} */}
+      <MouseControl />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />

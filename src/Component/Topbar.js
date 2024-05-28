@@ -67,10 +67,10 @@ export const Topbar = ({ ...props }) => {
           _hover={{ transform: "scale(1.1)" }}
           onMouseEnter={() => setHoverIndex(0)}
           onMouseLeave={() => setHoverIndex(-1)}
+          cursor={"pointer"}
         >
           <Image
             id="logo"
-            cursor={"pointer"}
             src={
               hoverIndex === 0
                 ? require("../Asset/Image/logoWhite.png")
@@ -220,7 +220,7 @@ export const Topbar = ({ ...props }) => {
                   backgroundColor: "white",
                   transform: hovered1 ? "scaleX(1)" : "scaleX(0)",
                   transformOrigin: hovered1 ? "bottom left" : "bottom right",
-                  transition: "transform 0.3s ease-in-out",
+                  transition: "transform 0.2s ease-in-out",
                 }}
               >
                 <Text

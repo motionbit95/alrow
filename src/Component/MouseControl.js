@@ -27,7 +27,8 @@ const MouseControl = () => {
       transform="translate(-50%, -50%)"
       boxSize={10}
       borderRadius="full"
-      border="1px solid white"
+      border="1px solid #707070"
+      pointerEvents="none" // 마우스 이벤트가 이 요소를 뚫고 나머지 요소로 전달되도록 함
     />
   );
 };

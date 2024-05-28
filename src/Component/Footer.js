@@ -12,7 +12,6 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import ArlowLogo1 from "../Asset/Logo/ArlowLogo1.svg";
-import ArrowTopRightIcon from "../Asset/Image/Arrow-up-right.svg";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -21,6 +20,23 @@ export const Footer = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
   const Nav = useNavigate();
   const [hovered1, setHovered1] = useState(false);
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMouseOverBox, setIsMouseOverBox] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsMouseOverBox(true);
+    document.body.style.cursor = "none"; // 마우스 숨기기
+  };
+
+  const handleMouseLeave = () => {
+    setIsMouseOverBox(false);
+    document.body.style.cursor = "auto"; // 마우스 보이기
+  };
+
+  const handleMouseMove = (event) => {
+    setMousePosition({ x: event.clientX, y: event.clientY });
+  };
 
   return (
     <Stack
@@ -104,6 +120,9 @@ export const Footer = () => {
           overflow="hidden"
           width={{ base: "95vw", md: "97vw", lg: "98vw", xl: "99vw" }}
           position="relative"
+          onMouseMove={handleMouseMove}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <motion.div
             style={{
@@ -134,6 +153,30 @@ export const Footer = () => {
               Atypical Genuine Classical to Contemporary
             </Text>
           </motion.div>
+          <Box
+            position="fixed"
+            width="100%"
+            height="100%"
+            pointerEvents="none"
+            onMouseEnter={(e) => e.stopPropagation()}
+            onMouseLeave={(e) => e.stopPropagation()}
+          >
+            {isMouseOverBox && (
+              <Box
+                position="fixed"
+                width="100%"
+                height="100%"
+                pointerEvents="none"
+                onMouseEnter={(e) => e.stopPropagation()}
+                onMouseLeave={(e) => e.stopPropagation()}
+              >
+                <MovingCircle
+                  mouseX={mousePosition.x}
+                  mouseY={mousePosition.y}
+                />
+              </Box>
+            )}
+          </Box>
         </Box>
         <Text
           px={{ base: 8, md: 16 }}
@@ -194,42 +237,109 @@ export const Footer = () => {
             </Text>
           </Stack>
           {!isMobile && (
-            <Button
-              variant={"transparent"}
+            <Box
+              display={"flex"}
+              alignItems={"center"}
+              gap={2}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              _hover={{ transform: "scale(1.1)" }}
-              leftIcon={<ArrowTopRight />}
+              _hover={{ color: "white", fontWeight: "bold" }}
+              fontSize={{ base: "sm", md: "md" }}
+              cursor={"pointer"}
             >
-              BACK TOP
-            </Button>
+              <ArrowUpRightIcon />
+              <Text>BACK TOP</Text>
+            </Box>
           )}
         </Stack>
-        <Stack w={{ base: "100%", md: "auto" }}>
-          <ButtonGroup variant={"transparent"} justifyContent={"space-between"}>
-            <Button
-              _hover={{ transform: "scale(1.1)" }}
+        <Stack
+          w={{ base: "100%", md: "auto" }}
+          fontSize={{ base: "sm", md: "md" }}
+        >
+          <HStack justifyContent={"space-between"} gap={4}>
+            <Box
+              _hover={{ color: "white", fontWeight: "bold" }}
               onClick={() => window.open("https://blog.naver.com/artbricklab")}
             >
-              BLOG
-            </Button>
-            <Button
-              _hover={{ transform: "scale(1.1)" }}
+              <Text cursor={"pointer"}>BLOG</Text>
+            </Box>
+            <Box
+              _hover={{ color: "white", fontWeight: "bold" }}
               onClick={() =>
                 window.open("https://www.instagram.com/artbrick.official")
               }
             >
-              INSTAGRAM
-            </Button>
-            {isMobile && <ArrowTopRight />}
-          </ButtonGroup>
+              <Text cursor={"pointer"}>INSTAGRAM</Text>
+            </Box>
+            {isMobile && (
+              <Box cursor={"pointer"}>
+                <ArrowUpRightIcon />
+              </Box>
+            )}
+          </HStack>
         </Stack>
       </Stack>
     </Stack>
   );
 };
 
-const ArrowTopRight = () => (
-  <Box boxSize={"16px"}>
-    <Image src={ArrowTopRightIcon} />
-  </Box>
+const ArrowUpRightIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={props.hovered ? "white" : "currentColor"}
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    onMouseEnter={(e) => {
+      e.target.setAttribute("stroke", "white");
+    }}
+    onMouseLeave={(e) => {
+      e.target.setAttribute("stroke", "currentColor");
+    }}
+    {...props}
+  >
+    <path d="M17 7l-10 10" />
+    <path d="M8 7l9 0 0 9" />
+  </svg>
 );
+
+export default ArrowUpRightIcon;
+
+export const MovingCircle = ({ mouseX, mouseY }) => {
+  return (
+    <motion.div
+      style={{
+        position: "fixed",
+        left: mouseX,
+        top: mouseY,
+        transform: "translate(-50%, -50%)",
+        borderRadius: "50%",
+        width: "100px",
+        height: "100px",
+        backgroundColor: "#47E2E2",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        display: "flex",
+        cursor: "none",
+      }}
+    >
+      {window.location.pathname.includes("/contact") ? (
+        <Text pt={"2px"}>
+          Our
+          <br />
+          Work
+        </Text>
+      ) : (
+        <Text pt={2}>
+          CONTACT
+          <br />
+          US
+        </Text>
+      )}
+    </motion.div>
+  );
+};
