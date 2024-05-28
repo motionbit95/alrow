@@ -14,6 +14,7 @@ import {
   Text,
   Th,
   Tr,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Topbar } from "../Component/Topbar";
@@ -39,6 +40,8 @@ const Contact = () => {
   //   }, 250); // 0.3초마다 텍스트 변경
   //   return () => clearInterval(interval);
   // }, []);
+
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
     <>
@@ -205,74 +208,255 @@ const Contact = () => {
               <ScrollFillText index={1}>OF SOUTH KOREA</ScrollFillText>
             </Stack>
           </Box>
-          <TableContainer
-            bgColor={"gray.200"}
-            py={{ base: 16, lg: 32 }}
-            px={{ base: 8, lg: 32 }}
-          >
-            <Table>
-              <Tbody>
-                <Tr>
-                  <Td w={"40%"}>
-                    <Box />
-                  </Td>
-                  <Td>
-                    <HStack py={{ base: 8, lg: 16 }} spacing={12}>
-                      <Flex w="100px" gap={{ base: 2 }}>
-                        <Image
-                          src={require("../Asset/Image/leftBlack.png")}
-                          width="45%"
-                          height="auto"
-                        />
-                        <Image
-                          src={require("../Asset/Image/rightBlack.png")}
-                          width="45%"
-                          height="auto"
-                        />
-                      </Flex>
+          {isMobile ? (
+            <Stack p={8} divider={<StackDivider borderColor="gray.200" />}>
+              <Stack py={{ base: 8, lg: 16 }} spacing={12}>
+                <Flex w="100px" gap={"5%"}>
+                  <Image
+                    src={require("../Asset/Image/leftBlack.png")}
+                    width="45%"
+                    height="auto"
+                  />
+                  <Image
+                    src={require("../Asset/Image/rightBlack.png")}
+                    width="45%"
+                    height="auto"
+                  />
+                </Flex>
+                <Stack fontWeight={"bold"} fontSize={"18px"}>
+                  <ScrollFillText index={2}>Artbrick Co., Ltd.</ScrollFillText>
+                  <ScrollFillText index={2}>
+                    (주)아트브릭은 대한민국 전역을 커버하는
+                    <br />
+                    인테리어 디자인 전문기업으로,
+                    <br />
+                    서울과 부산 사무실을 운영하고 있습니다.
+                  </ScrollFillText>
+                </Stack>
+              </Stack>
+              <Stack spacing={12} py={{ base: 8, lg: 16 }}>
+                <Stack spacing={4} fontSize={"14px"}>
+                  <Text>01</Text>
+                  <Text>SEND US YOUR PROJECT</Text>
+                </Stack>
+                <Stack spacing={4} fontSize={"20px"} fontWeight={"semibold"}>
+                  <ScrollFillText index={3}>LET'S TALK</ScrollFillText>
+                  <Box>
+                    <ScrollFillText index={4}>1551-2390</ScrollFillText>
+                    <ScrollFillText index={4}>
+                      artbrickco@nate.com
+                    </ScrollFillText>
+                  </Box>
+                </Stack>
+              </Stack>
+              <Stack spacing={12} py={{ base: 8, lg: 16 }}>
+                <Stack spacing={4}>
+                  <Text>02</Text>
+                  <Text>WE WORK EVERYWHERE.</Text>
+                </Stack>
+                <Stack spacing={4} fontWeight={"semibold"}>
+                  <ScrollFillText index={5} fontSize={"18px"}>
+                    OFFICES
+                  </ScrollFillText>
+                  <Stack fontSize={"16px"}>
+                    <ScrollFillText index={6}>
+                      ​서울사옥 | 서울특별시 강서구 양천로 551-24 한화비즈메트로
+                      2차 306호
+                    </ScrollFillText>
+                    <ScrollFillText index={6}>
+                      부산사옥 HQ | 부산광역시 수영구 광남로 213번길 43(민락동)
+                    </ScrollFillText>
+                  </Stack>
+                </Stack>
+              </Stack>
+            </Stack>
+          ) : (
+            <TableContainer
+              bgColor={"gray.200"}
+              py={{ base: 16, md: 24, lg: 32 }}
+              px={{ base: 8, md: 8, lg: 32 }}
+              divider
+            >
+              <Table variant="simple" size={"md"}>
+                <Tbody>
+                  <Tr>
+                    <Td></Td>
+                    <Td>
                       <Stack
-                        fontSize={{
-                          base: "lg",
-                          lg: "xl",
-                          xl: "2xl",
-                          "2xl": "3xl",
-                        }}
-                        fontWeight={"bold"}
+                        py={{ base: 8, lg: 16 }}
+                        spacing={{ base: 6, lg: 12 }}
+                        direction={{ base: "column", lg: "row" }}
                       >
-                        <Text>Artbrick Co., Ltd.</Text>
-                        <Text>
-                          (주)아트브릭은 대한민국 전역을 커버하는 인테리어
-                          <br />
-                          디자인 전문기업으로, 서울과 부산 사무실을 운영하고
-                          <br />
-                          있습니다.
-                        </Text>
+                        <Box position={"relative"}>
+                          <motion.div
+                            initial={{ opacity: 0, x: 0 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: false }}
+                            transition={{
+                              ease: "easeInOut",
+                              duration: 1,
+                              y: { duration: 2 },
+                            }}
+                          >
+                            <Flex w="100px" gap={"5%"}>
+                              <Image
+                                src={require("../Asset/Image/leftBlack.png")}
+                                width="45%"
+                                height="auto"
+                              />
+                              <Image
+                                src={require("../Asset/Image/rightBlack.png")}
+                                width="45%"
+                                height="auto"
+                              />
+                            </Flex>
+                          </motion.div>
+                          <Flex
+                            w="100px"
+                            gap={"5%"}
+                            position={"absolute"}
+                            top={0}
+                            left={0}
+                            opacity={0.2}
+                          >
+                            <Image
+                              src={require("../Asset/Image/leftBlack.png")}
+                              width="45%"
+                              height="auto"
+                            />
+                            <Image
+                              src={require("../Asset/Image/rightBlack.png")}
+                              width="45%"
+                              height="auto"
+                            />
+                          </Flex>
+                        </Box>
+                        <Stack
+                          fontSize={{
+                            base: "lg",
+                            lg: "xl",
+                            xl: "2xl",
+                            "2xl": "3xl",
+                          }}
+                          fontWeight={"bold"}
+                        >
+                          <ScrollFillText index={2}>
+                            Artbrick Co., Ltd.
+                          </ScrollFillText>
+                          <ScrollFillText index={2}>
+                            (주)아트브릭은 대한민국 전역을 커버하는 인테리어
+                            디자인 전문기업으로,
+                            <br />
+                            서울과 부산 사무실을 운영하고 있습니다.
+                          </ScrollFillText>
+                        </Stack>
                       </Stack>
-                    </HStack>
-                  </Td>
-                </Tr>
-                <Tr>
-                  <Td w={"40%"} alignContent={"start"}>
-                    <Stack spacing={16}>
-                      <Text>01</Text>
-                      <Text
-                        fontSize={{
-                          base: "lg",
-                          md: "xl",
-                          lg: "2xl",
-                          xl: "3xl",
-                          "2xl": "5xl",
-                        }}
-                        fontWeight={"bold"}
-                      >
-                        LET'S TALK
-                      </Text>
-                    </Stack>
-                  </Td>
-                  <Td>
-                    <Stack spacing={16}>
-                      <Text>SEND US YOUR PROJECT</Text>
-                      <HStack justify={"space-between"}>
+                    </Td>
+                  </Tr>
+                  <Tr>
+                    <Td alignContent={"start"}>
+                      <Stack spacing={16} py={8}>
+                        <Text
+                          fontSize={{
+                            base: "xs",
+                            md: "sm",
+                            lg: "md",
+                            xl: "lg",
+                          }}
+                        >
+                          01
+                        </Text>
+                        <ScrollFillText
+                          index={3}
+                          fontSize={{
+                            base: "lg",
+                            md: "xl",
+                            lg: "2xl",
+                            xl: "3xl",
+                            "2xl": "5xl",
+                          }}
+                          fontWeight={"bold"}
+                        >
+                          LET'S TALK
+                        </ScrollFillText>
+                      </Stack>
+                    </Td>
+                    <Td>
+                      <Stack py={8} spacing={16}>
+                        <Text
+                          fontSize={{
+                            base: "xs",
+                            md: "sm",
+                            lg: "md",
+                            xl: "lg",
+                          }}
+                        >
+                          SEND US YOUR PROJECT
+                        </Text>
+                        <HStack justify={"space-between"}>
+                          <Stack
+                            fontSize={{
+                              base: "md",
+                              lg: "lg",
+                              xl: "xl",
+                              "2xl": "2xl",
+                            }}
+                            fontWeight={"semibold"}
+                            pb={12}
+                          >
+                            <ScrollFillText index={3}>1551-2390</ScrollFillText>
+                            <ScrollFillText index={3}>
+                              artbrickco@nate.com
+                            </ScrollFillText>
+                          </Stack>
+                          <ButtonGroup variant={"transparent"} size={"sm"}>
+                            <Button>BLOG</Button>
+                            <Button>INSTAGRAM</Button>
+                          </ButtonGroup>
+                        </HStack>
+                      </Stack>
+                    </Td>
+                  </Tr>
+                  <Tr>
+                    <Td alignContent={"start"}>
+                      <Stack spacing={16} py={8}>
+                        <Text
+                          fontSize={{
+                            base: "xs",
+                            md: "sm",
+                            lg: "md",
+                            xl: "lg",
+                          }}
+                        >
+                          02
+                        </Text>
+                        <ScrollFillText
+                          index={4}
+                          fontSize={{
+                            base: "lg",
+                            md: "xl",
+                            lg: "2xl",
+                            xl: "3xl",
+                            "2xl": "5xl",
+                          }}
+                          fontWeight={"bold"}
+                        >
+                          OFFICES
+                        </ScrollFillText>
+                      </Stack>
+                    </Td>
+                    <Td>
+                      <Stack spacing={16} py={8}>
+                        <Text
+                          fontSize={{
+                            base: "xs",
+                            md: "sm",
+                            lg: "md",
+                            xl: "lg",
+                          }}
+                        >
+                          WE WORK EVERYWHERE.
+                        </Text>
                         <Stack
                           fontSize={{
                             base: "md",
@@ -280,73 +464,31 @@ const Contact = () => {
                             xl: "xl",
                             "2xl": "2xl",
                           }}
-                          fontWeight={"semibold"}
+                          spacing={4}
                           pb={12}
                         >
-                          <Text>1551-2390</Text>
-                          <Text>artbrickco@nate.com</Text>
-                        </Stack>
-                        <ButtonGroup variant={"transparent"} size={"sm"}>
-                          <Button>BLOG</Button>
-                          <Button>INSTAGRAM</Button>
-                        </ButtonGroup>
-                      </HStack>
-                    </Stack>
-                  </Td>
-                </Tr>
-                <Tr>
-                  <Td w={"40%"} alignContent={"start"}>
-                    <Stack spacing={16}>
-                      <Text>02</Text>
-                      <Text
-                        fontSize={{
-                          base: "lg",
-                          md: "xl",
-                          lg: "2xl",
-                          xl: "3xl",
-                          "2xl": "5xl",
-                        }}
-                        fontWeight={"bold"}
-                      >
-                        OFFICES
-                      </Text>
-                    </Stack>
-                  </Td>
-                  <Td>
-                    <Stack spacing={16}>
-                      <Text
-                        fontSize={{ base: "xs", md: "sm", lg: "md", xl: "lg" }}
-                      >
-                        WE WORK EVERYWHERE.
-                      </Text>
-                      <Stack
-                        fontSize={{
-                          base: "md",
-                          lg: "lg",
-                          xl: "xl",
-                          "2xl": "2xl",
-                        }}
-                        spacing={4}
-                        pb={12}
-                      >
-                        <Text fontWeight={"bold"}>KOREA</Text>
-                        <Stack>
-                          <Text>
-                            ​서울사옥 | 서울특별시 강서구 양천로 551-24
-                            한화비즈메트로 2차 306호
-                          </Text>
-                          <Text>
-                            부산사옥 HQ | 부산광역시 수영구 광남로 213번길
-                            43(민락동)
-                          </Text>
+                          <ScrollFillText index={4} fontWeight={"bold"}>
+                            KOREA
+                          </ScrollFillText>
+                          <Stack>
+                            <ScrollFillText index={4}>
+                              ​서울사옥 | 서울특별시 강서구 양천로 551-24
+                              한화비즈메트로 2차 306호
+                            </ScrollFillText>
+                            <ScrollFillText index={4}>
+                              부산사옥 HQ | 부산광역시 수영구 광남로 213번길
+                              43(민락동)
+                            </ScrollFillText>
+                          </Stack>
                         </Stack>
                       </Stack>
-                    </Stack>
-                  </Td>
-                </Tr>
-              </Tbody>
-            </Table>
-          </TableContainer>
+                    </Td>
+                  </Tr>
+                </Tbody>
+              </Table>
+            </TableContainer>
+          )}
+
           <Footer />
         </Flex>
       </Flex>

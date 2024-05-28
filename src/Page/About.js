@@ -454,7 +454,7 @@ const About = () => {
               columnGap={{ base: 16, lg: 32 }}
               rowGap={{ base: 8, lg: 16 }}
             >
-              {years.map((year, index) => (
+              {years.map((year) => (
                 <Stack key={year}>
                   <MotionBox>
                     <Text
@@ -465,7 +465,22 @@ const About = () => {
                     </Text>
                   </MotionBox>
 
-                  <ScrollAnimation index={index} />
+                  <motion.div
+                    initial={{ opacity: 0, width: 0 }}
+                    whileInView={{ opacity: 1, width: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{
+                      ease: "easeInOut",
+                      duration: 1,
+                      x: { duration: 2 },
+                    }}
+                  >
+                    <Box
+                      w={"100%"}
+                      borderBottom={"1px"}
+                      borderColor={"gray.300"}
+                    />
+                  </motion.div>
 
                   <Stack>
                     {projects[year].map((project) => (

@@ -15,10 +15,12 @@ import ArlowLogo1 from "../Asset/Logo/ArlowLogo1.svg";
 import ArrowTopRightIcon from "../Asset/Image/Arrow-up-right.svg";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export const Footer = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
   const Nav = useNavigate();
+  const [hovered1, setHovered1] = useState(false);
 
   return (
     <Stack
@@ -98,7 +100,11 @@ export const Footer = () => {
         )}
       </Stack>
       <Stack>
-        <Box overflow="hidden" width="99vw" position="relative">
+        <Box
+          overflow="hidden"
+          width={{ base: "95vw", md: "97vw", lg: "98vw", xl: "99vw" }}
+          position="relative"
+        >
           <motion.div
             style={{
               display: "inline-block",
@@ -156,7 +162,27 @@ export const Footer = () => {
           w={{ base: "auto", md: "55%" }}
         >
           <Stack>
-            <Box w={"100%"} cursor={"pointer"} onClick={() => Nav("/")}>
+            <Box
+              w={"100%"}
+              cursor={"pointer"}
+              position="relative"
+              overflow={"hidden"}
+              onClick={() => Nav("/")}
+              onMouseEnter={() => setHovered1(true)}
+              onMouseLeave={() => setHovered1(false)}
+              _after={{
+                content: '""',
+                position: "absolute",
+                width: "100%",
+                height: "2px",
+                bottom: 0,
+                left: 0,
+                backgroundColor: "black",
+                transform: hovered1 ? "scaleX(1)" : "scaleX(0)",
+                transformOrigin: hovered1 ? "bottom left" : "bottom right",
+                transition: "transform 0.3s ease-in-out",
+              }}
+            >
               <Image src={ArlowLogo1} boxSize={"100%"} />
             </Box>
             <Text
@@ -182,13 +208,15 @@ export const Footer = () => {
           <ButtonGroup variant={"transparent"} justifyContent={"space-between"}>
             <Button
               _hover={{ transform: "scale(1.1)" }}
-              onClick={() => window.open("https://blog.artbrick.co/")}
+              onClick={() => window.open("https://blog.naver.com/artbricklab")}
             >
               BLOG
             </Button>
             <Button
               _hover={{ transform: "scale(1.1)" }}
-              onClick={() => window.open("https://blog.artbrick.co/")}
+              onClick={() =>
+                window.open("https://www.instagram.com/artbrick.official")
+              }
             >
               INSTAGRAM
             </Button>

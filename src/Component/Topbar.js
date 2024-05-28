@@ -21,7 +21,6 @@ export const Topbar = ({ ...props }) => {
   const nav = useNavigate();
   const isMobile = useBreakpointValue({ base: true, md: false });
   const [hoverIndex, setHoverIndex] = useState(-1);
-  const [whitecolor, setWhitecolor] = useState(props.whitecolor);
   const [hovered1, setHovered1] = useState(false);
   const [hovered2, setHovered2] = useState(false);
   const [hovered3, setHovered3] = useState(false);
@@ -59,13 +58,8 @@ export const Topbar = ({ ...props }) => {
   }, [hoverIndex]);
 
   return (
-    <Stack zIndex={999} position={"sticky"} w={"100%"} top={0}>
-      <Flex
-        w={"100%"}
-        justify={"space-between"}
-        p={{ base: 8, md: 16 }}
-        color={whitecolor ? "white" : "black"}
-      >
+    <Stack zIndex={999} position={"fixed"} w={"100%"} top={0}>
+      <Flex w={"100%"} justify={"space-between"} p={{ base: 8, md: 16 }}>
         <Box
           id="logoArea"
           zIndex={111}
@@ -73,11 +67,8 @@ export const Topbar = ({ ...props }) => {
           _hover={{ transform: "scale(1.1)" }}
           onMouseEnter={() => setHoverIndex(0)}
           onMouseLeave={() => setHoverIndex(-1)}
-          // transform={open ? "scale(0)" : "scale(1)"}
-          // transition={"all 0.1s ease-in-out"}
         >
           <Image
-            // display={open ? "none" : "block"}
             id="logo"
             cursor={"pointer"}
             src={
@@ -94,7 +85,7 @@ export const Topbar = ({ ...props }) => {
           size={"1.5rem"}
           onClick={() => {
             setOpen(!open);
-            setWhitecolor(!whitecolor);
+            // setWhitecolor(!whitecolor);
           }}
           zIndex={111}
           position={"relative"}
@@ -109,7 +100,6 @@ export const Topbar = ({ ...props }) => {
           style={{
             width: "100%",
             height: "50vh",
-            padding: "30% 32px 16px 32px",
             backgroundColor: "#1f45fc",
             position: "absolute",
             top: 0,
@@ -121,31 +111,32 @@ export const Topbar = ({ ...props }) => {
           variants={variants}
           transition={{ duration: 0.2 }}
         >
-          <Stack spacing={0} fontSize={"2xl"} fontWeight={"semibold"}>
+          <Box h={"10vh"} />
+          <Stack spacing={0} fontSize={"2xl"} p={8}>
             <Text
-              _hover={{ fontSize: "lg" }}
+              _hover={{ fontWeight: "bold", color: "white" }}
               cursor={"pointer"}
               onClick={() => nav("/project")}
             >
               PROJECT
             </Text>
             <Text
-              _hover={{ fontSize: "lg" }}
+              _hover={{ fontWeight: "bold", color: "white" }}
               cursor={"pointer"}
               onClick={() => nav("/about")}
             >
               ABOUT
             </Text>
             <Text
-              _hover={{ fontSize: "lg" }}
+              _hover={{ fontWeight: "bold", color: "white" }}
               cursor={"pointer"}
               onClick={() => nav("/contact")}
             >
               CONTACT
             </Text>
           </Stack>
-          <Stack align={"flex-start"}>
-            <Box w={"70%"}>
+          <Stack align={"flex-start"} p={8}>
+            <Box w={"300px"}>
               <Image src={ArlowLogo1} boxSize={"100%"} />
             </Box>
             <Text

@@ -127,7 +127,7 @@ const Main = () => {
           </video>
         )}
 
-        <Topbar whitecolor />
+        <Topbar />
       </Box>
     </Flex>
   );

@@ -41,7 +41,7 @@ const ProjectItem = () => {
 
   return (
     <Flex direction={"column"} flex={1}>
-      <Topbar whitecolor />
+      <Topbar />
       <Box w="full">
         <motion.div
           initial={{ opacity: 0, y: 0 }}

@@ -32,7 +32,12 @@ const Project = () => {
   }, []);
 
   return (
-    <Flex direction={"column"} flex={1} bgColor={"gray.100"}>
+    <Flex
+      direction={"column"}
+      flex={1}
+      bgColor={"gray.100"}
+      position={"relative"}
+    >
       <Topbar />
       <Stack
         spacing={{ base: 16, lg: 32 }}
