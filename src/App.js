@@ -54,17 +54,17 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
         </Routes>
       </BrowserRouter>
-      {(!(window.location.pathname === "/") ||
-        !(window.location.pathname === "/portfolio")) && (
-        <Footer
-          onFooterText={(flag) => {
-            isOnFooterText.current = flag;
-          }}
-          onHoverEffect={(flag) => {
-            isHoverEffect.current = flag;
-          }}
-        />
-      )}
+      {!(window.location.pathname === "/portfolio") &&
+        !(window.location.pathname === "/") && (
+          <Footer
+            onFooterText={(flag) => {
+              isOnFooterText.current = flag;
+            }}
+            onHoverEffect={(flag) => {
+              isHoverEffect.current = flag;
+            }}
+          />
+        )}
     </ChakraProvider>
   );
 }
