@@ -280,7 +280,10 @@ export const Footer = (props) => {
               <Text cursor={"pointer"}>INSTAGRAM</Text>
             </Box>
             {isMobile && (
-              <Box cursor={"pointer"}>
+              <Box
+                cursor={"pointer"}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
                 <ArrowUpRightIcon />
               </Box>
             )}
