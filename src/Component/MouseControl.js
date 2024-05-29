@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, useBreakpointValue } from "@chakra-ui/react";
 
 const MouseControl = ({ footerRef, hoverdRef }) => {
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -40,7 +41,7 @@ const MouseControl = ({ footerRef, hoverdRef }) => {
   return (
     <Box
       ref={cursorRef}
-      display={visible ? "block" : "none"}
+      display={visible && !isMobile ? "block" : "none"}
       zIndex={99999}
       position="fixed"
       // left={position.x}
