@@ -13,25 +13,26 @@ import {
 } from "@chakra-ui/react";
 import ArlowLogo1 from "../Asset/Logo/ArlowLogo1.svg";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const Footer = (props) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
-  const Nav = useNavigate();
   const [hovered1, setHovered1] = useState(false);
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMouseOverBox, setIsMouseOverBox] = useState(false);
+  // const isMouseOverBox = useRef(false);
 
   const handleMouseEnter = () => {
     setIsMouseOverBox(true);
+    // isMouseOverBox.current = true;
     document.body.style.cursor = "none"; // 마우스 숨기기
     props.onFooterText(true);
   };
 
   const handleMouseLeave = () => {
     setIsMouseOverBox(false);
+    // isMouseOverBox.current = false;
     document.body.style.cursor = "auto"; // 마우스 보이기
     props.onFooterText(false);
   };
@@ -212,7 +213,7 @@ export const Footer = (props) => {
               cursor={"pointer"}
               position="relative"
               overflow={"hidden"}
-              onClick={() => Nav("/")}
+              onClick={() => window.location.replace("/")}
               onMouseEnter={() => setHovered1(true)}
               onMouseLeave={() => setHovered1(false)}
               _after={{
@@ -247,6 +248,8 @@ export const Footer = (props) => {
               _hover={{ color: "white", fontWeight: "bold" }}
               fontSize={{ base: "sm", md: "md" }}
               cursor={"pointer"}
+              onMouseEnter={() => props.onHoverEffect(true)}
+              onMouseLeave={() => props.onHoverEffect(false)}
             >
               <ArrowUpRightIcon />
               <Text>BACK TOP</Text>
@@ -261,6 +264,8 @@ export const Footer = (props) => {
             <Box
               _hover={{ color: "white", fontWeight: "bold" }}
               onClick={() => window.open("https://blog.naver.com/artbricklab")}
+              onMouseEnter={() => props.onHoverEffect(true)}
+              onMouseLeave={() => props.onHoverEffect(false)}
             >
               <Text cursor={"pointer"}>BLOG</Text>
             </Box>
@@ -269,6 +274,8 @@ export const Footer = (props) => {
               onClick={() =>
                 window.open("https://www.instagram.com/artbrick.official")
               }
+              onMouseEnter={() => props.onHoverEffect(true)}
+              onMouseLeave={() => props.onHoverEffect(false)}
             >
               <Text cursor={"pointer"}>INSTAGRAM</Text>
             </Box>

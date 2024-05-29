@@ -13,17 +13,19 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import ArlowLogo1 from "../Asset/Logo/ArlowLogo1.svg";
 
 export const Topbar = ({ ...props }) => {
   const [open, setOpen] = useState(false);
-  const nav = useNavigate();
   const isMobile = useBreakpointValue({ base: true, md: false });
   const [hoverIndex, setHoverIndex] = useState(-1);
   const [hovered1, setHovered1] = useState(false);
   const [hovered2, setHovered2] = useState(false);
   const [hovered3, setHovered3] = useState(false);
+
+  useEffect(() => {
+    console.log(props.whitecolor);
+  }, [props.whitecolor]);
 
   const variants = {
     open: { opacity: 1, y: 0 },
@@ -71,21 +73,28 @@ export const Topbar = ({ ...props }) => {
         <Box
           id="logoArea"
           zIndex={111}
-          onClick={() => nav("/")}
+          onClick={() => window.location.replace("/")}
           _hover={{ transform: "scale(1.1)" }}
-          onMouseEnter={() => setHoverIndex(0)}
-          onMouseLeave={() => setHoverIndex(-1)}
+          onMouseEnter={() => {
+            setHoverIndex(0);
+            props.onHoverEffect(true);
+          }}
+          onMouseLeave={() => {
+            setHoverIndex(-1);
+            props.onHoverEffect(false);
+          }}
           cursor={"pointer"}
         >
           <Image
             id="logo"
             src={
-              (!open && hoverIndex === 0) || (!open && !props.whitecolor)
+              hoverIndex === 0 || (!open && !props.whitecolor)
                 ? require("../Asset/Image/logoWhite.png")
                 : require("../Asset/Image/logo.png")
             }
             w={"32px"}
             h={"32px"}
+            pointerEvents={"none"}
           />
         </Box>
         <Square
@@ -95,12 +104,12 @@ export const Topbar = ({ ...props }) => {
             setOpen(!open);
             // setWhitecolor(!whitecolor);
           }}
+          onMouseEnter={() => props.onHoverEffect(true)}
+          onMouseLeave={() => props.onHoverEffect(false)}
           zIndex={111}
           position={"relative"}
           color={
-            (!open && hoverIndex === 0 && !props.whitecolor) || props.whitecolor
-              ? "black"
-              : "white"
+            (open && !props.whitecolor) || props.whitecolor ? "black" : "white"
           }
           _hover={{ transform: "scale(1.1)", color: "white" }}
         >
@@ -129,21 +138,21 @@ export const Topbar = ({ ...props }) => {
             <Text
               _hover={{ fontWeight: "bold", color: "white" }}
               cursor={"pointer"}
-              onClick={() => nav("/project")}
+              onClick={() => window.location.replace("/project")}
             >
               PROJECT
             </Text>
             <Text
               _hover={{ fontWeight: "bold", color: "white" }}
               cursor={"pointer"}
-              onClick={() => nav("/about")}
+              onClick={() => window.location.replace("/about")}
             >
               ABOUT
             </Text>
             <Text
               _hover={{ fontWeight: "bold", color: "white" }}
               cursor={"pointer"}
-              onClick={() => nav("/contact")}
+              onClick={() => window.location.replace("/contact")}
             >
               CONTACT
             </Text>
@@ -201,7 +210,7 @@ export const Topbar = ({ ...props }) => {
                 <Text
                   textAlign={"center"}
                   cursor={"pointer"}
-                  onClick={() => nav("/project")}
+                  onClick={() => window.location.replace("/project")}
                 >
                   PROJECT
                 </Text>
@@ -216,13 +225,19 @@ export const Topbar = ({ ...props }) => {
                 )}
               </Box> */}
               <Box
-                onClick={() => nav("/project")}
+                onClick={() => window.location.replace("/project")}
                 display="inline-block"
                 position="relative"
                 overflow={"hidden"}
                 px={1}
-                onMouseEnter={() => setHovered1(true)}
-                onMouseLeave={() => setHovered1(false)}
+                onMouseEnter={() => {
+                  setHovered1(true);
+                  props.onHoverEffect(true);
+                }}
+                onMouseLeave={() => {
+                  setHovered1(false);
+                  props.onHoverEffect(false);
+                }}
                 _after={{
                   content: '""',
                   position: "absolute",
@@ -252,13 +267,19 @@ export const Topbar = ({ ...props }) => {
                 </Text>
               </Box>
               <Box
-                onClick={() => nav("/about")}
+                onClick={() => window.location.replace("/about")}
                 display="inline-block"
                 position="relative"
                 overflow={"hidden"}
                 px={1}
-                onMouseEnter={() => setHovered2(true)}
-                onMouseLeave={() => setHovered2(false)}
+                onMouseEnter={() => {
+                  setHovered2(true);
+                  props.onHoverEffect(true);
+                }}
+                onMouseLeave={() => {
+                  setHovered2(false);
+                  props.onHoverEffect(false);
+                }}
                 _after={{
                   content: '""',
                   position: "absolute",
@@ -288,13 +309,19 @@ export const Topbar = ({ ...props }) => {
                 </Text>
               </Box>
               <Box
-                onClick={() => nav("/contact")}
+                onClick={() => window.location.replace("/contact")}
                 display="inline-block"
                 position="relative"
                 overflow={"hidden"}
                 px={1}
-                onMouseEnter={() => setHovered3(true)}
-                onMouseLeave={() => setHovered3(false)}
+                onMouseEnter={() => {
+                  setHovered3(true);
+                  props.onHoverEffect(true);
+                }}
+                onMouseLeave={() => {
+                  setHovered3(false);
+                  props.onHoverEffect(false);
+                }}
                 _after={{
                   content: '""',
                   position: "absolute",

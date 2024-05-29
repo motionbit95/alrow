@@ -8,16 +8,13 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Topbar } from "../Component/Topbar";
-import { useNavigate } from "react-router-dom";
 import { Footer } from "../Component/Footer";
 import { searchDocument } from "../Firebase/firebase-func";
 import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "../Firebase/firebase-conf";
 import { motion } from "framer-motion";
 
-const Project = () => {
-  const Nav = useNavigate();
-
+const Project = (props) => {
   const [portfolioList, setPortfolioList] = useState([]);
 
   useEffect(() => {
@@ -41,7 +38,7 @@ const Project = () => {
       <>
         {/* whitecolor는 배경 기준으로 작성 -> whitecolor 가 true이면 배경이 흰색(밝은색) 이므로 로고 및 아이콘이 black  */}
       </>
-      <Topbar whitecolor={true} />
+      {/* <Topbar whitecolor={true} onHoverEffect={props.onHoverEffect} /> */}
       <Stack
         spacing={{ base: 16, lg: 32 }}
         px={{ base: 8, md: 16 }}
@@ -77,7 +74,7 @@ const Project = () => {
                 key={item.id}
                 spacing={3}
                 cursor={"pointer"}
-                onClick={() => Nav(`/project/${item.id}`)}
+                onClick={() => window.location.replace(`/item/${item.id}`)}
                 justify={"space-between"}
               >
                 <AspectRatio ratio={16 / 10} style={{ overflow: "hidden" }}>
@@ -100,7 +97,7 @@ const Project = () => {
           ))}
         </SimpleGrid>
       </Stack>
-      <Footer />
+      {/* <Footer onFooterText={props.onFooterText} /> */}
     </Flex>
   );
 };

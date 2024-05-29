@@ -13,7 +13,7 @@ import { getDocument } from "../Firebase/firebase-func";
 import { motion } from "framer-motion";
 import { Topbar } from "../Component/Topbar";
 
-const ProjectItem = () => {
+const ProjectItem = (props) => {
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const ProjectItem = () => {
 
   return (
     <Flex direction={"column"} flex={1}>
-      <Topbar />
+      {/* <Topbar onHoverEffect={props.onHoverEffect} /> */}
       <Box w="full">
         <motion.div
           initial={{ opacity: 0, y: 0 }}
@@ -112,7 +112,7 @@ const ProjectItem = () => {
           ))}
         </SimpleGrid>
       </Stack>
-      <Footer />
+      {/* <Footer onFooterText={props.onFooterText} /> */}
     </Flex>
   );
 };

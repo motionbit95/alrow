@@ -9,10 +9,17 @@ import Portfolio from "./Component/Portfolio";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import ProjectItem from "./Page/ProjectItem";
 import MouseControl from "./Component/MouseControl";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Footer } from "./Component/Footer";
+import { Topbar } from "./Component/Topbar";
 
 function App() {
-  const [isOnFooterText, setIsOnFooterText] = useState(false);
+  // const [isOnFooterText, setIsOnFooterText] = useState(false);
+  // const [isHoverEffect, setIsHoverEffect] = useState(false);
+
+  const isOnFooterText = useRef(false);
+  const isHoverEffect = useRef(false);
+
   const customTheme = extendTheme({
     breakpoints: {
       sm: "30em", // 480px
@@ -25,22 +32,39 @@ function App() {
 
   return (
     <ChakraProvider theme={customTheme}>
-      <MouseControl visible={!isOnFooterText} />
+      <MouseControl footerRef={isOnFooterText} hoverdRef={isHoverEffect} />
+      {!(window.location.pathname === "/portfolio") && (
+        <Topbar
+          whitecolor={
+            !(window.location.pathname === "/") &&
+            !window.location.pathname.includes("/item")
+          }
+          onHoverEffect={(flag) => {
+            isHoverEffect.current = flag;
+          }}
+        />
+      )}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/about" element={<About />} />
-          <Route
-            path="/contact"
-            element={
-              <Contact onFooterText={(flag) => setIsOnFooterText(flag)} />
-            }
-          />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/project" element={<Project />} />
-          <Route path="/project/*" element={<ProjectItem />} />
+          <Route path="/item/*" element={<ProjectItem />} />
           <Route path="/portfolio" element={<Portfolio />} />
         </Routes>
       </BrowserRouter>
+      {(!(window.location.pathname === "/") ||
+        !(window.location.pathname === "/portfolio")) && (
+        <Footer
+          onFooterText={(flag) => {
+            isOnFooterText.current = flag;
+          }}
+          onHoverEffect={(flag) => {
+            isHoverEffect.current = flag;
+          }}
+        />
+      )}
     </ChakraProvider>
   );
 }

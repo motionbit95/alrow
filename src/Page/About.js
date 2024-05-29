@@ -15,7 +15,7 @@ import ScrollFillText from "../Component/ScrollRevealText";
 import ScrollFillLine from "../Component/ScrollRevealLine";
 import ScrollAnimation from "../Component/ScrollRevealLine";
 
-const About = () => {
+const About = (props) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const MotionBox = ({ children, y = 0 }) => (
@@ -35,7 +35,7 @@ const About = () => {
 
   return (
     <Flex direction={"column"} flex={1} bgColor={"gray.100"}>
-      <Topbar />
+      {/* <Topbar whitecolor={true} onHoverEffect={props.onHoverEffect} /> */}
       <Box h={"100vh"} w={"100%"} position={"relative"}>
         <Box
           h={"100vh"}
@@ -495,7 +495,7 @@ const About = () => {
           </Stack>
         </Stack>
       </Box>
-      <Footer />
+      {/* <Footer onFooterText={props.onFooterText} /> */}
     </Flex>
   );
 };

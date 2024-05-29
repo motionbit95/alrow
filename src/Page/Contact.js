@@ -112,7 +112,7 @@ const Contact = (props) => {
           direction={"column"}
           // display={open ? "block" : "none"}
         >
-          <Topbar />
+          {/* <Topbar whitecolor={true} onHoverEffect={props.onHoverEffect} /> */}
           <Box
             // display={open ? "block" : "none"}
             w={"100%"}
@@ -494,10 +494,33 @@ const Contact = (props) => {
                                 artbrickco@nate.com
                               </ScrollFillText>
                             </Stack>
-                            <ButtonGroup variant={"transparent"} size={"sm"}>
-                              <Button>BLOG</Button>
-                              <Button>INSTAGRAM</Button>
-                            </ButtonGroup>
+                            <HStack
+                              justifyContent={"space-between"}
+                              gap={4}
+                              fontSize={"sm"}
+                              fontWeight="bold"
+                            >
+                              <Box
+                                _hover={{ color: "white" }}
+                                onClick={() =>
+                                  window.open(
+                                    "https://blog.naver.com/artbricklab"
+                                  )
+                                }
+                              >
+                                <Text cursor={"pointer"}>BLOG</Text>
+                              </Box>
+                              <Box
+                                _hover={{ color: "white" }}
+                                onClick={() =>
+                                  window.open(
+                                    "https://www.instagram.com/artbrick.official"
+                                  )
+                                }
+                              >
+                                <Text cursor={"pointer"}>INSTAGRAM</Text>
+                              </Box>
+                            </HStack>
                           </HStack>
                         </Stack>
                       </Td>
@@ -574,7 +597,7 @@ const Contact = (props) => {
               </TableContainer>
             )}
           </>
-          <Footer onFooterText={props.onFooterText} />
+          {/* <Footer onFooterText={props.onFooterText} /> */}
         </Flex>
       </Flex>
     </>

@@ -10,7 +10,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Topbar } from "../Component/Topbar";
 
-const Main = () => {
+const Main = (props) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true); // 초기 로딩 상태를 true로 설정
 
@@ -45,7 +45,13 @@ const Main = () => {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.5 }}
-            style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1 }}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              zIndex: 9999,
+            }}
           >
             <Box
               h="100vh"
@@ -127,7 +133,7 @@ const Main = () => {
           </video>
         )}
 
-        <Topbar />
+        {/* <Topbar onHoverEffect={props.onHoverEffect} /> */}
       </Box>
     </Flex>
   );
