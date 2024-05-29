@@ -23,7 +23,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import ScrollFillText from "../Component/ScrollRevealText";
 import ContactBgImg from "../Asset/Image/ContactBgImg.jpg";
 
-const Contact = () => {
+const Contact = (props) => {
   // const [open, setOpen] = useState(false);
   // const [index, setIndex] = useState(0);
 
@@ -357,8 +357,8 @@ const Contact = () => {
                 <Table variant="simple" size={"md"}>
                   <Tbody>
                     <Tr>
-                      <Td></Td>
-                      <Td>
+                      <Td borderBottomColor={"gray.300"}></Td>
+                      <Td borderBottomColor={"gray.300"}>
                         <Stack
                           py={{ base: 8, lg: 16 }}
                           spacing={{ base: 6, lg: 12 }}
@@ -420,7 +420,13 @@ const Contact = () => {
                             <ScrollFillText index={2}>
                               Artbrick Co., Ltd.
                             </ScrollFillText>
-                            <ScrollFillText index={2}>
+                            <ScrollFillText
+                              index={2}
+                              style={{
+                                // backgroundColor: "red",
+                                lineHeight: 1.5,
+                              }}
+                            >
                               (주)아트브릭은 대한민국 전역을 커버하는 인테리어
                               디자인 전문기업으로,
                               <br />
@@ -431,7 +437,7 @@ const Contact = () => {
                       </Td>
                     </Tr>
                     <Tr>
-                      <Td alignContent={"start"}>
+                      <Td borderBottomColor={"gray.300"} alignContent={"start"}>
                         <Stack spacing={16} py={8}>
                           <Text
                             fontSize={{
@@ -458,7 +464,7 @@ const Contact = () => {
                           </ScrollFillText>
                         </Stack>
                       </Td>
-                      <Td>
+                      <Td borderBottomColor={"gray.300"}>
                         <Stack py={8} spacing={16}>
                           <Text
                             fontSize={{
@@ -497,7 +503,7 @@ const Contact = () => {
                       </Td>
                     </Tr>
                     <Tr>
-                      <Td alignContent={"start"}>
+                      <Td borderBottomColor={"gray.300"} alignContent={"start"}>
                         <Stack spacing={16} py={8}>
                           <Text
                             fontSize={{
@@ -524,7 +530,7 @@ const Contact = () => {
                           </ScrollFillText>
                         </Stack>
                       </Td>
-                      <Td>
+                      <Td borderBottomColor={"gray.300"}>
                         <Stack spacing={16} py={8}>
                           <Text
                             fontSize={{
@@ -568,7 +574,7 @@ const Contact = () => {
               </TableContainer>
             )}
           </>
-          <Footer />
+          <Footer onFooterText={props.onFooterText} />
         </Flex>
       </Flex>
     </>

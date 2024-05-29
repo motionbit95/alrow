@@ -26,6 +26,9 @@ const ScrollFillText = ({ children, index, ...props }) => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.innerHeight * 0.75;
+
+      if (!document.getElementById(`scrollText${index}`)) return;
+
       const elementTop = document
         .getElementById(`scrollText${index}`)
         .getBoundingClientRect().top;

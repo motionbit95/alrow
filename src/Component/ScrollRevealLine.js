@@ -11,6 +11,8 @@ const ScrollAnimation = ({ index }) => {
     const handleScroll = () => {
       const historyArea = document.getElementById("historyArea");
 
+      if (!document.getElementById(`scrollLine${index}`)) return;
+
       const scrollPosition = window.innerHeight * 0.75;
       const elementTop = document
         .getElementById(`scrollLine${index}`)

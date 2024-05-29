@@ -38,7 +38,10 @@ const Project = () => {
       bgColor={"gray.100"}
       position={"relative"}
     >
-      <Topbar />
+      <>
+        {/* whitecolor는 배경 기준으로 작성 -> whitecolor 가 true이면 배경이 흰색(밝은색) 이므로 로고 및 아이콘이 black  */}
+      </>
+      <Topbar whitecolor={true} />
       <Stack
         spacing={{ base: 16, lg: 32 }}
         px={{ base: 8, md: 16 }}

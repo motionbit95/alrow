@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export const Footer = () => {
+export const Footer = (props) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
   const Nav = useNavigate();
   const [hovered1, setHovered1] = useState(false);
@@ -27,11 +27,13 @@ export const Footer = () => {
   const handleMouseEnter = () => {
     setIsMouseOverBox(true);
     document.body.style.cursor = "none"; // 마우스 숨기기
+    props.onFooterText(true);
   };
 
   const handleMouseLeave = () => {
     setIsMouseOverBox(false);
     document.body.style.cursor = "auto"; // 마우스 보이기
+    props.onFooterText(false);
   };
 
   const handleMouseMove = (event) => {
@@ -328,13 +330,13 @@ export const MovingCircle = ({ mouseX, mouseY }) => {
       }}
     >
       {window.location.pathname.includes("/contact") ? (
-        <Text pt={"2px"}>
-          Our
+        <Text fontWeight={"bold"} pt={"2px"}>
+          OUR
           <br />
-          Work
+          WORK
         </Text>
       ) : (
-        <Text pt={2}>
+        <Text fontWeight={"bold"} pt={2}>
           CONTACT
           <br />
           US

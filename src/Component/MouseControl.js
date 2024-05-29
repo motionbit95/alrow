@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@chakra-ui/react";
 
-const MouseControl = () => {
+const MouseControl = ({ visible }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -20,6 +20,7 @@ const MouseControl = () => {
 
   return (
     <Box
+      display={visible ? "block" : "none"}
       zIndex={99999}
       position="fixed"
       left={position.x}

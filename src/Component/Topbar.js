@@ -57,6 +57,14 @@ export const Topbar = ({ ...props }) => {
     }
   }, [hoverIndex]);
 
+  const imageUrl = "https://via.placeholder.com/600x400"; // 예제 이미지 URL
+  const area = {
+    x: 100, // 추출할 영역의 시작 x 좌표
+    y: 100, // 추출할 영역의 시작 y 좌표
+    width: 200, // 추출할 영역의 너비
+    height: 200, // 추출할 영역의 높이
+  };
+
   return (
     <Stack zIndex={999} position={"fixed"} w={"100%"} top={0}>
       <Flex w={"100%"} justify={"space-between"} p={{ base: 8, md: 16 }}>
@@ -72,7 +80,7 @@ export const Topbar = ({ ...props }) => {
           <Image
             id="logo"
             src={
-              hoverIndex === 0
+              (!open && hoverIndex === 0) || (!open && !props.whitecolor)
                 ? require("../Asset/Image/logoWhite.png")
                 : require("../Asset/Image/logo.png")
             }
@@ -89,6 +97,11 @@ export const Topbar = ({ ...props }) => {
           }}
           zIndex={111}
           position={"relative"}
+          color={
+            (!open && hoverIndex === 0 && !props.whitecolor) || props.whitecolor
+              ? "black"
+              : "white"
+          }
           _hover={{ transform: "scale(1.1)", color: "white" }}
         >
           <Bar open={open} transform={open ? "rotate(45deg)" : "rotate(0)"} />

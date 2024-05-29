@@ -9,8 +9,10 @@ import Portfolio from "./Component/Portfolio";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import ProjectItem from "./Page/ProjectItem";
 import MouseControl from "./Component/MouseControl";
+import { useState } from "react";
 
 function App() {
+  const [isOnFooterText, setIsOnFooterText] = useState(false);
   const customTheme = extendTheme({
     breakpoints: {
       sm: "30em", // 480px
@@ -23,12 +25,17 @@ function App() {
 
   return (
     <ChakraProvider theme={customTheme}>
-      <MouseControl />
+      <MouseControl visible={!isOnFooterText} />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/contact"
+            element={
+              <Contact onFooterText={(flag) => setIsOnFooterText(flag)} />
+            }
+          />
           <Route path="/project" element={<Project />} />
           <Route path="/project/*" element={<ProjectItem />} />
           <Route path="/portfolio" element={<Portfolio />} />
