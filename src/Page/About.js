@@ -88,6 +88,7 @@ const About = (props) => {
                       display={"flex"}
                       flexDirection={"column"}
                       textAlign={"end"}
+                      fontWeight={"semibold"}
                     >
                       <Text fontSize={"11px"} pr={1}>
                         규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다
@@ -147,6 +148,7 @@ const About = (props) => {
                       flexDirection={"column"}
                       textAlign={"start"}
                       pl={1}
+                      fontWeight={"semibold"}
                     >
                       <Text fontSize={"11px"}>
                         인간이 구현하는 건축의 태초적이고, 인공적인 기초 단위를
@@ -222,6 +224,7 @@ const About = (props) => {
                               "2xl": "md",
                             }}
                             whiteSpace={"nowrap"}
+                            fontWeight={"semibold"}
                           >
                             규정할수 없는, 규정 되어지지 않음을 인지하고
                             탐미한다
@@ -299,6 +302,7 @@ const About = (props) => {
                           }}
                           ml={{ base: "0.5vw", lg: 2 }}
                           whiteSpace={"nowrap"}
+                          fontWeight={"semibold"}
                         >
                           인간이 구현하는 건축의 태초적이고, 인공적인 기초
                           단위를 추종한다
@@ -316,7 +320,7 @@ const About = (props) => {
                       textAlign={"start"}
                       maxW={{ base: "70%", lg: "50%" }}
                       flexDirection={"column"}
-                      fontWeight={"500"}
+                      fontWeight={"600"}
                     >
                       <Text>
                         {`Atypical | Genuine | Classical to Contemporary`}
@@ -377,7 +381,10 @@ const About = (props) => {
                 HISTORY
               </ScrollFillText>
             </MotionBox>
-            <Stack fontSize={{ base: "sm", md: "lg" }}>
+            <Stack
+              fontSize={{ base: "sm", md: "lg" }}
+              pt={{ base: 4, md: 8, lg: 12 }}
+            >
               <MotionBox>
                 <Text>
                   2007.02 | 주식회사 아트브릭 전신인 D.B.P 개인사업 출발
@@ -458,7 +465,7 @@ const About = (props) => {
                 <Stack key={year}>
                   <MotionBox>
                     <Text
-                      fontSize={{ base: "sm", md: "lg", lg: "xl" }}
+                      fontSize={{ base: "lg", sm: "xl", md: "2xl", lg: "3xl" }}
                       fontWeight={"bold"}
                     >
                       {year}
@@ -471,8 +478,8 @@ const About = (props) => {
                     viewport={{ once: true }}
                     transition={{
                       ease: "easeInOut",
-                      duration: 1,
-                      x: { duration: 2 },
+                      duration: 2,
+                      x: { duration: 3 },
                     }}
                   >
                     <Box
@@ -482,7 +489,7 @@ const About = (props) => {
                     />
                   </motion.div>
 
-                  <Stack>
+                  <Stack pt={{ base: 2, lg: 4 }}>
                     {projects[year].map((project) => (
                       <MotionBox>
                         <Text key={project}>- {project}</Text>

@@ -116,14 +116,15 @@ const Contact = (props) => {
           <Box
             // display={open ? "block" : "none"}
             w={"100%"}
-            py={{ base: 32, lg: 56 }}
+            py={{ base: 28, lg: 44 }}
             px={{ base: 5, lg: 20 }}
             bgColor={"#1f45fc"}
           >
             <Stack spacing={6}>
               <Box
                 fontSize={{
-                  base: "5xl",
+                  base: "6xl",
+                  sm: "90px",
                   md: "120px",
                   lg: "160px",
                   xl: "200px",
@@ -131,6 +132,8 @@ const Contact = (props) => {
                 }}
                 fontWeight={"bold"}
                 lineHeight={1}
+                whiteSpace={"nowrap"}
+                overflow={"hidden"}
               >
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
@@ -160,11 +163,12 @@ const Contact = (props) => {
               </Box>
               <Box
                 fontSize={{
-                  base: "4xl",
-                  lg: "5xl",
-                  xl: "6xl",
-                  "2xl": "7xl",
+                  base: "xl",
+                  sm: "2xl",
+                  md: "3xl",
+                  lg: "4xl",
                 }}
+                fontWeight={"semibold"}
               >
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
@@ -189,7 +193,7 @@ const Contact = (props) => {
                     y: { duration: 1 },
                   }}
                 >
-                  <Text>artbrickco@nate.com</Text>
+                  <Text>art@artbrickco.com</Text>
                 </motion.div>
               </Box>
             </Stack>
@@ -321,7 +325,7 @@ const Contact = (props) => {
                     <Box>
                       <ScrollFillText index={4}>1551-2390</ScrollFillText>
                       <ScrollFillText index={4}>
-                        artbrickco@nate.com
+                        art@artbrickco.com
                       </ScrollFillText>
                     </Box>
                   </Stack>
@@ -491,7 +495,7 @@ const Contact = (props) => {
                                 1551-2390
                               </ScrollFillText>
                               <ScrollFillText index={3}>
-                                artbrickco@nate.com
+                                art@artbrickco.com
                               </ScrollFillText>
                             </Stack>
                             <HStack

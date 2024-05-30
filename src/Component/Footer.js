@@ -8,6 +8,7 @@ import {
   Img,
   Stack,
   Text,
+  keyframes,
   useBreakpoint,
   useBreakpointValue,
 } from "@chakra-ui/react";
@@ -41,6 +42,38 @@ export const Footer = (props) => {
     setMousePosition({ x: event.clientX, y: event.clientY });
   };
 
+  const scrollText = keyframes`
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  50.000001% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+  `;
+
+  const scrollText2 = keyframes`
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+  `;
+
+  const pageMove = () => {
+    if (window.location.pathname === "/contact") {
+      window.location.href = "/project";
+    } else {
+      window.location.href = "/contact";
+    }
+  };
+
   return (
     <Stack
       // px={{ base: 8, md: 16 }}
@@ -52,57 +85,29 @@ export const Footer = (props) => {
     >
       <Stack
         direction={{ base: "column", md: "row" }}
-        spacing={{ base: 12, md: 24 }}
+        spacing={0}
         px={{ base: 8, md: 16 }}
       >
-        <Stack spacing={{ base: 2, md: 4 }}>
-          <Text
-            fontSize={{
-              base: "lg",
-              md: "xl",
-              lg: "2xl",
-              "2xl": "3xl",
-            }}
-            fontWeight={"bold"}
-          >
+        <Stack spacing={{ base: 2, md: 4 }} w={"200px"}>
+          <Text fontSize={{ base: "md", lg: "lg" }} fontWeight={"bold"}>
             LET'S TALK
           </Text>
           <Stack
-            fontSize={{
-              base: "xs",
-              md: "sm",
-              lg: "md",
-              xl: "lg",
-              "2xl": "xl",
-            }}
+            fontSize={{ base: "sm", lg: "md" }}
             fontWeight={"500"}
             spacing={0}
           >
             <Text>1551-2390</Text>
-            <Text>artbrickco@nate.com</Text>
+            <Text>art@artbrickco.com</Text>
           </Stack>
         </Stack>
         {!isMobile && (
           <Stack spacing={4}>
-            <Text
-              fontSize={{
-                base: "lg",
-                md: "xl",
-                lg: "2xl",
-                "2xl": "3xl",
-              }}
-              fontWeight={"bold"}
-            >
+            <Text fontSize={{ base: "md", lg: "lg" }} fontWeight={"bold"}>
               VISIT
             </Text>
             <Stack
-              fontSize={{
-                base: "xs",
-                md: "sm",
-                lg: "md",
-                xl: "lg",
-                "2xl": "xl",
-              }}
+              fontSize={{ base: "sm", lg: "md" }}
               fontWeight={"500"}
               spacing={0}
             >
@@ -123,11 +128,49 @@ export const Footer = (props) => {
           overflow="hidden"
           width={{ base: "95vw", md: "97vw", lg: "98vw", xl: "99vw" }}
           position="relative"
+          whiteSpace="nowrap"
+          onClick={pageMove}
           onMouseMove={handleMouseMove}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <motion.div
+          <Text
+            as="div"
+            display="inline-block"
+            fontSize={{
+              base: "100px",
+              lg: "140px",
+              xl: "160px",
+              "2xl": "200px",
+            }}
+            fontWeight="bold"
+            color="white"
+            lineHeight={1.1}
+            animation={`${scrollText} 30s linear infinite`}
+          >
+            ATYPICAL GENUEOUS CLASSICAL TO
+            CONTEMPORARY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {/* ATYPICAL GENUEOUS CLASSICAL TO CONTEMPORARY */}
+          </Text>
+          <Text
+            as="div"
+            display="inline-block"
+            fontSize={{
+              base: "100px",
+              lg: "140px",
+              xl: "160px",
+              "2xl": "200px",
+            }}
+            fontWeight="bold"
+            color="white"
+            lineHeight={1.1}
+            animation={`${scrollText2} 30s linear infinite`}
+          >
+            ATYPICAL GENUEOUS CLASSICAL TO
+            CONTEMPORARY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {/* ATYPICAL GENUEOUS CLASSICAL TO CONTEMPORARY */}
+          </Text>
+          {/* <motion.div
             style={{
               display: "inline-block",
               whiteSpace: "nowrap",
@@ -143,9 +186,8 @@ export const Footer = (props) => {
             <Text
               whiteSpace={"nowrap"}
               fontSize={{
-                base: "8xl",
-                md: "100px",
-                lg: "120px",
+                base: "100px",
+                lg: "140px",
                 xl: "160px",
                 "2xl": "200px",
               }}
@@ -153,9 +195,9 @@ export const Footer = (props) => {
               color={"white"}
               lineHeight={1.1}
             >
-              Atypical Genuine Classical to Contemporary
+              ATYPICAL GENUEOUS CLASSICAL TO CONTEMPORARY
             </Text>
-          </motion.div>
+          </motion.div> */}
           <Box
             position="fixed"
             width="100%"
@@ -184,11 +226,10 @@ export const Footer = (props) => {
         <Text
           px={{ base: 8, md: 16 }}
           fontSize={{
-            base: "xl",
-            md: "3xl",
-            lg: "4xl",
-            xl: "5xl",
-            "2xl": "6xl",
+            base: "lg",
+            lg: "xl",
+            xl: "2xl",
+            "2xl": "3xl",
           }}
         >
           We do not prescribe our designs.
@@ -203,9 +244,9 @@ export const Footer = (props) => {
       >
         <Stack
           direction={{ base: "column", md: "row" }}
-          align={"end"}
+          align={{ base: "start", md: "end" }}
           justifyContent={"space-between"}
-          w={{ base: "auto", md: "55%" }}
+          w={"100%"}
         >
           <Stack>
             <Box
@@ -245,8 +286,9 @@ export const Footer = (props) => {
               alignItems={"center"}
               gap={2}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              _hover={{ color: "white", fontWeight: "bold" }}
+              _hover={{ color: "white", transform: "scale(1.1)" }}
               fontSize={{ base: "sm", md: "md" }}
+              fontWeight={"bold"}
               cursor={"pointer"}
               onMouseEnter={() => props.onHoverEffect(true)}
               onMouseLeave={() => props.onHoverEffect(false)}
@@ -255,39 +297,48 @@ export const Footer = (props) => {
               <Text>BACK TOP</Text>
             </Box>
           )}
-        </Stack>
-        <Stack
-          w={{ base: "100%", md: "auto" }}
-          fontSize={{ base: "sm", md: "md" }}
-        >
-          <HStack justifyContent={"space-between"} gap={4}>
-            <Box
-              _hover={{ color: "white", fontWeight: "bold" }}
-              onClick={() => window.open("https://blog.naver.com/artbricklab")}
-              onMouseEnter={() => props.onHoverEffect(true)}
-              onMouseLeave={() => props.onHoverEffect(false)}
-            >
-              <Text cursor={"pointer"}>BLOG</Text>
-            </Box>
-            <Box
-              _hover={{ color: "white", fontWeight: "bold" }}
-              onClick={() =>
-                window.open("https://www.instagram.com/artbrick.official")
-              }
-              onMouseEnter={() => props.onHoverEffect(true)}
-              onMouseLeave={() => props.onHoverEffect(false)}
-            >
-              <Text cursor={"pointer"}>INSTAGRAM</Text>
-            </Box>
-            {isMobile && (
+          <Stack
+            w={{ base: "100%", md: "auto" }}
+            fontSize={{ base: "sm", md: "md" }}
+            fontWeight={"bold"}
+          >
+            <HStack justifyContent={"space-between"} gap={4}>
               <Box
-                cursor={"pointer"}
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                onClick={() =>
+                  window.open("https://blog.naver.com/artbricklab")
+                }
+                onMouseEnter={() => props.onHoverEffect(true)}
+                onMouseLeave={() => props.onHoverEffect(false)}
               >
-                <ArrowUpRightIcon />
+                <Text
+                  cursor={"pointer"}
+                  _hover={{ transform: "scale(1.1)", color: "white" }}
+                >
+                  BLOG
+                </Text>
               </Box>
-            )}
-          </HStack>
+              <Box
+                _hover={{ transform: "scale(1.1)", color: "white" }}
+                onClick={() =>
+                  window.open("https://www.instagram.com/artbrick.official")
+                }
+                onMouseEnter={() => props.onHoverEffect(true)}
+                onMouseLeave={() => props.onHoverEffect(false)}
+              >
+                <Text cursor={"pointer"}>INSTAGRAM</Text>
+              </Box>
+              {isMobile && (
+                <Box
+                  cursor={"pointer"}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                >
+                  <ArrowUpRightIcon />
+                </Box>
+              )}
+            </HStack>
+          </Stack>
         </Stack>
       </Stack>
     </Stack>

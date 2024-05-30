@@ -133,36 +133,43 @@ export const Topbar = ({ ...props }) => {
           variants={variants}
           transition={{ duration: 0.2 }}
         >
-          <Box h={"10vh"} />
-          <Stack spacing={0} fontSize={"2xl"} p={8}>
+          <Box h={"15vh"} />
+          <Stack
+            spacing={2}
+            fontSize={"22px"}
+            fontWeight={"semibold"}
+            px={8}
+            py={4}
+            lineHeight={"1"}
+          >
             <Text
-              _hover={{ fontWeight: "bold", color: "white" }}
+              _hover={{ color: "white", transform: "scale(1.1)" }}
               cursor={"pointer"}
               onClick={() => window.location.replace("/project")}
             >
               PROJECT
             </Text>
             <Text
-              _hover={{ fontWeight: "bold", color: "white" }}
+              _hover={{ color: "white", transform: "scale(1.1)" }}
               cursor={"pointer"}
               onClick={() => window.location.replace("/about")}
             >
               ABOUT
             </Text>
             <Text
-              _hover={{ fontWeight: "bold", color: "white" }}
+              _hover={{ color: "white", transform: "scale(1.1)" }}
               cursor={"pointer"}
               onClick={() => window.location.replace("/contact")}
             >
               CONTACT
             </Text>
           </Stack>
-          <Stack align={"flex-start"} p={8}>
-            <Box w={"300px"}>
+          <Stack align={"flex-start"} px={8} py={4}>
+            <Box w={"220px"}>
               <Image src={ArlowLogo1} boxSize={"100%"} />
             </Box>
             <Text
-              fontSize={{ base: "13px", md: "xs" }}
+              fontSize={{ base: "10px", md: "xs" }}
               fontWeight={"semibold"}
               whiteSpace={"nowrap"}
             >
@@ -198,6 +205,7 @@ export const Topbar = ({ ...props }) => {
               h={30}
               spacing={16}
               fontSize={{ base: "md", lg: "lg" }}
+              fontWeight={"bold"}
             >
               {/* <Box
                 w={"100px"}
@@ -229,7 +237,6 @@ export const Topbar = ({ ...props }) => {
                 display="inline-block"
                 position="relative"
                 overflow={"hidden"}
-                px={1}
                 onMouseEnter={() => {
                   setHovered1(true);
                   props.onHoverEffect(true);
@@ -253,7 +260,7 @@ export const Topbar = ({ ...props }) => {
               >
                 <Text
                   textAlign="center"
-                  fontWeight={hovered1 ? "bold" : "normal"}
+                  // fontWeight={hovered1 ? "bold" : "normal"}
                   color={hovered1 ? "white" : "initial"}
                   className={hovered1 ? "hovered" : ""}
                   cursor="pointer"
@@ -271,7 +278,6 @@ export const Topbar = ({ ...props }) => {
                 display="inline-block"
                 position="relative"
                 overflow={"hidden"}
-                px={1}
                 onMouseEnter={() => {
                   setHovered2(true);
                   props.onHoverEffect(true);
@@ -295,7 +301,7 @@ export const Topbar = ({ ...props }) => {
               >
                 <Text
                   textAlign="center"
-                  fontWeight={hovered2 ? "bold" : "normal"}
+                  // scale={hovered2 ? "bold" : "normal"}
                   color={hovered2 ? "white" : "initial"}
                   className={hovered2 ? "hovered" : ""}
                   cursor="pointer"
@@ -313,7 +319,6 @@ export const Topbar = ({ ...props }) => {
                 display="inline-block"
                 position="relative"
                 overflow={"hidden"}
-                px={1}
                 onMouseEnter={() => {
                   setHovered3(true);
                   props.onHoverEffect(true);
@@ -337,7 +342,7 @@ export const Topbar = ({ ...props }) => {
               >
                 <Text
                   textAlign="center"
-                  fontWeight={hovered3 ? "bold" : "normal"}
+                  // fontWeight={hovered3 ? "bold" : "normal"}
                   color={hovered3 ? "white" : "initial"}
                   className={hovered3 ? "hovered" : ""}
                   cursor="pointer"
@@ -356,24 +361,19 @@ export const Topbar = ({ ...props }) => {
               direction={{ base: "column", lg: "row" }}
               align={{ base: "start", lg: "end" }}
               justify={"space-between"}
-              spacing={16}
+              spacing={{ base: 6, lg: 0 }}
             >
               <Stack
                 direction={{ base: "column", lg: "row" }}
                 // spacing={{ base: 0, md: 4, lg: 36 }}
-                spacing={"20px"}
+                spacing={0}
               >
-                <Stack justify={"space-between"} spacing={4} w={"200px"}>
-                  <Text
-                    fontSize={{
-                      base: "sm",
-                      md: "md",
-                      lg: "lg",
-                      xl: "xl",
-                      "2xl": "2xl",
-                    }}
-                    fontWeight={"bold"}
-                  >
+                <Stack
+                  justify={"space-between"}
+                  spacing={{ base: 1, lg: 4 }}
+                  w={"210px"}
+                >
+                  <Text fontSize={{ base: "md", lg: "lg" }} fontWeight={"bold"}>
                     LET'S TALK
                   </Text>
                   <Stack
@@ -384,33 +384,26 @@ export const Topbar = ({ ...props }) => {
                       xl: "lg",
                       "2xl": "xl",
                     }}
+                    fontWeight={"500"}
                     spacing={0}
                   >
                     <Text>1551-2390</Text>
                     <Text>artbrickco@nate.com</Text>
                   </Stack>
                 </Stack>
-                <Stack justify={"space-between"} spacing={4}>
-                  <Text
-                    fontSize={{
-                      base: "md",
-                      md: "lg",
-                      lg: "xl",
-                      xl: "2xl",
-                      "2xl": "3xl",
-                    }}
-                    fontWeight={"bold"}
-                  >
+                <Stack justify={"space-between"} spacing={{ base: 1, lg: 4 }}>
+                  <Text fontSize={{ base: "md", lg: "lg" }} fontWeight={"bold"}>
                     VISIT
                   </Text>
                   <Stack
                     fontSize={{
-                      base: "sm",
-                      md: "md",
-                      lg: "lg",
-                      xl: "xl",
-                      "2xl": "2xl",
+                      base: "xs",
+                      md: "sm",
+                      lg: "md",
+                      xl: "lg",
+                      "2xl": "xl",
                     }}
+                    fontWeight={"500"}
                     spacing={0}
                   >
                     <Text>
@@ -424,7 +417,7 @@ export const Topbar = ({ ...props }) => {
                   </Stack>
                 </Stack>
               </Stack>
-              <Stack align={"flex-start"}>
+              <Stack>
                 <Box w={{ base: "50%", lg: "70%" }}>
                   <Image src={ArlowLogo1} boxSize={"100%"} />
                 </Box>

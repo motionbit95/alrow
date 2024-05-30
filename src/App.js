@@ -35,10 +35,11 @@ function App() {
       <MouseControl footerRef={isOnFooterText} hoverdRef={isHoverEffect} />
       {!(window.location.pathname === "/portfolio") && (
         <Topbar
-          whitecolor={
-            !(window.location.pathname === "/") &&
-            !window.location.pathname.includes("/item")
-          }
+          // whitecolor={
+          //   !(window.location.pathname === "/") &&
+          //   !window.location.pathname.includes("/item")
+          // }
+          whitecolor={true}
           onHoverEffect={(flag) => {
             isHoverEffect.current = flag;
           }}
