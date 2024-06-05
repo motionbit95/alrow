@@ -113,7 +113,19 @@ export const Topbar = ({ ...props }) => {
           }
           _hover={{ transform: "scale(1.1)", color: "white" }}
         >
-          <Bar open={open} transform={open ? "rotate(45deg)" : "rotate(0)"} />
+          <Bar
+            top={1}
+            style={{ opacity: open ? 0 : 1, transition: "opacity 0.01s ease" }}
+          />
+          <Bar
+            w={open ? "1.25rem" : "1rem"}
+            open={open}
+            transform={open ? "rotate(45deg)" : "rotate(0)"}
+          />
+          <Bar
+            bottom={1}
+            style={{ opacity: open ? 0 : 1, transition: "opacity 0.01s ease" }}
+          />
           {open && <Bar transform={"rotate(-45deg)"} />}
         </Square>
       </Flex>
@@ -388,7 +400,7 @@ export const Topbar = ({ ...props }) => {
                     spacing={0}
                   >
                     <Text>1551-2390</Text>
-                    <Text>artbrickco@nate.com</Text>
+                    <Text>art@artbrickco.com</Text>
                   </Stack>
                 </Stack>
                 <Stack justify={"space-between"} spacing={{ base: 1, lg: 4 }}>
@@ -407,12 +419,12 @@ export const Topbar = ({ ...props }) => {
                     spacing={0}
                   >
                     <Text>
-                      Seoul Office Building | Room 306, Hanwha Biz Metro 2,
-                      551-24 Yangcheon-ro, Gangseo-gu, Seoul
+                      ​Seoul Office | Room 306, Hanwha Biz Metro 2, 551-24
+                      Yangcheon-ro, Gangseo-gu, Seoul
                     </Text>
                     <Text>
-                      Busan office HQ | 43, Gwangnam-ro 213beon-gil, Suyeong-gu,
-                      Busan (Minrak-dong)
+                      Busan Office | 43 (Minrak dong), Gwangnam ro 213beon gil,
+                      Suyeong gu , Busan
                     </Text>
                   </Stack>
                 </Stack>

@@ -2,6 +2,8 @@ import {
   Box,
   Container,
   Flex,
+  Grid,
+  GridItem,
   SimpleGrid,
   Stack,
   Text,
@@ -170,170 +172,275 @@ const About = (props) => {
             </>
           ) : (
             <>
-              <Box
+              <Grid
+                display={{ base: "none", lg: "grid" }}
                 zIndex={111}
-                w={"full"}
-                position={"relative"}
-                h={"50%"}
-                display={"flex"}
-                flexDirection={"column"}
-                justifyContent={"center"}
+                h={"full"}
+                gap={{ base: 4, md: 16 }}
+                templateColumns={"1fr 1fr"}
+                templateRows={"1fr 1fr"}
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    ease: "easeInOut",
-                    duration: 1,
-                    y: { duration: 1 },
-                  }}
+                <GridItem w={"full"} h={"full"}>
+                  <Stack
+                    alignItems={{ base: "flex-start", lg: "flex-end" }}
+                    justifyContent={{ base: "flex-end", lg: "flex-start" }}
+                    pb={{ base: 10, lg: 16, xl: 28, "2xl": 40 }}
+                    h={"full"}
+                    flexDirection={{ base: "column", lg: "row" }}
+                  >
+                    <Text
+                      textAlign={"start"}
+                      fontWeight={"bold"}
+                      fontSize={{
+                        base: "160px",
+                        lg: "180px",
+                        xl: "200px",
+                        "2xl": "240px",
+                      }}
+                      lineHeight={0.9}
+                      whiteSpace={"nowrap"}
+                    >
+                      ART
+                    </Text>
+                    <Text
+                      ml={{ base: 0, lg: -6 }}
+                      mb={{ base: 0, lg: 3 }}
+                      fontSize={{
+                        base: "xs",
+                        lg: "sm",
+                        "2xl": "md",
+                      }}
+                      whiteSpace={"nowrap"}
+                      fontWeight={"semibold"}
+                    >
+                      규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다
+                    </Text>
+                  </Stack>
+                </GridItem>
+                <GridItem w={"full"} h={"full"}>
+                  <Stack
+                    alignItems={"flex-start"}
+                    justifyContent={"center"}
+                    h={"full"}
+                    minW={"660px"}
+                    mt={{ md: "104px", lg: 4, xl: "-6", "2xl": "2" }}
+                  >
+                    <Text
+                      fontSize={{
+                        base: "lg",
+                        lg: "2xl",
+                        "2xl": "4xl",
+                      }}
+                      textAlign={"start"}
+                      fontWeight={"600"}
+                    >
+                      ARTBRICK은 예술과 기술의 원활한{" "}
+                      <strong style={{ fontWeight: "900" }}>
+                        해체와 통합의 재구성
+                      </strong>
+                      을 내포하며, 인테리어/건축의 영역에서 미학과 기능 사이의
+                      균형을 찾기 위한 우리의 은유적 약속과 헌신을 상징합니다.
+                      우리의 미션은 고객의 기능적인 요구를 충족시키는 것 뿐만
+                      아니라 예술적 공간의 표현을 조력하는 것입니다.
+                    </Text>
+                  </Stack>
+                </GridItem>
+                <GridItem w={"full"} h={"full"}>
+                  <Stack
+                    alignItems={"flex-start"}
+                    justifyContent={"flex-start"}
+                    h={"full"}
+                  >
+                    <Text
+                      fontWeight={"bold"}
+                      fontSize={{
+                        base: "160px",
+                        lg: "180px",
+                        xl: "200px",
+                        "2xl": "240px",
+                      }}
+                      lineHeight={0.9}
+                      whiteSpace={"nowrap"}
+                      pt={{ base: 10, "2xl": 20 }}
+                    >
+                      BRICK
+                    </Text>
+                    <Text
+                      fontSize={{
+                        base: "xs",
+                        lg: "sm",
+                        "2xl": "md",
+                      }}
+                      ml={{ base: "0.5vw", lg: 2 }}
+                      whiteSpace={"nowrap"}
+                      fontWeight={"semibold"}
+                    >
+                      인간이 구현하는 건축의 태초적이고, 인공적인 기초 단위를
+                      추종한다
+                    </Text>
+                  </Stack>
+                </GridItem>
+                <GridItem w={"full"} h={"full"} justifyContent={"flex-end"}>
+                  <Stack
+                    alignItems={"flex-start"}
+                    justifyContent={"flex-end"}
+                    h={"full"}
+                    minW={"660px"}
+                  >
+                    <Text
+                      whiteSpace={"pre-line"}
+                      fontSize={{
+                        base: "lg",
+                        lg: "2xl",
+                        "2xl": "4xl",
+                      }}
+                      fontWeight={"600"}
+                      textAlign={"start"}
+                    >
+                      <strong
+                        style={{ fontWeight: "900" }}
+                      >{`Atypical | Genuine | Classical to Contemporary\n`}</strong>
+                      {`우리는, 우리의 디자인을 규정하지 않습니다.\n`}
+                      {`전문적이고 명쾌한 방식으로 진정성에 집중하고,\n 다양한 현재를 제안하고, `}
+                      {`클래식을 존중합니다.`}
+                    </Text>
+                  </Stack>
+                </GridItem>
+              </Grid>
+              <Stack display={{ md: "flex", lg: "none" }}>
+                <Box
+                  zIndex={111}
+                  w={"full"}
+                  position={"relative"}
+                  h={"50%"}
+                  display={"flex"}
+                  flexDirection={"column"}
+                  justifyContent={"center"}
                 >
-                  <Stack h={"full"} direction={{ base: "column", lg: "row" }}>
-                    <Box w={"full"} position={"relative"}>
-                      <Box
-                        display={"flex"}
-                        alignSelf={"flex-start"}
-                        flexDirection={{ base: "column", lg: "row" }}
-                        pt={{ base: 36, lg: 0 }}
-                      >
-                        <Text
-                          textAlign={"start"}
-                          fontWeight={"bold"}
-                          fontSize={{
-                            base: "160px",
-                            lg: "180px",
-                            xl: "200px",
-                            "2xl": "240px",
-                          }}
-                          lineHeight={0.9}
-                          whiteSpace={"nowrap"}
-                        >
-                          ART
-                        </Text>
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      ease: "easeInOut",
+                      duration: 1,
+                      y: { duration: 1 },
+                    }}
+                  >
+                    <Stack h={"full"}>
+                      <Box w={"full"} position={"relative"}>
                         <Box
                           display={"flex"}
-                          alignSelf={{ base: "flex-start", lg: "flex-end" }}
-                          py={{ base: 0, lg: 4 }}
-                          ml={{ base: 0, lg: "-1.5vw" }}
+                          alignSelf={"flex-start"}
+                          flexDirection={"column"}
+                          pt={{ base: 64, lg: 0 }}
                         >
                           <Text
-                            fontSize={{
-                              base: "xs",
-                              lg: "sm",
-                              "2xl": "md",
-                            }}
+                            textAlign={"start"}
+                            fontWeight={"bold"}
+                            fontSize={"160px"}
+                            lineHeight={0.9}
+                            whiteSpace={"nowrap"}
+                          >
+                            ART
+                          </Text>
+                          <Box display={"flex"} alignSelf={"flex-start"}>
+                            <Text
+                              fontSize={"xs"}
+                              whiteSpace={"nowrap"}
+                              fontWeight={"semibold"}
+                            >
+                              규정할수 없는, 규정 되어지지 않음을 인지하고
+                              탐미한다
+                            </Text>
+                          </Box>
+                        </Box>
+                      </Box>
+                      <Box
+                        display={"flex"}
+                        alignSelf={"flex-end"}
+                        fontSize={"xl"}
+                        textAlign={"start"}
+                        maxW={"70%"}
+                        flexDirection={"column"}
+                        fontWeight={"600"}
+                      >
+                        <Text>
+                          ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
+                          인테리어/건축의 영역에서 미학과 기능 사이의 균형을
+                          찾기 위한 우리의 은유적 약속과 헌신을 상징합니다.
+                          우리의 미션은 고객의 기능적인 요구를 충족시키는 것 뿐
+                          만아니라 예술적공간의 표현을 조력하는 것입니다.
+                        </Text>
+                      </Box>
+                    </Stack>
+                  </motion.div>
+                </Box>
+                <Box zIndex={111} w={"full"} position={"relative"} h={"50%"}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      ease: "easeInOut",
+                      duration: 1,
+                      delay: 0.5,
+                      y: { duration: 1.5 },
+                    }}
+                  >
+                    <Stack>
+                      <Box
+                        w={"full"}
+                        h={"40%"}
+                        position={"relative"}
+                        display={"flex"}
+                        flexDirection={"column"}
+                        pt={24}
+                      >
+                        <Box display={"flex"} alignSelf={"flex-start"}>
+                          <Text
+                            fontWeight={"bold"}
+                            fontSize={"160px"}
+                            lineHeight={0.9}
+                            whiteSpace={"nowrap"}
+                          >
+                            BRICK
+                          </Text>
+                        </Box>
+                        <Box display={"flex"} alignSelf={"flex-start"}>
+                          <Text
+                            fontSize={"xs"}
+                            ml={"0.5vw"}
                             whiteSpace={"nowrap"}
                             fontWeight={"semibold"}
                           >
-                            규정할수 없는, 규정 되어지지 않음을 인지하고
-                            탐미한다
+                            인간이 구현하는 건축의 태초적이고, 인공적인 기초
+                            단위를 추종한다
                           </Text>
                         </Box>
                       </Box>
-                    </Box>
-                    <Box
-                      display={"flex"}
-                      alignSelf={{ base: "flex-end", lg: "center" }}
-                      fontSize={{
-                        base: "xl",
-                        lg: "2xl",
-                        "2xl": "4xl",
-                      }}
-                      textAlign={"start"}
-                      maxW={{ base: "70%", lg: "50%" }}
-                      flexDirection={"column"}
-                      fontWeight={"600"}
-                      pt={{ base: 8, md: 0, lg: 2, xl: 2, "2xl": 8 }}
-                    >
-                      <Text>
-                        ARTBRICK은 예술과 기술의 원활한 통합을 내포하며,
-                        인테리어/건축의 영역에서 미학과 기능 사이의 균형을 찾기
-                        위한 우리의 은유적 약속과 헌신을 상징합니다. 우리의
-                        미션은 고객의 기능적인 요구를 충족시키는 것 뿐 만아니라
-                        예술적공간의 표현을 조력하는 것입니다.
-                      </Text>
-                    </Box>
-                  </Stack>
-                </motion.div>
-              </Box>
-              <Box zIndex={111} w={"full"} position={"relative"} h={"50%"}>
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    ease: "easeInOut",
-                    duration: 1,
-                    delay: 0.5,
-                    y: { duration: 1.5 },
-                  }}
-                >
-                  <Stack>
-                    <Box
-                      w={"full"}
-                      h={"40%"}
-                      position={"relative"}
-                      display={"flex"}
-                      flexDirection={"column"}
-                      pt={{ base: 12, md: 16, lg: 16, xl: 8, "2xl": 4 }}
-                    >
-                      <Box display={"flex"} alignSelf={"flex-start"}>
-                        <Text
-                          fontWeight={"bold"}
-                          fontSize={{
-                            base: "160px",
-                            lg: "180px",
-                            xl: "200px",
-                            "2xl": "240px",
-                          }}
-                          lineHeight={0.9}
-                          whiteSpace={"nowrap"}
-                        >
-                          BRICK
+                      <Box
+                        display={"flex"}
+                        alignSelf={"flex-end"}
+                        fontSize={"xl"}
+                        textAlign={"start"}
+                        maxW={"70%"}
+                        flexDirection={"column"}
+                        fontWeight={"600"}
+                      >
+                        <Text>
+                          {`Atypical | Genuine | Classical to Contemporary`}
+                        </Text>
+                        <Text>
+                          {`우리는, 우리의 디자인을 규정하지 않습니다. `}
+                          {`전문적이고 명쾌한 방식으로 진정성에 집중하고, 다양한 현재를 제안하고, `}
+                          {`클래식을 존중합니다.`}
                         </Text>
                       </Box>
-                      <Box display={"flex"} alignSelf={"flex-start"}>
-                        <Text
-                          fontSize={{
-                            base: "xs",
-                            lg: "sm",
-                            "2xl": "md",
-                          }}
-                          ml={{ base: "0.5vw", lg: 2 }}
-                          whiteSpace={"nowrap"}
-                          fontWeight={"semibold"}
-                        >
-                          인간이 구현하는 건축의 태초적이고, 인공적인 기초
-                          단위를 추종한다
-                        </Text>
-                      </Box>
-                    </Box>
-                    <Box
-                      display={"flex"}
-                      alignSelf={"flex-end"}
-                      fontSize={{
-                        base: "xl",
-                        lg: "2xl",
-                        "2xl": "4xl",
-                      }}
-                      textAlign={"start"}
-                      maxW={{ base: "70%", lg: "50%" }}
-                      flexDirection={"column"}
-                      fontWeight={"600"}
-                    >
-                      <Text>
-                        {`Atypical | Genuine | Classical to Contemporary`}
-                      </Text>
-                      <Text>
-                        {`우리는, 우리의 디자인을 규정하지 않습니다. `}
-                        {`전문적이고 명쾌한 방식으로 진정성에 집중하고, 다양한 현재를 제안하고, `}
-                        {`클래식을 존중합니다.`}
-                      </Text>
-                    </Box>
-                  </Stack>
-                </motion.div>
-              </Box>
+                    </Stack>
+                  </motion.div>
+                </Box>
+              </Stack>
             </>
           )}
         </Box>

@@ -148,7 +148,7 @@ export const Footer = (props) => {
             lineHeight={1.1}
             animation={`${scrollText} 30s linear infinite`}
           >
-            ATYPICAL GENUEOUS CLASSICAL TO
+            ATYPICAL GENUINE, CLASSICAL TO
             CONTEMPORARY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {/* ATYPICAL GENUEOUS CLASSICAL TO CONTEMPORARY */}
           </Text>
@@ -166,7 +166,7 @@ export const Footer = (props) => {
             lineHeight={1.1}
             animation={`${scrollText2} 30s linear infinite`}
           >
-            ATYPICAL GENUEOUS CLASSICAL TO
+            ATYPICAL GENUINE, CLASSICAL TO
             CONTEMPORARY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {/* ATYPICAL GENUEOUS CLASSICAL TO CONTEMPORARY */}
           </Text>
@@ -232,7 +232,7 @@ export const Footer = (props) => {
             "2xl": "3xl",
           }}
         >
-          We do not prescribe our designs.
+          We don’t define our designs.
         </Text>
       </Stack>
       <Stack
@@ -287,7 +287,12 @@ export const Footer = (props) => {
               gap={2}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               _hover={{ color: "white", transform: "scale(1.1)" }}
-              fontSize={{ base: "sm", md: "md" }}
+              fontSize={{
+                base: "md",
+                lg: "lg",
+                xl: "xl",
+                "2xl": "2xl",
+              }}
               fontWeight={"bold"}
               cursor={"pointer"}
               onMouseEnter={() => props.onHoverEffect(true)}
@@ -299,7 +304,12 @@ export const Footer = (props) => {
           )}
           <Stack
             w={{ base: "100%", md: "auto" }}
-            fontSize={{ base: "sm", md: "md" }}
+            fontSize={{
+              base: "md",
+              lg: "lg",
+              xl: "xl",
+              "2xl": "2xl",
+            }}
             fontWeight={"bold"}
           >
             <HStack justifyContent={"space-between"} gap={4}>
@@ -317,7 +327,7 @@ export const Footer = (props) => {
                   BLOG
                 </Text>
               </Box>
-              <Box
+              {/* <Box
                 _hover={{ transform: "scale(1.1)", color: "white" }}
                 onClick={() =>
                   window.open("https://www.instagram.com/artbrick.official")
@@ -326,7 +336,7 @@ export const Footer = (props) => {
                 onMouseLeave={() => props.onHoverEffect(false)}
               >
                 <Text cursor={"pointer"}>INSTAGRAM</Text>
-              </Box>
+              </Box> */}
               {isMobile && (
                 <Box
                   cursor={"pointer"}

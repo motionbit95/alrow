@@ -1,5 +1,6 @@
 import {
   AspectRatio,
+  Box,
   Flex,
   Image,
   SimpleGrid,
@@ -46,13 +47,29 @@ const Project = (props) => {
         mt={8}
       >
         <Text
-          fontSize={{ base: "6xl", md: "8xl", lg: "180px" }}
+          fontSize={{ base: "6xl", md: "8xl", lg: "180px", xl: "240px" }}
           fontWeight={"bold"}
           lineHeight={1}
           whiteSpace={"nowrap"}
+          zIndex={1}
         >
           PROJECTS
         </Text>
+        <Box
+          position={"absolute"}
+          top={0}
+          right={0}
+          w={"100%"}
+          overflow={"hidden"}
+        >
+          <Box
+            bgColor={"#1f45fc"}
+            mt={{ base: "112px", md: "124px", lg: "146px", xl: "160px" }}
+            ml={{ base: "160px", md: "270px", lg: "470px", xl: "600px" }}
+            w={"100%"}
+            h={{ base: "56px", md: "80px", lg: "150px", xl: "200px" }}
+          />
+        </Box>
         <SimpleGrid
           columns={{ base: 1, md: 2 }}
           columnGap={32}

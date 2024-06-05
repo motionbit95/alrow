@@ -302,17 +302,53 @@ const Contact = (props) => {
                       />
                     </Flex>
                   </Box>
-                  <Stack fontWeight={"bold"} fontSize={"18px"}>
+                  <Stack
+                    fontWeight={"bold"}
+                    fontSize={"18px"}
+                    sx={{
+                      display: "block",
+                      "@media (max-width: 600px)": {
+                        display: "none",
+                      },
+                    }}
+                  >
                     <ScrollFillText index={2}>
                       Artbrick Co., Ltd.
                     </ScrollFillText>
+                    <Stack>
+                      <ScrollFillText index={2}>
+                        (주)아트브릭은 대한민국 전역을 커버하는 인테리어 디자인
+                        전문기업으로,
+                      </ScrollFillText>
+                      <ScrollFillText index={2}>
+                        서울과 부산 사무실을 운영하고 있습니다.
+                      </ScrollFillText>
+                    </Stack>
+                  </Stack>
+                  <Stack
+                    fontWeight={"bold"}
+                    fontSize={"14px"}
+                    sx={{
+                      display: "none",
+                      "@media (max-width: 600px)": {
+                        display: "block",
+                      },
+                    }}
+                  >
                     <ScrollFillText index={2}>
-                      (주)아트브릭은 대한민국 전역을 커버하는
-                      <br />
-                      인테리어 디자인 전문기업으로,
-                      <br />
-                      서울과 부산 사무실을 운영하고 있습니다.
+                      Artbrick Co., Ltd.
                     </ScrollFillText>
+                    <Stack pt={2}>
+                      <ScrollFillText index={2}>
+                        (주)아트브릭은 대한민국 전역을 커버하는
+                      </ScrollFillText>
+                      <ScrollFillText index={2}>
+                        인테리어 디자인 전문기업으로,
+                      </ScrollFillText>
+                      <ScrollFillText index={2}>
+                        서울과 부산 사무실을 운영하고 있습니다.
+                      </ScrollFillText>
+                    </Stack>
                   </Stack>
                 </Stack>
                 <Stack spacing={12} py={{ base: 8, lg: 16 }}>
@@ -333,21 +369,57 @@ const Contact = (props) => {
                 <Stack spacing={12} py={{ base: 8, lg: 16 }}>
                   <Stack spacing={4}>
                     <Text>02</Text>
-                    <Text>WE WORK EVERYWHERE.</Text>
+                    <Text>WE WORK EVERYWHERE</Text>
                   </Stack>
                   <Stack spacing={4} fontWeight={"semibold"}>
                     <ScrollFillText index={5} fontSize={"18px"}>
                       OFFICES
                     </ScrollFillText>
-                    <Stack fontSize={"16px"}>
-                      <ScrollFillText index={6}>
-                        ​서울사옥 | 서울특별시 강서구 양천로 551-24
-                        한화비즈메트로 2차 306호
-                      </ScrollFillText>
-                      <ScrollFillText index={6}>
-                        부산사옥 HQ | 부산광역시 수영구 광남로 213번길
-                        43(민락동)
-                      </ScrollFillText>
+                    <Stack
+                      fontSize={"16px"}
+                      sx={{
+                        display: "block",
+                        "@media (max-width: 550px)": {
+                          display: "none",
+                        },
+                      }}
+                    >
+                      <Stack>
+                        <ScrollFillText index={6}>
+                          ​서울 사무실 | 서울특별시 강서구 양천로 551-24
+                          한화비즈메트로 2차 306호
+                        </ScrollFillText>
+                        <ScrollFillText index={6}>
+                          부산 사무실 | 부산광역시 수영구 광남로 213번길
+                          43(민락동)
+                        </ScrollFillText>
+                      </Stack>
+                    </Stack>
+                    <Stack
+                      fontSize={"14px"}
+                      sx={{
+                        display: "none",
+                        "@media (max-width: 550px)": {
+                          display: "block",
+                        },
+                      }}
+                    >
+                      <Stack>
+                        <ScrollFillText index={7}>
+                          ​서울 사무실 | 서울특별시 강서구 양천로
+                        </ScrollFillText>
+                        <ScrollFillText index={7}>
+                          551-24 한화비즈메트로 2차 306호
+                        </ScrollFillText>
+                      </Stack>
+                      <Stack pt={3}>
+                        <ScrollFillText index={7}>
+                          부산 사무실 | 부산광역시 수영구 광남로
+                        </ScrollFillText>
+                        <ScrollFillText index={7}>
+                          213번길 43(민락동)
+                        </ScrollFillText>
+                      </Stack>
                     </Stack>
                   </Stack>
                 </Stack>
@@ -368,7 +440,10 @@ const Contact = (props) => {
                           spacing={{ base: 6, lg: 12 }}
                           direction={{ base: "column", lg: "row" }}
                         >
-                          <Box position={"relative"}>
+                          <Box
+                            position={"relative"}
+                            w={{ base: "100px", "2xl": "130px" }}
+                          >
                             <motion.div
                               initial={{ opacity: 0, x: 0 }}
                               whileInView={{ opacity: 1, x: 0 }}
@@ -379,7 +454,7 @@ const Contact = (props) => {
                                 y: { duration: 2 },
                               }}
                             >
-                              <Flex w="100px" gap={"5%"}>
+                              <Flex gap={"5%"}>
                                 <Image
                                   src={require("../Asset/Image/leftBlack.png")}
                                   width="45%"
@@ -393,7 +468,6 @@ const Contact = (props) => {
                               </Flex>
                             </motion.div>
                             <Flex
-                              w="100px"
                               gap={"5%"}
                               position={"absolute"}
                               top={0}
@@ -500,8 +574,15 @@ const Contact = (props) => {
                             </Stack>
                             <HStack
                               justifyContent={"space-between"}
+                              alignContent={"flex-start"}
+                              pb={12}
                               gap={4}
-                              fontSize={"sm"}
+                              fontSize={{
+                                base: "md",
+                                lg: "lg",
+                                xl: "xl",
+                                "2xl": "2xl",
+                              }}
                               fontWeight="bold"
                             >
                               <Box
@@ -514,7 +595,7 @@ const Contact = (props) => {
                               >
                                 <Text cursor={"pointer"}>BLOG</Text>
                               </Box>
-                              <Box
+                              {/* <Box
                                 _hover={{ color: "white" }}
                                 onClick={() =>
                                   window.open(
@@ -523,7 +604,7 @@ const Contact = (props) => {
                                 }
                               >
                                 <Text cursor={"pointer"}>INSTAGRAM</Text>
-                              </Box>
+                              </Box> */}
                             </HStack>
                           </HStack>
                         </Stack>
@@ -576,6 +657,7 @@ const Contact = (props) => {
                               xl: "xl",
                               "2xl": "2xl",
                             }}
+                            fontWeight={"bold"}
                             spacing={4}
                             pb={12}
                           >

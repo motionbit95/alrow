@@ -50,7 +50,7 @@ const ScrollFillText = ({ children, index, ...props }) => {
     <Box
       position="relative"
       overflow="hidden"
-      whiteSpace="nowrap"
+      whiteSpace={"nowrap"}
       id={`scrollText${index}`}
     >
       <Text
