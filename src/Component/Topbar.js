@@ -69,7 +69,12 @@ export const Topbar = ({ ...props }) => {
 
   return (
     <Stack zIndex={999} position={"fixed"} w={"100%"} top={0}>
-      <Flex w={"100%"} justify={"space-between"} p={{ base: 8, md: 16 }}>
+      <Flex
+        w={"100%"}
+        justify={"space-between"}
+        p={{ base: 8, md: 16 }}
+        align={"center"}
+      >
         <Box
           id="logoArea"
           zIndex={111}
@@ -92,14 +97,14 @@ export const Topbar = ({ ...props }) => {
                 ? require("../Asset/Image/logoWhite.png")
                 : require("../Asset/Image/logo.png")
             }
-            w={"32px"}
-            h={"32px"}
+            w={"40px"}
+            h={"40px"}
             pointerEvents={"none"}
           />
         </Box>
         <Square
           cursor={"pointer"}
-          size={"1.5rem"}
+          size={{ base: "1.5rem", md: "2.5rem" }}
           onClick={() => {
             setOpen(!open);
             // setWhitecolor(!whitecolor);
@@ -118,7 +123,13 @@ export const Topbar = ({ ...props }) => {
             style={{ opacity: open ? 0 : 1, transition: "opacity 0.01s ease" }}
           />
           <Bar
-            w={open ? "1.25rem" : "1rem"}
+            w={open ? "2.5rem" : "2rem"}
+            sx={{
+              "@media (max-width: 768px)": {
+                width: open ? "1.25rem" : "1rem",
+              },
+            }}
+            h={{ base: "0.1rem", md: "0.275rem" }}
             open={open}
             transform={open ? "rotate(45deg)" : "rotate(0)"}
           />
@@ -453,12 +464,16 @@ const Bar = chakra("span", {
   baseStyle: {
     display: "block",
     position: "absolute",
-    w: "1.25rem",
-    h: "0.125rem",
+    w: "2.5rem",
+    h: "0.275rem",
     rounded: "full",
     bg: "currentcolor",
     mx: "auto",
     insetStart: "0.125rem",
     transition: "all 0.12s",
+    "@media (max-width: 768px)": {
+      w: "1.25rem", // 모바일에서 너비 변경
+      h: "0.125rem", // 모바일에서 높이 변경
+    },
   },
 });

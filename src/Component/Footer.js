@@ -112,12 +112,12 @@ export const Footer = (props) => {
               spacing={0}
             >
               <Text>
-                Seoul Office Building | Room 306, Hanwha Biz Metro 2, 551-24
+                ​Seoul Office | Room 306, Hanwha Biz Metro 2, 551-24
                 Yangcheon-ro, Gangseo-gu, Seoul
               </Text>
               <Text>
-                Busan office HQ | 43, Gwangnam-ro 213beon-gil, Suyeong-gu, Busan
-                (Minrak-dong)
+                Busan Office | 43( Minrak dong), Gwangnam ro 213beon gil,
+                Suyeong gu , Busan
               </Text>
             </Stack>
           </Stack>
@@ -148,7 +148,7 @@ export const Footer = (props) => {
             lineHeight={1.1}
             animation={`${scrollText} 30s linear infinite`}
           >
-            ATYPICAL GENUINE, CLASSICAL TO
+            ATYPICAL, GENUINE, CLASSICAL TO
             CONTEMPORARY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {/* ATYPICAL GENUEOUS CLASSICAL TO CONTEMPORARY */}
           </Text>
@@ -166,7 +166,7 @@ export const Footer = (props) => {
             lineHeight={1.1}
             animation={`${scrollText2} 30s linear infinite`}
           >
-            ATYPICAL GENUINE, CLASSICAL TO
+            ATYPICAL, GENUINE, CLASSICAL TO
             CONTEMPORARY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {/* ATYPICAL GENUEOUS CLASSICAL TO CONTEMPORARY */}
           </Text>
@@ -248,7 +248,7 @@ export const Footer = (props) => {
           justifyContent={"space-between"}
           w={"100%"}
         >
-          <Stack>
+          <Stack w={{ base: "100%", md: "291px" }} align={"start"}>
             <Box
               w={"100%"}
               cursor={"pointer"}
@@ -303,7 +303,8 @@ export const Footer = (props) => {
             </Box>
           )}
           <Stack
-            w={{ base: "100%", md: "auto" }}
+            w={{ base: "100%", md: "291px" }}
+            align={{ base: "auto", md: "end" }}
             fontSize={{
               base: "md",
               lg: "lg",
@@ -339,6 +340,7 @@ export const Footer = (props) => {
               </Box> */}
               {isMobile && (
                 <Box
+                  _hover={{ transform: "scale(1.1)", color: "white" }}
                   cursor={"pointer"}
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -356,10 +358,9 @@ export const Footer = (props) => {
 };
 
 const ArrowUpRightIcon = (props) => (
-  <svg
+  <Box
+    as="svg"
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
     viewBox="0 0 24 24"
     fill="none"
     stroke={props.hovered ? "white" : "currentColor"}
@@ -373,10 +374,14 @@ const ArrowUpRightIcon = (props) => (
       e.target.setAttribute("stroke", "currentColor");
     }}
     {...props}
+    sx={{
+      width: { base: "16px", md: "24px", lg: "32px" },
+      height: { base: "16px", md: "24px", lg: "32px" },
+    }}
   >
     <path d="M17 7l-10 10" />
     <path d="M8 7l9 0 0 9" />
-  </svg>
+  </Box>
 );
 
 export default ArrowUpRightIcon;

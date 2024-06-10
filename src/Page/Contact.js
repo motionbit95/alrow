@@ -116,8 +116,8 @@ const Contact = (props) => {
           <Box
             // display={open ? "block" : "none"}
             w={"100%"}
-            py={{ base: 28, lg: 44 }}
-            px={{ base: 5, lg: 20 }}
+            py={{ base: 28, md: 44 }}
+            px={{ base: 7, md: "60px" }}
             bgColor={"#1f45fc"}
           >
             <Stack spacing={6}>
@@ -648,7 +648,7 @@ const Contact = (props) => {
                               xl: "lg",
                             }}
                           >
-                            WE WORK EVERYWHERE.
+                            WE WORK EVERYWHERE
                           </Text>
                           <Stack
                             fontSize={{
@@ -657,7 +657,7 @@ const Contact = (props) => {
                               xl: "xl",
                               "2xl": "2xl",
                             }}
-                            fontWeight={"bold"}
+                            fontWeight={"semibold"}
                             spacing={4}
                             pb={12}
                           >
@@ -666,11 +666,11 @@ const Contact = (props) => {
                             </ScrollFillText>
                             <Stack>
                               <ScrollFillText index={4}>
-                                ​서울사옥 | 서울특별시 강서구 양천로 551-24
+                                ​서울 사무실 | 서울특별시 강서구 양천로 551-24
                                 한화비즈메트로 2차 306호
                               </ScrollFillText>
                               <ScrollFillText index={4}>
-                                부산사옥 HQ | 부산광역시 수영구 광남로 213번길
+                                부산 사무실 | 부산광역시 수영구 광남로 213번길
                                 43(민락동)
                               </ScrollFillText>
                             </Stack>

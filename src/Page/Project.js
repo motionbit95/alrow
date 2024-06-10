@@ -52,6 +52,12 @@ const Project = (props) => {
           lineHeight={1}
           whiteSpace={"nowrap"}
           zIndex={1}
+          ml={-1}
+          sx={{
+            "@media (max-width: 371px)": {
+              fontSize: "40px",
+            },
+          }}
         >
           PROJECTS
         </Text>
@@ -68,6 +74,12 @@ const Project = (props) => {
             ml={{ base: "160px", md: "270px", lg: "470px", xl: "600px" }}
             w={"100%"}
             h={{ base: "56px", md: "80px", lg: "150px", xl: "200px" }}
+            sx={{
+              "@media (max-width: 371px)": {
+                height: "30px",
+                ml: "120px",
+              },
+            }}
           />
         </Box>
         <SimpleGrid
