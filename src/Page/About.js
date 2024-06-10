@@ -42,7 +42,7 @@ const About = (props) => {
         <Box h={"100vh"} w={"100%"} position={"relative"}>
           <Box
             h={"100vh"}
-            px={{ base: 8, md: 16 }}
+            px={{ base: 8, md: 16, xl: 32 }}
             py={{ base: 8, md: 16, lg: 32 }}
             align={"center"}
             pt={{ base: 0, xl: 48 }}
@@ -83,7 +83,7 @@ const About = (props) => {
                           lineHeight={1}
                           sx={{
                             "@media (max-width: 371px)": {
-                              fontSize: "70px", // 원하는 크기로 변경
+                              fontSize: "64px", // 원하는 크기로 변경
                             },
                           }}
                         >
@@ -150,11 +150,11 @@ const About = (props) => {
                   <Stack
                     w={"full"}
                     position={"relative"}
-                    top={"25%"}
+                    top={"30%"}
                     spacing={0}
                     sx={{
                       "@media (max-width: 371px)": {
-                        top: "30%",
+                        top: "36%",
                       },
                     }}
                   >
@@ -177,7 +177,7 @@ const About = (props) => {
                           lineHeight={1}
                           sx={{
                             "@media (max-width: 371px)": {
-                              fontSize: "70px",
+                              fontSize: "64px",
                             },
                           }}
                         >
@@ -226,7 +226,7 @@ const About = (props) => {
                           <strong
                             style={{
                               fontWeight: "900",
-                              fontFamily: "pretendard",
+                              fontFamily: "Pretendard",
                             }}
                           >
                             Atypical | Genuine | Classical to Contemporary
@@ -249,146 +249,236 @@ const About = (props) => {
                   display={{ base: "none", lg: "grid" }}
                   zIndex={111}
                   h={"full"}
-                  gap={{ base: 4, md: 16 }}
+                  gap={{ base: 4, md: 16, xl: 16 }}
                   templateColumns={"1fr 1fr"}
                   templateRows={"1fr 1fr"}
                 >
                   <GridItem w={"full"} h={"full"}>
-                    <Stack
-                      alignItems={"flex-start"}
-                      justifyContent={"flex-end"}
-                      pb={{ base: 2, lg: 5, xl: 16, "2xl": "28" }}
-                      h={"full"}
-                      flexDirection={"column"}
+                    <motion.div
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        ease: "easeInOut",
+                        duration: 1,
+                        y: { duration: 1 },
+                      }}
+                      style={{
+                        height: "100%",
+                      }}
                     >
-                      <Text
-                        textAlign={"start"}
-                        fontWeight={"bold"}
-                        fontSize={{
-                          base: "160px",
-                          lg: "180px",
-                          xl: "200px",
-                          "2xl": "240px",
-                        }}
-                        lineHeight={0.9}
-                        whiteSpace={"nowrap"}
+                      <Stack
+                        alignItems={"flex-start"}
+                        justifyContent={"center"}
+                        // pt={{ base: 2, lg: "72px", xl: "28px", "2xl": "24" }}
+                        h={"full"}
+                        flexDirection={"column"}
+                        spacing={3}
                       >
-                        ART
-                      </Text>
-                      <Text
-                        mb={{ base: 0, lg: 3 }}
-                        fontSize={{
-                          base: "sm",
-                          lg: "md",
-                          xl: "lg",
-                          "2xl": "xl",
-                        }}
-                        whiteSpace={"nowrap"}
-                        fontWeight={"900"}
-                      >
-                        규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다
-                      </Text>
-                    </Stack>
+                        <Text
+                          textAlign={"start"}
+                          fontWeight={"bold"}
+                          fontSize={{
+                            base: "160px",
+                            lg: "160px",
+                            xl: "200px",
+                            "2xl": "270px",
+                          }}
+                          lineHeight={0.9}
+                          whiteSpace={"nowrap"}
+                        >
+                          ART
+                        </Text>
+                        <Text
+                          mb={{ base: 0, lg: 3 }}
+                          fontSize={{
+                            base: "sm",
+                            lg: "xl",
+                            xl: "2xl",
+                            "2xl": "4xl",
+                          }}
+                          whiteSpace={"nowrap"}
+                          fontWeight={"900"}
+                        >
+                          규정할수 없는, 규정 되어지지 않음을 인지하고 탐미한다
+                        </Text>
+                      </Stack>
+                    </motion.div>
                   </GridItem>
                   <GridItem w={"full"} h={"full"}>
-                    <Stack
-                      alignItems={"flex-start"}
-                      h={"full"}
-                      mt={{ md: "0", lg: "94px", xl: "70px", "2xl": "160px" }}
+                    <motion.div
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        ease: "easeInOut",
+                        duration: 1,
+                        y: { duration: 1 },
+                      }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        display: "flex",
+                        justifyContent: "flex-end",
+                      }}
                     >
-                      <Text
+                      <Stack
+                        w={{
+                          base: "0",
+                          lg: "510px",
+                          xl: "685px",
+                          "2xl": "1100px",
+                        }}
+                        h={"full"}
+                        alignItems={"flex-end"}
+                        justifyContent={"center"}
+                        pt={{ lg: 8, xl: 0, "2xl": "16px" }}
+                        mt={{ base: 0, lg: 1, xl: -4, "2xl": 0 }}
                         fontSize={{
                           base: "lg",
-                          lg: "21px",
-                          xl: "28px",
-                          "2xl": "4xl",
+                          lg: "22px",
+                          xl: "3xl",
+                          "2xl": "5xl",
                         }}
                         textAlign={"start"}
-                        fontWeight={"600"}
+                        fontWeight={"500"}
                       >
-                        ARTBRICK은 예술과 기술의 원활한{" "}
-                        <strong style={{ fontWeight: "900" }}>
-                          해체와 통합의 재구성
-                        </strong>
-                        을 내포하며, 인테리어/건축의 영역에서 미학과 기능 사이의
-                        균형을 찾기 위한 우리의 은유적 약속과 헌신을 상징합니다.
-                        우리의 미션은 고객의 기능적인 요구를 충족시키는 것 뿐만
-                        아니라 예술적 공간의 표현을 조력하는 것입니다.
-                      </Text>
-                    </Stack>
+                        <Text>
+                          ARTBRICK은 예술과 기술의 원활한{" "}
+                          <strong style={{ fontWeight: "900" }}>
+                            해체와 통합의 재구성
+                          </strong>
+                          을 내포하며, 인테리어/ 건축의 영역에서 미학과 기능
+                          사이의 균형을 찾기 위한 우리의 은유적 약속과 헌신을
+                          상징합니다. 우리의 미션은 고객의 기능적인 요구를
+                          충족시키는 것 뿐만 아니라 예술적 공간의 표현을
+                          조력하는 것입니다.
+                        </Text>
+                      </Stack>
+                    </motion.div>
                   </GridItem>
                   <GridItem w={"full"} h={"full"}>
-                    <Stack
-                      alignItems={"flex-start"}
-                      justifyContent={"flex-start"}
-                      h={"full"}
+                    <motion.div
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        ease: "easeInOut",
+                        duration: 1,
+                        delay: 0.5,
+                        y: { duration: 1.5 },
+                      }}
+                      style={{
+                        height: "100%",
+                      }}
                     >
-                      <Text
-                        fontWeight={"bold"}
-                        fontSize={{
-                          base: "160px",
-                          lg: "180px",
-                          xl: "200px",
-                          "2xl": "240px",
-                        }}
-                        lineHeight={0.9}
-                        whiteSpace={"nowrap"}
-                        pt={{ base: 10, "2xl": 20 }}
-                        ml={"-2"}
+                      <Stack
+                        alignItems={"flex-start"}
+                        justifyContent={"center"}
+                        h={"full"}
+                        spacing={3}
                       >
-                        BRICK
-                      </Text>
-                      <Text
-                        fontSize={{
-                          base: "sm",
-                          lg: "md",
-                          xl: "lg",
-                          "2xl": "xl",
-                        }}
-                        // ml={{ base: "0.5vw", lg: 2 }}
-                        whiteSpace={"nowrap"}
-                        fontWeight={"900"}
-                      >
-                        인간이 구현하는 건축의 태초적이고, 인공적인 기초 단위를
-                        추종한다
-                      </Text>
-                    </Stack>
+                        <Text
+                          fontWeight={"bold"}
+                          fontSize={{
+                            base: "160px",
+                            lg: "160px",
+                            xl: "200px",
+                            "2xl": "270px",
+                          }}
+                          lineHeight={0.9}
+                          whiteSpace={"nowrap"}
+                          // pt={{ base: 0, lg: "92px", xl: 16, "2xl": "20" }}
+                          ml={"-2"}
+                        >
+                          BRICK
+                        </Text>
+                        <Text
+                          fontSize={{
+                            base: "sm",
+                            lg: "xl",
+                            xl: "2xl",
+                            "2xl": "4xl",
+                          }}
+                          pb={{ base: 0, lg: 20, xl: 20, "2xl": 20 }}
+                          // ml={{ base: "0.5vw", lg: 2 }}
+                          whiteSpace={"nowrap"}
+                          fontWeight={"900"}
+                        >
+                          인간이 구현하는 건축의 태초적이고, 인공적인 기초
+                          단위를 추종한다
+                        </Text>
+                      </Stack>
+                    </motion.div>
                   </GridItem>
                   <GridItem w={"full"} h={"full"} justifyContent={"flex-end"}>
-                    <Stack
-                      alignItems={"flex-start"}
-                      justifyContent={"flex-end"}
-                      h={"full"}
+                    <motion.div
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        ease: "easeInOut",
+                        duration: 1,
+                        delay: 0.5,
+                        y: { duration: 1.5 },
+                      }}
+                      style={{
+                        height: "100%",
+                        display: "flex",
+                        justifyContent: "flex-end",
+                      }}
                     >
-                      <Text
-                        whiteSpace={"pre-line"}
-                        fontSize={{
-                          base: "lg",
-                          lg: "21px",
-                          "2xl": "4xl",
+                      <Stack
+                        alignItems={"flex-start"}
+                        justifyContent={"flex-end"}
+                        w={{
+                          base: "0",
+                          lg: "510px",
+                          xl: "685px",
+                          "2xl": "1100px",
                         }}
-                        fontWeight={"600"}
-                        textAlign={"start"}
+                        h={"full"}
                       >
-                        <strong
-                          style={{
-                            fontWeight: "900",
-                            fontFamily: "pretendard",
+                        <Text
+                          whiteSpace={"pre-line"}
+                          fontSize={{
+                            base: "lg",
+                            lg: "22px",
+                            xl: "3xl",
+                            "2xl": "5xl",
                           }}
-                        >{`Atypical | Genuine | Classical to Contemporary\n`}</strong>
-                        {`우리는, 우리의 디자인을 규정하지 않습니다.\n`}
-                        {`전문적이고 명쾌한 방식으로 진정성에 집중하고,\n 다양한 현재를 제안하고, `}
-                        {`클래식을 존중합니다.`}
-                      </Text>
-                    </Stack>
+                          fontWeight={"500"}
+                          textAlign={"start"}
+                        >
+                          <Text
+                            style={{
+                              fontWeight: "900",
+                              fontFamily: "Pretendard",
+                            }}
+                            fontSize={{
+                              base: "lg",
+                              lg: "22px",
+                              xl: "3xl",
+                              "2xl": "50px",
+                            }}
+                          >{`Atypical | Genuine | Classical to Contemporary\n`}</Text>
+                          {`우리는, 우리의 디자인을 규정하지 않습니다.\n`}
+                          {`전문적이고 명쾌한 방식으로 진정성에 집중하고,\n 다양한 현재를 제안하고, `}
+                          {`클래식을 존중합니다.`}
+                        </Text>
+                      </Stack>
+                    </motion.div>
                   </GridItem>
                 </Grid>
-                <Stack display={{ md: "flex", lg: "none" }}>
+                <Stack
+                  display={{ md: "flex", lg: "none" }}
+                  spacing={"10vh"}
+                  pt={32}
+                >
                   <Box
                     zIndex={111}
                     w={"full"}
                     position={"relative"}
-                    h={"50%"}
                     display={"flex"}
                     flexDirection={"column"}
                     justifyContent={"center"}
@@ -409,12 +499,11 @@ const About = (props) => {
                             display={"flex"}
                             alignSelf={"flex-start"}
                             flexDirection={"column"}
-                            pt={{ base: 64, lg: 0 }}
                           >
                             <Text
                               textAlign={"start"}
                               fontWeight={"bold"}
-                              fontSize={"160px"}
+                              fontSize={"140px"}
                               lineHeight={0.9}
                               whiteSpace={"nowrap"}
                             >
@@ -439,7 +528,8 @@ const About = (props) => {
                         <Box
                           display={"flex"}
                           alignSelf={"flex-end"}
-                          maxW={"70%"}
+                          maxW={"500px"}
+                          minH={"108px"}
                           flexDirection={"column"}
                         >
                           <Text
@@ -476,16 +566,14 @@ const About = (props) => {
                       <Stack>
                         <Box
                           w={"full"}
-                          h={"40%"}
                           position={"relative"}
                           display={"flex"}
                           flexDirection={"column"}
-                          pt={24}
                         >
                           <Box display={"flex"} alignSelf={"flex-start"}>
                             <Text
                               fontWeight={"bold"}
-                              fontSize={"160px"}
+                              fontSize={"140px"}
                               lineHeight={0.9}
                               whiteSpace={"nowrap"}
                               ml={-2}
@@ -509,7 +597,7 @@ const About = (props) => {
                           alignSelf={"flex-end"}
                           fontSize={"xl"}
                           textAlign={"start"}
-                          maxW={"70%"}
+                          minW={"500px"}
                           flexDirection={"column"}
                           fontWeight={"600"}
                         >
@@ -522,7 +610,7 @@ const About = (props) => {
                             <strong
                               style={{
                                 fontWeight: "900",
-                                fontFamily: "pretendard",
+                                fontFamily: "Pretendard",
                               }}
                             >{`Atypical | Genuine | Classical to Contemporary\n`}</strong>
                             {`우리는, 우리의 디자인을 규정하지 않습니다.\n`}
@@ -556,12 +644,20 @@ const About = (props) => {
             }}
           >
             <Box
-              w={"full"}
-              h={"36%"}
               position={"absolute"}
-              top={"32%"}
-              bgColor={"#1f45fc"}
-            />
+              top={0}
+              left={0}
+              w={"100%"}
+              h={"100%"}
+              display={"flex"}
+              alignItems={"center"}
+            >
+              <Box
+                bgColor={"#1f45fc"}
+                w={"100%"}
+                h={{ base: "40%", md: "34%", lg: "40%" }}
+              />
+            </Box>
           </motion.div>
         </Box>
         <Box w={"100%"}>

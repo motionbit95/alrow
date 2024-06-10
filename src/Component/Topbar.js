@@ -15,6 +15,9 @@ import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import ArlowLogo1 from "../Asset/Logo/ArlowLogo1.svg";
 
+import ArlowLogoBlack from "../Asset/Logo/ArlowLogoblack.svg";
+import ArlowLogoWhite from "../Asset/Logo/ArlowLogowhite.svg";
+
 export const Topbar = ({ ...props }) => {
   const [open, setOpen] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
@@ -72,7 +75,8 @@ export const Topbar = ({ ...props }) => {
       <Flex
         w={"100%"}
         justify={"space-between"}
-        p={{ base: 8, md: 16 }}
+        py={{ base: 8, md: 16 }}
+        px={{ base: 8, md: 16, xl: 32 }}
         align={"center"}
       >
         <Box
@@ -94,17 +98,18 @@ export const Topbar = ({ ...props }) => {
             id="logo"
             src={
               hoverIndex === 0 || (!open && !props.whitecolor)
-                ? require("../Asset/Image/logoWhite.png")
-                : require("../Asset/Image/logo.png")
+                ? ArlowLogoWhite
+                : ArlowLogoBlack
             }
-            w={"40px"}
-            h={"40px"}
+            w={{ base: "24px", md: "32px", lg: "40px", xl: "48px" }}
+            h={{ base: "24px", md: "32px", lg: "40px", xl: "48px" }}
             pointerEvents={"none"}
           />
         </Box>
         <Square
           cursor={"pointer"}
-          size={{ base: "1.5rem", md: "2.5rem" }}
+          w={{ base: "24px", md: "32px", lg: "40px", xl: "48px" }}
+          h={{ base: "24px", md: "28px", lg: "34px", xl: "40px" }}
           onClick={() => {
             setOpen(!open);
             // setWhitecolor(!whitecolor);
@@ -120,24 +125,38 @@ export const Topbar = ({ ...props }) => {
         >
           <Bar
             top={1}
+            w={{ base: "18px", md: "24px", lg: "30px", xl: "36px" }}
+            h={{ base: "2px", md: "3px", lg: "4px", xl: "5px" }}
             style={{ opacity: open ? 0 : 1, transition: "opacity 0.01s ease" }}
           />
           <Bar
-            w={open ? "2.5rem" : "2rem"}
-            sx={{
-              "@media (max-width: 768px)": {
-                width: open ? "1.25rem" : "1rem",
-              },
-            }}
-            h={{ base: "0.1rem", md: "0.275rem" }}
+            w={
+              open
+                ? { base: "18px", md: "24px", lg: "30px", xl: "36px" }
+                : { base: "14px", md: "18px", lg: "22px", xl: "26px" }
+            }
+            // sx={{
+            //   "@media (max-width: 768px)": {
+            //     width: open ? "1.25rem" : "1rem",
+            //   },
+            // }}
+            h={{ base: "2px", md: "3px", lg: "4px", xl: "5px" }}
             open={open}
             transform={open ? "rotate(45deg)" : "rotate(0)"}
           />
           <Bar
             bottom={1}
+            w={{ base: "18px", md: "24px", lg: "30px", xl: "36px" }}
+            h={{ base: "2px", md: "3px", lg: "4px", xl: "5px" }}
             style={{ opacity: open ? 0 : 1, transition: "opacity 0.01s ease" }}
           />
-          {open && <Bar transform={"rotate(-45deg)"} />}
+          {open && (
+            <Bar
+              w={{ base: "18px", md: "24px", lg: "30px", xl: "36px" }}
+              h={{ base: "2px", md: "3px", lg: "4px", xl: "5px" }}
+              transform={"rotate(-45deg)"}
+            />
+          )}
         </Square>
       </Flex>
       {isMobile ? (
@@ -464,16 +483,10 @@ const Bar = chakra("span", {
   baseStyle: {
     display: "block",
     position: "absolute",
-    w: "2.5rem",
-    h: "0.275rem",
     rounded: "full",
     bg: "currentcolor",
     mx: "auto",
     insetStart: "0.125rem",
     transition: "all 0.12s",
-    "@media (max-width: 768px)": {
-      w: "1.25rem", // 모바일에서 너비 변경
-      h: "0.125rem", // 모바일에서 높이 변경
-    },
   },
 });
