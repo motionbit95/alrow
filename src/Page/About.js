@@ -39,9 +39,13 @@ const About = (props) => {
     <>
       <Flex direction={"column"} flex={1} bgColor={"gray.100"}>
         {/* <Topbar whitecolor={true} onHoverEffect={props.onHoverEffect} /> */}
-        <Box h={"100vh"} w={"100%"} position={"relative"}>
+        <Box
+          height={{ base: "1080px", "2xl": "1440px" }}
+          w={"100%"}
+          position={"relative"}
+        >
           <Box
-            h={"100vh"}
+            height={{ base: "1080px", "2xl": "1440px" }}
             px={{ base: 8, md: 16, xl: 32 }}
             py={{ base: 8, md: 16, lg: 32 }}
             align={"center"}
@@ -388,7 +392,7 @@ const About = (props) => {
                           }}
                           lineHeight={0.9}
                           whiteSpace={"nowrap"}
-                          // pt={{ base: 0, lg: "92px", xl: 16, "2xl": "20" }}
+                          pt={{ base: 0, lg: "92px", xl: 16, "2xl": "20" }}
                           ml={"-2"}
                         >
                           BRICK
@@ -438,6 +442,7 @@ const About = (props) => {
                           "2xl": "1100px",
                         }}
                         h={"full"}
+                        pb={{ base: 0, lg: 12, xl: 0, "2xl": 0 }}
                       >
                         <Text
                           whiteSpace={"pre-line"}
@@ -461,6 +466,7 @@ const About = (props) => {
                               xl: "3xl",
                               "2xl": "50px",
                             }}
+                            whiteSpace={"nowrap"}
                           >{`Atypical | Genuine | Classical to Contemporary\n`}</Text>
                           {`우리는, 우리의 디자인을 규정하지 않습니다.\n`}
                           {`전문적이고 명쾌한 방식으로 진정성에 집중하고,\n 다양한 현재를 제안하고, `}
