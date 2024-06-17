@@ -454,6 +454,7 @@ const About = (props) => {
                           }}
                           fontWeight={"500"}
                           textAlign={"start"}
+                          fontFamily={"Pretendard"}
                         >
                           <Text
                             style={{
