@@ -390,8 +390,8 @@ const Contact = (props) => {
                           한화비즈메트로 2차 306호
                         </ScrollFillText>
                         <ScrollFillText index={6}>
-                          부산 사무실 | 부산광역시 수영구 광남로 213번길
-                          43(민락동)
+                          부산 사무실 | 부산광역시 동래구 온천천로253번길 14,
+                          3층
                         </ScrollFillText>
                       </Stack>
                     </Stack>
@@ -414,10 +414,10 @@ const Contact = (props) => {
                       </Stack>
                       <Stack pt={3}>
                         <ScrollFillText index={7}>
-                          부산 사무실 | 부산광역시 수영구 광남로
+                          부산 사무실 | 부산광역시 동래구 온천천로
                         </ScrollFillText>
                         <ScrollFillText index={7}>
-                          213번길 43(민락동)
+                          253번길 14, 3층
                         </ScrollFillText>
                       </Stack>
                     </Stack>
@@ -670,8 +670,8 @@ const Contact = (props) => {
                                 한화비즈메트로 2차 306호
                               </ScrollFillText>
                               <ScrollFillText index={4}>
-                                부산 사무실 | 부산광역시 수영구 광남로 213번길
-                                43(민락동)
+                                부산 사무실 | 부산광역시 동래구 온천천로253번길
+                                14, 3층
                               </ScrollFillText>
                             </Stack>
                           </Stack>

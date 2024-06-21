@@ -103,7 +103,7 @@ const Project = (props) => {
                 key={item.id}
                 spacing={3}
                 cursor={"pointer"}
-                onClick={() => window.location.replace(`/item/${item.id}`)}
+                onClick={() => (window.location.href = `/item/${item.id}`)}
                 justify={"space-between"}
               >
                 <AspectRatio ratio={16 / 10} style={{ overflow: "hidden" }}>

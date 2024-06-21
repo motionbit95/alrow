@@ -82,7 +82,7 @@ export const Topbar = ({ ...props }) => {
         <Box
           id="logoArea"
           zIndex={111}
-          onClick={() => window.location.replace("/")}
+          onClick={() => (window.location.href = "/")}
           _hover={{ transform: "scale(1.1)" }}
           onMouseEnter={() => {
             setHoverIndex(0);
@@ -187,21 +187,21 @@ export const Topbar = ({ ...props }) => {
             <Text
               _hover={{ color: "white", transform: "scale(1.1)" }}
               cursor={"pointer"}
-              onClick={() => window.location.replace("/project")}
+              onClick={() => (window.location.href = "/project")}
             >
               PROJECT
             </Text>
             <Text
               _hover={{ color: "white", transform: "scale(1.1)" }}
               cursor={"pointer"}
-              onClick={() => window.location.replace("/about")}
+              onClick={() => (window.location.href = "/about")}
             >
               ABOUT
             </Text>
             <Text
               _hover={{ color: "white", transform: "scale(1.1)" }}
               cursor={"pointer"}
-              onClick={() => window.location.replace("/contact")}
+              onClick={() => (window.location.href = "/contact")}
             >
               CONTACT
             </Text>
@@ -260,7 +260,7 @@ export const Topbar = ({ ...props }) => {
                 <Text
                   textAlign={"center"}
                   cursor={"pointer"}
-                  onClick={() => window.location.replace("/project")}
+                  onClick={() => window.location.href =("/project")}
                 >
                   PROJECT
                 </Text>
@@ -275,7 +275,7 @@ export const Topbar = ({ ...props }) => {
                 )}
               </Box> */}
               <Box
-                onClick={() => window.location.replace("/project")}
+                onClick={() => (window.location.href = "/project")}
                 display="inline-block"
                 position="relative"
                 overflow={"hidden"}
@@ -316,7 +316,7 @@ export const Topbar = ({ ...props }) => {
                 </Text>
               </Box>
               <Box
-                onClick={() => window.location.replace("/about")}
+                onClick={() => (window.location.href = "/about")}
                 display="inline-block"
                 position="relative"
                 overflow={"hidden"}
@@ -357,7 +357,7 @@ export const Topbar = ({ ...props }) => {
                 </Text>
               </Box>
               <Box
-                onClick={() => window.location.replace("/contact")}
+                onClick={() => (window.location.href = "/contact")}
                 display="inline-block"
                 position="relative"
                 overflow={"hidden"}
@@ -453,8 +453,8 @@ export const Topbar = ({ ...props }) => {
                       Yangcheon-ro, Gangseo-gu, Seoul
                     </Text>
                     <Text>
-                      Busan Office | 43 (Minrak dong), Gwangnam ro 213beon gil,
-                      Suyeong gu , Busan
+                      BUSAN OFFICE 3rd Floor, 14, Oncheoncheon-ro 253beon-gil,
+                      Dongnae-gu, Busan, Republic of Korea
                     </Text>
                   </Stack>
                 </Stack>

@@ -116,8 +116,8 @@ export const Footer = (props) => {
                 Yangcheon-ro, Gangseo-gu, Seoul
               </Text>
               <Text>
-                Busan Office | 43( Minrak dong), Gwangnam ro 213beon gil,
-                Suyeong gu , Busan
+                BUSAN OFFICE 3rd Floor, 14, Oncheoncheon-ro 253beon-gil,
+                Dongnae-gu, Busan, Republic of Korea
               </Text>
             </Stack>
           </Stack>
@@ -254,7 +254,7 @@ export const Footer = (props) => {
               cursor={"pointer"}
               position="relative"
               overflow={"hidden"}
-              onClick={() => window.location.replace("/")}
+              onClick={() => (window.location.href = "/")}
               onMouseEnter={() => setHovered1(true)}
               onMouseLeave={() => setHovered1(false)}
               _after={{
