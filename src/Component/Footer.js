@@ -116,7 +116,7 @@ export const Footer = (props) => {
                 Yangcheon-ro, Gangseo-gu, Seoul
               </Text>
               <Text>
-                BUSAN OFFICE 3rd Floor, 14, Oncheoncheon-ro 253beon-gil,
+                Busan Office | 3rd Floor, 14, Oncheoncheon-ro 253beon-gil,
                 Dongnae-gu, Busan, Republic of Korea
               </Text>
             </Stack>
